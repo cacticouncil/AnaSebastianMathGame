@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         // daddy.transform.Rotate(0,0, -Input.gyro.rotationRateUnbiased.z);
         float angleZ = -Input.acceleration.x;
-        if (phone && (angleZ > 0.2 || angleZ < -0.2))
+        if (phone && (angleZ > 0.1 || angleZ < -0.1))
         {
              Vector3 rot = new Vector3(0, 0,  angleZ);
             transform.RotateAround(Vector3.zero, rot, Time.deltaTime * 100*Mathf.Abs(angleZ));

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/3dmain.unity
+- path: Assets/Scenes/3d camera behind kid.unity
   isLoaded: 1
   isActive: 1

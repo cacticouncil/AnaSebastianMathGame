@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetController : MonoBehaviour {
-	
+    public float PlanetGravity;
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(0, 0, Time.deltaTime*5);
+        
 	}
+
+    public void AttractMeDaddy(Transform _player)
+    {
+        Vector3 deltaPos = (_player.position - transform.position).normalized;
+        _player.GetComponent<Rigidbody>().AddForce(deltaPos * PlanetGravity);
+
+    }
 }

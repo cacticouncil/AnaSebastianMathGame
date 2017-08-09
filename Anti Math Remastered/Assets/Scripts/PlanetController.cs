@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetController : MonoBehaviour {
-    public float PlanetGravity;
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
-    public void AttractMeDaddy(Transform _player)
+  
+
+    private void Start()
     {
-        Vector3 deltaPos = (_player.position - transform.position).normalized;
-        _player.GetComponent<Rigidbody>().AddForce(deltaPos * PlanetGravity);
 
+
+        transform.localScale += new Vector3(GameManager.instance.getPlanetRadius() * 2, GameManager.instance.getPlanetRadius()*2, GameManager.instance.getPlanetRadius() * 2);
     }
 }

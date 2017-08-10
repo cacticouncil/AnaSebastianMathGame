@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour {
    
     //Pc or mobile?
     public bool phone = true;
+    public void SetPhone()
+    {
+        phone = !phone;
+    }
     //Rigidbody element to avoid the getcomponent
     Rigidbody rb;
     //where do I want to start on the Y?
@@ -23,8 +27,8 @@ public class PlayerController : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, startingY, transform.position.z);
         //set components
         rb = GetComponent<Rigidbody>();
-        //use the gyroscope
-        Input.gyro.enabled = true;
+        ////use the gyroscope
+        //Input.gyro.enabled = true;
         
 	}
 	

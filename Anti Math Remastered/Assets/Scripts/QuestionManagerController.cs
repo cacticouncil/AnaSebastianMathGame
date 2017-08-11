@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class QuestionManagerController : MonoBehaviour {
 
     [SerializeField]
-    GameObject text;
+    GameObject QuestionText;
     [SerializeField]
     GameObject kid;
     [SerializeField]
@@ -69,7 +69,7 @@ public class QuestionManagerController : MonoBehaviour {
                 b = Hard[(int)Random.Range(0, 99)];
                 break;
         }
-        text.GetComponent<Text>().text = a.ToString() + " + " + b.ToString() + ": ?";
+        QuestionText.GetComponent<Text>().text = a.ToString() + " + " + b.ToString() + ": ?";
         answer = a + b;
     }
 
@@ -78,12 +78,12 @@ public class QuestionManagerController : MonoBehaviour {
     public void CompareResults(int userSub)
     {
         if (userSub == answer)
-            kid.GetComponent<KidController>().MoveFoward();
+            UIQuestionCanvasManager.instance.SetCanvasState(false);
         else
-            kid.GetComponent<KidController>().MoveBackwards();
-        
+            GenerateQuestion(hardness);
 
-        GenerateQuestion(hardness);
+
+
     }
     
 }

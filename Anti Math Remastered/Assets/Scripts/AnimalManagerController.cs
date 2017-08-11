@@ -6,8 +6,9 @@ public class AnimalManagerController : MonoBehaviour {
 
     uint animaltotal;
     GameObject animal;
-	// Use this for initialization
-	void Start () {
+    List<GameObject> Animals = new List<GameObject>();
+    // Use this for initialization
+    void Start () {
         animaltotal = GameManager.instance.getAnimalAmount();
         animal = GameManager.instance.getAnimal();
         for (uint i = 0; i < animaltotal; i++)
@@ -16,6 +17,8 @@ public class AnimalManagerController : MonoBehaviour {
             animal.GetComponent<AnimalController>().SetupAnimals();
             animal.transform.LookAt(Vector3.zero);
             animal.transform.Rotate(-90, 0, 0);
+
+            Animals.Add(animal);
         }
 	}
 	

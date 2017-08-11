@@ -68,5 +68,12 @@ public class PlayerController : MonoBehaviour {
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();
     }
 
-  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Animal")
+        {
+            UIQuestionCanvasManager.instance.SetCanvasState(true);
+           // GetComponent<QuestionManagerController>().GenerateQuestion(0);
+        }
+    }
 }

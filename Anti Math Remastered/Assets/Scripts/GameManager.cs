@@ -14,14 +14,19 @@ public class GameManager : MonoBehaviour {
     //What is the size of the radius, or, how far away from the origin will the player spawn?
     public uint planetRadius = 5;
 
-    //How many animals in the level?
-    public uint AnimalAmount = 5;
-
     // pass in the animal prefab
     public GameObject Animal;
 
+    //How many animals in the level?
+    public uint AnimalAmount = 5;
+
+    
+
+
+
     private void Awake()
     {
+        //Do I exist?
         if (instance == null)
         {
             instance = this;
@@ -31,9 +36,12 @@ public class GameManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        //use the gyroscope
+        //turn gyroscope functionality
         Input.gyro.enabled = true;
     }
+
+
+    #region Accessors and mutators
 
     public uint getPlanetRadius()
     {
@@ -54,6 +62,11 @@ public class GameManager : MonoBehaviour {
     {
         return planet;
     }
+
+    #endregion
+
+
+
 
     public void ResetLevel()
     {

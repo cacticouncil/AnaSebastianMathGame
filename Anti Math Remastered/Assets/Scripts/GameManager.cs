@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     //Singleton instence for the class
     public static GameManager instance;
-
+    
+    // pass the player
+    public GameObject player;
+   
     // the planet
     public GameObject planet;
 
@@ -20,10 +23,12 @@ public class GameManager : MonoBehaviour {
     //How many animals in the level?
     public uint AnimalAmount = 5;
 
-    
+    public Text DonkeyAmount;
+    public delegate void QuestionAction();
 
+    public static event QuestionAction QuestionTime;
 
-
+   
     private void Awake()
     {
         //Do I exist?
@@ -38,6 +43,8 @@ public class GameManager : MonoBehaviour {
 
         //turn gyroscope functionality
         Input.gyro.enabled = true;
+
+       
     }
 
 
@@ -71,5 +78,31 @@ public class GameManager : MonoBehaviour {
     public void ResetLevel()
     {
         SceneManager.LoadScene("3d camera behind kid");
+    }
+
+    public void CorrectAnswer()
+    {
+        if (QuestionTime != null)
+        {
+            QuestionTime();
+            if (Animal != null)
+            Destroy(Animal);
+            AnimalController.AnimalCount--;
+            DonkeyAmount.text = "Donkeys remaining:" + AnimalController.AnimalCount;
+            player.GetComponent<AudioSource>().Play();
+           // Animal = null;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Animal")
+        {
+            if (QuestionTime != null)
+            {
+                QuestionTime();
+                Animal = other.gameObject;
+            }
+                
+        }
     }
 }

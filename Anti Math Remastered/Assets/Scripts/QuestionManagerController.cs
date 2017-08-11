@@ -13,6 +13,8 @@ public class QuestionManagerController : MonoBehaviour {
     GameObject kid;
     [SerializeField]
     int hardness;
+
+   
     //More readability
     enum Difficulty
     {
@@ -47,11 +49,22 @@ public class QuestionManagerController : MonoBehaviour {
            
         }
 
-        GenerateQuestion(hardness);
+        GenerateQuestion();
     }
 
-    public void GenerateQuestion(int difficulty)
+    private void OnEnable()
     {
+        GameManager.QuestionTime += GenerateQuestion;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.QuestionTime -= GenerateQuestion;
+    }
+
+    public void GenerateQuestion()
+    {
+        int difficulty = 0;
         int a = 0;
         int b = 0;
         switch (difficulty)
@@ -78,9 +91,9 @@ public class QuestionManagerController : MonoBehaviour {
     public void CompareResults(int userSub)
     {
         if (userSub == answer)
-            UIQuestionCanvasManager.instance.SetCanvasState(false);
+            GameManager.instance.CorrectAnswer();
         else
-            GenerateQuestion(hardness);
+            GenerateQuestion();
 
 
 

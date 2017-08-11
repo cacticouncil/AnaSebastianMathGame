@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimalController : MonoBehaviour {
 
     Vector3 AnimalPos;
-  
+    public static int AnimalCount = 0;
 
     public void SetupAnimals()
     {
@@ -23,8 +23,5 @@ public class AnimalController : MonoBehaviour {
         transform.RotateAround(Vector3.zero, m.GetColumn(0), angle);
         transform.RotateAround(Vector3.zero, m.GetColumn(1), angle);
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
+  
 }

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour {
 
     [SerializeField]
-    GameObject text;
+    GameObject AnswerText;
 
     [SerializeField]
     GameObject QuestionManager;
@@ -35,7 +35,7 @@ public class ButtonManager : MonoBehaviour {
             if (numbahs.Length < 6)
             {
                 numbahs.Append(_in.ToString());
-                text.GetComponent<Text>().text = numbahs.ToString();
+                AnswerText.GetComponent<Text>().text = numbahs.ToString();
                 Debug.Log("Added!" + numbahs);
             }
             //Rest in pepperoni the buffer is full already
@@ -53,20 +53,20 @@ public class ButtonManager : MonoBehaviour {
             if (numbahs.Length > 0)
             {
                 numbahs.Remove(numbahs.Length - 1, 1);
-                text.GetComponent<Text>().text = numbahs.ToString();
+                AnswerText.GetComponent<Text>().text = numbahs.ToString();
                 Debug.Log("Removed! " + numbahs);
             }
             //Oh okay let´s delete nothing -_-
             else
             {
-                text.GetComponent<Text>().text = "0";
+                AnswerText.GetComponent<Text>().text = "0";
                 Debug.Log("Cant´t delete what´s not there ;)");
             }
 
             //this right here is text paranoia
-            if (text.GetComponent<Text>().text == "" || text.GetComponent<Text>().text == " ")
+            if (AnswerText.GetComponent<Text>().text == "" || AnswerText.GetComponent<Text>().text == " ")
             {
-                text.GetComponent<Text>().text = "0";
+                AnswerText.GetComponent<Text>().text = "0";
             }
 
 
@@ -79,7 +79,7 @@ public class ButtonManager : MonoBehaviour {
             {
                 number = 0;
                 QuestionManager.GetComponent<QuestionManagerController>().CompareResults(number);
-                text.GetComponent<Text>().text = "0";
+                AnswerText.GetComponent<Text>().text = "0";
                 Debug.Log("You submitted: " + number);
             }
             //Submit whatever´s on the stringbuffer
@@ -88,7 +88,7 @@ public class ButtonManager : MonoBehaviour {
                 string yee = numbahs.ToString();
                 number = Convert.ToInt32(yee);
                 QuestionManager.GetComponent<QuestionManagerController>().CompareResults(number);
-                text.GetComponent<Text>().text = "0";
+                AnswerText.GetComponent<Text>().text = "0";
                 Debug.Log("You submitted: " + number);
                 numbahs.Length = 0;
             }

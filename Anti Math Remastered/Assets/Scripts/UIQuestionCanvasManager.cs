@@ -5,6 +5,8 @@ using UnityEngine;
 public class UIQuestionCanvasManager : MonoBehaviour {
 
     static public UIQuestionCanvasManager instance;
+
+    bool setCanvas = true;
     private void Awake()
     {
         //Do I exist?
@@ -17,13 +19,21 @@ public class UIQuestionCanvasManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        SetCanvasState(false);
+        SetQuestionCanvasState();
        
     }
-
-    public void SetCanvasState(bool set)
+    private void OnEnable()
     {
-        GetComponent<Canvas>().enabled = set;
-        GameManager.instance.GetComponent<QuestionManagerController>().GenerateQuestion(0);
+        GameManager.QuestionTime += SetQuestionCanvasState;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.QuestionTime -= SetQuestionCanvasState;
+    }
+    public void SetQuestionCanvasState()
+    {
+        setCanvas = !setCanvas;
+        GetComponent<Canvas>().enabled = setCanvas;
     }
 }

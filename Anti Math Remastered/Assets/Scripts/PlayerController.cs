@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
    
     //Pc or mobile?
     public bool phone = true;
+    //change from pc to mobile
     public void SetPhone()
     {
         phone = !phone;
@@ -15,7 +16,9 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;
     //where do I want to start on the Y?
     float startingY;
-    
+
+    //this is pretty self explanatory
+    bool move = true;
     //Debug stuff
     public GameObject text;
 
@@ -34,7 +37,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
+        if (!move)
+            return;
         //Get angles (-1 to 1) from phone rotation
         float angleZ = -Input.acceleration.z;
         float angleY = Input.acceleration.y;
@@ -68,12 +72,17 @@ public class PlayerController : MonoBehaviour {
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-        if (other.tag == "Animal")
-        {
-            UIQuestionCanvasManager.instance.SetCanvasState(true);
-           // GetComponent<QuestionManagerController>().GenerateQuestion(0);
-        }
+        GameManager.QuestionTime += AlterPlayerMovement;
     }
+    private void OnDisable()
+    {
+        GameManager.QuestionTime -= AlterPlayerMovement;
+    }
+    void AlterPlayerMovement()
+    {
+        move = !move;
+    }
+   
 }

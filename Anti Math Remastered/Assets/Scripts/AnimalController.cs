@@ -6,9 +6,10 @@ public class AnimalController : MonoBehaviour {
 
     Vector3 AnimalPos;
     public static int AnimalCount = 0;
-
-    public void SetupAnimals()
+    public uint AnimalID;
+    public void SetupAnimals(uint ID)
     {
+        AnimalID = ID;
         transform.rotation = Quaternion.identity;
         //transform.position = Vector3.zero;
         AnimalPos = new Vector3(Random.Range(-10, 11), Random.Range(-10, 11), Random.Range(-10, 11));

@@ -86,7 +86,8 @@ public class GameManager : MonoBehaviour {
         {
             QuestionTime();
             if (Animal != null)
-            Destroy(Animal);
+                Animal.transform.position = new Vector3(9999, 9999, 9999);
+                // Destroy(Animal);
             AnimalController.AnimalCount--;
             DonkeyAmount.text = "Donkeys remaining:" + AnimalController.AnimalCount;
             player.GetComponent<AudioSource>().Play();

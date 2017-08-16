@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
+
     //Singleton instence for the class
     public static GameManager instance;
     
@@ -22,15 +23,25 @@ public class GameManager : MonoBehaviour {
 
     //How many animals in the level?
     public uint AnimalAmount = 5;
-
+    //where to display the amount?
     public Text DonkeyAmount;
+
+    //Notification system to alert when a question happens
     public delegate void QuestionAction();
 
     public static event QuestionAction QuestionTime;
 
-   
+    //Timer to determine how long the player will take.
+    float timer = 0;
+    //Text for the timer
+    public Text timerText;
+
     private void Awake()
     {
+        //30 fromaes per second
+       // QualitySettings.vSyncCount = 0;
+       // Application.targetFrameRate = 300;
+
         //Do I exist?
         if (instance == null)
         {
@@ -43,8 +54,8 @@ public class GameManager : MonoBehaviour {
 
         //turn gyroscope functionality
         Input.gyro.enabled = true;
+        
 
-       
     }
 
 
@@ -72,11 +83,16 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-
+    private void Update()
+    {
+            timer += Time.deltaTime;
+            timerText.text = Mathf.Floor(timer).ToString();     
+    }
 
 
     public void ResetLevel()
     {
+        timer = 0;
         SceneManager.LoadScene("3d camera behind kid");
     }
 

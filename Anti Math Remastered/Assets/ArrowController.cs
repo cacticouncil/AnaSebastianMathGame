@@ -9,6 +9,9 @@ public class ArrowController : MonoBehaviour {
     public GameObject player;
     List<GameObject> Targets;
     GameObject CurrTarget;
+
+    //Timer for checking every so frames
+    int timer = 0;
 	// Use this for initialization
 	void Start () {
         Targets = AnimalManagController.GetComponent<AnimalManagerController>().Animals;
@@ -16,6 +19,17 @@ public class ArrowController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Update target every n frames
+        if (timer <= 10)
+        {
+            timer++;
+            transform.LookAt(CurrTarget.transform, player.transform.up);
+            Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
+            return;
+        }
+        else
+            timer = 0;
+
         if (AnimalController.AnimalCount <= 0)
             Destroy(gameObject);
         float highest = float.MaxValue;

@@ -82,7 +82,7 @@ public class QuestionManagerController : MonoBehaviour {
                 b = Hard[(int)Random.Range(0, 99)];
                 break;
         }
-        QuestionText.GetComponent<Text>().text = a.ToString() + "\n + " + b.ToString() + ": ?";
+        QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
         answer = a + b;
     }
 

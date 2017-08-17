@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour {
     public GameObject planet;
 
     //What is the size of the radius, or, how far away from the origin will the player spawn?
-    public uint planetRadius = 5;
+    public uint planetRadius;
 
     // pass in the animal prefab
     public GameObject Animal;
 
     //How many animals in the level?
-    public uint AnimalAmount = 5;
+    public uint AnimalAmount;
     //where to display the amount?
     public Text DonkeyAmount;
 
@@ -54,9 +54,12 @@ public class GameManager : MonoBehaviour {
 
         //turn gyroscope functionality
         Input.gyro.enabled = true;
-        
 
-    }
+        planetRadius = InfoManager.instance.planetRadius;
+        AnimalAmount = InfoManager.instance.AnimalAmount;
+
+
+}
 
 
     #region Accessors and mutators

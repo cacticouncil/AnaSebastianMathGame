@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
-
-    //Singleton instence for the class
+    #region Members
+    //Singleton instence for this class
     public static GameManager instance;
-    
+
     // pass the player
     public GameObject player;
-   
+
     // the planet
     public GameObject planet;
 
@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour {
     //where to display the amount?
     public Text DonkeyAmount;
 
+    //Music stuff
+   public AudioClip[] LevelsMusic;
+    AudioClip MusicToPlay;
+    AudioSource AS;
     //Notification system to alert when a question happens
     public delegate void QuestionAction();
 
@@ -35,6 +39,8 @@ public class GameManager : MonoBehaviour {
     float timer = 0;
     //Text for the timer
     public Text timerText;
+    #endregion
+
 
     private void Awake()
     {
@@ -57,10 +63,15 @@ public class GameManager : MonoBehaviour {
 
         planetRadius = InfoManager.instance.planetRadius;
         AnimalAmount = InfoManager.instance.AnimalAmount;
+        AS = GetComponent<AudioSource>();
+    }
 
-
-}
-
+    private void Start()
+    {
+        MusicToPlay = LevelsMusic[InfoManager.instance.ID];
+        AS.clip = MusicToPlay;
+        AS.Play();
+    }
 
     #region Accessors and mutators
 
@@ -96,7 +107,7 @@ public class GameManager : MonoBehaviour {
     public void ResetLevel()
     {
         timer = 0;
-        SceneManager.LoadScene("3d camera behind kid");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void CorrectAnswer()
@@ -108,7 +119,7 @@ public class GameManager : MonoBehaviour {
                 Animal.transform.position = new Vector3(9999, 9999, 9999);
                 // Destroy(Animal);
             AnimalController.AnimalCount--;
-            DonkeyAmount.text = "Donkeys remaining:" + AnimalController.AnimalCount;
+            DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
             player.GetComponent<AudioSource>().Play();
            // Animal = null;
         }

@@ -23,7 +23,7 @@ public class AnimalManagerController : MonoBehaviour {
             AnimalController.AnimalCount++;
             Animals.Add(temp);
         }
-        DonkeyAmount.text = "Donkeys remaining:" + AnimalController.AnimalCount;
+        DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
     }
 
     private void Update()

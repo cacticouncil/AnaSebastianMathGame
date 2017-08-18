@@ -30,8 +30,13 @@ public class ArrowController : MonoBehaviour {
             timer++;
             if (CurrTarget!= null)
             {
-            transform.LookAt(CurrTarget.transform, player.transform.up);
-            Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
+                transform.LookAt(CurrTarget.transform, player.transform.up);
+                Vector3 leftt = Vector3.Cross(transform.forward, player.transform.up);
+                Vector3 forwardt = Vector3.Cross(leftt, player.transform.up);
+                transform.up = player.transform.up;
+                transform.right = leftt;
+                transform.forward = -forwardt;
+                Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
 
             }
             return;
@@ -51,7 +56,13 @@ public class ArrowController : MonoBehaviour {
             }
         }
 
+        //transform.forward
         transform.LookAt(CurrTarget.transform,player.transform.up);
+        Vector3 left = Vector3.Cross(transform.forward, player.transform.up);
+        Vector3 forward = Vector3.Cross(left, player.transform.up);
+        transform.up = player.transform.up;
+        transform.right = left;
+        transform.forward = -forward;
         Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
 	}
 

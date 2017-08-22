@@ -9,15 +9,15 @@ public class IOMenu : MonoBehaviour {
     public Text LevelText;
     private void Start()
     {
-        animalstext.text = "Total Animals: " + InfoManager.instance.AnimalAmount.ToString();
+        animalstext.text = "Total Targets: " + InfoManager.instance.AnimalAmount.ToString();
         planettext.text = "Planet Radius: " + InfoManager.instance.planetRadius.ToString();
-        LevelText.text = "Level: " + InfoManager.instance.ID.ToString();
+        LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
     }
 
  //planet
     public void addtoplanet()
     {
-        InfoManager.instance.planetRadius++;
+        InfoManager.instance.planetRadius+= 5;
         planettext.text = "Planet Radius: " + InfoManager.instance.planetRadius.ToString();
     }
 
@@ -25,7 +25,7 @@ public class IOMenu : MonoBehaviour {
     {
         if (InfoManager.instance.planetRadius >= 20)
         {
-            InfoManager.instance.planetRadius--;
+            InfoManager.instance.planetRadius-= 5;
 
         }
         planettext.text = "Planet Radius: " + InfoManager.instance.planetRadius.ToString();
@@ -34,7 +34,11 @@ public class IOMenu : MonoBehaviour {
 //target
     public void addanimals()
     {
+        if (InfoManager.instance.AnimalAmount < 15)
+        {
         InfoManager.instance.AnimalAmount++;
+
+        }
         animalstext.text = "Total Targets: " + InfoManager.instance.AnimalAmount.ToString();
     }
 
@@ -56,7 +60,7 @@ public class IOMenu : MonoBehaviour {
 
         InfoManager.instance.ID++;
         }
-        LevelText.text = "Level: " + InfoManager.instance.ID.ToString();
+        LevelText.text = "Level: " + (InfoManager.instance.ID+1).ToString();
     }
 
     public void subtractLevel()
@@ -66,6 +70,6 @@ public class IOMenu : MonoBehaviour {
             InfoManager.instance.ID--;
 
         }
-        LevelText.text = "Level: " + InfoManager.instance.ID.ToString();
+        LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
     }
 }

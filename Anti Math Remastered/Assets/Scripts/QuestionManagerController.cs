@@ -20,8 +20,12 @@ public class QuestionManagerController : MonoBehaviour {
     {
         easy = 0, normal, hard
     }
+    enum Equation
+    {
+        Addition = 0, Subtraction
+    }
     //This is for addition
-    int[] Easy = new int[25];
+    int[] Easy = new int[20];
     int[] Normal = new int[50];
     int[] Hard = new int[100];
 
@@ -36,9 +40,9 @@ public class QuestionManagerController : MonoBehaviour {
         {
             if (i < 50)
             {
-                if (i % 2 == 0)
+                if (i % 2 == 0 && index < 10)
                 {
-                    Easy[index] = i;
+                    Easy[index] = index+1;
                     index++;
                 }
 
@@ -65,13 +69,14 @@ public class QuestionManagerController : MonoBehaviour {
     public void GenerateQuestion()
     {
         int difficulty = 0;
+        int Equationtype = (int)InfoManager.instance.ID;
         int a = 0;
         int b = 0;
         switch (difficulty)
         {
             case (int)Difficulty.easy:
-                 a = Easy[(int)Random.Range(0, 24)];
-                 b = Easy[(int)Random.Range(0, 24)];
+                 a = Easy[(int)Random.Range(0, 10)];
+                 b = Easy[(int)Random.Range(0, 10)];
                 break;
             case (int)Difficulty.normal:
                 a = Normal[(int)Random.Range(0, 49)];
@@ -82,12 +87,36 @@ public class QuestionManagerController : MonoBehaviour {
                 b = Hard[(int)Random.Range(0, 99)];
                 break;
         }
-
-        if (a >= b)
-            QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
-        else
-            QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
-        answer = a + b;
+        switch (Equationtype)
+        {
+            case (int)Equation.Addition:
+                if (a >= b)
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                else
+                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                answer = a + b;
+                break;
+            case (int)Equation.Subtraction:
+                if (a >= b || a == b)
+                {
+                    QuestionText.GetComponent<Text>().text = (a+1).ToString() + "\n-" + b.ToString() + "\n----";
+                    answer = a+1 - b;
+                }
+                else
+                {
+                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n-" + a.ToString() + "\n----";
+                    answer = b - a;
+                }
+                break;
+            default:
+                if (a >= b)
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                else
+                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                answer = a + b;
+                break;
+        }
+        
     }
 
     

@@ -100,4 +100,18 @@ public class ButtonManager : MonoBehaviour {
             SceneManager.LoadScene("main");
         }
     }
+
+    public void load(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+    bool p = false;
+    public void PauseGame()
+    {
+        p = !p;
+        if (p)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
 }

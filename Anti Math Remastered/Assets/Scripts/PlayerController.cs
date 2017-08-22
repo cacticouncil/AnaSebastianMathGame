@@ -43,18 +43,19 @@ public class PlayerController : MonoBehaviour {
         float angleZ = -Input.acceleration.z;
         float angleY = Input.acceleration.y;
         float angleX = Input.acceleration.x;
+        float speed = InfoManager.instance.planetRadius * 2 * Mathf.PI / 500.0f;
         if (phone)
         {
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
             if ((Mathf.Abs(angleZ) > 0.01f))
             {
                 //Move
-                transform.RotateAround(Vector3.zero, m.GetColumn(0), angleZ*2f-1f);
+                transform.RotateAround(Vector3.zero, m.GetColumn(0), (angleZ*2f-1f)/ speed);
             }
             if ((Mathf.Abs(angleX) > 0.01f))
             {
                 //rotate
-                transform.RotateAround(Vector3.zero, m.GetColumn(1), angleX*2);
+                transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX*2));
             }
         }
         else
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour {
             //Rotate
             transform.RotateAround(Vector3.zero, m.GetColumn(1), horiz*2);
             //Move
-            transform.RotateAround(Vector3.zero, m.GetColumn(0), vert);
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 
         }
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();

@@ -27,9 +27,12 @@ public class GameManager : MonoBehaviour {
     public Text DonkeyAmount;
 
     //Music stuff
-   public AudioClip[] LevelsMusic;
+    public AudioClip[] LevelsMusic;
     AudioClip MusicToPlay;
     AudioSource AS;
+
+    //just cats for mow
+    public Sprite[] cats;
     //Notification system to alert when a question happens
     public delegate void QuestionAction();
 

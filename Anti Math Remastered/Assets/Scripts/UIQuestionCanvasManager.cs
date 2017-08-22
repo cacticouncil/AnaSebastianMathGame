@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UIQuestionCanvasManager : MonoBehaviour {
 
     static public UIQuestionCanvasManager instance;
@@ -12,6 +12,7 @@ public class UIQuestionCanvasManager : MonoBehaviour {
     public RectTransform EndGameUi;
     float scale = 0;
     float scale2 = 0;
+    
     private void Awake()
     {
         //Do I exist?
@@ -25,7 +26,7 @@ public class UIQuestionCanvasManager : MonoBehaviour {
         }
 
         SetQuestionCanvasState();
-       
+        EndGameUi.GetComponentInChildren<Image>().sprite = GameManager.instance.cats[InfoManager.instance.ID];
     }
 
     private void Update()

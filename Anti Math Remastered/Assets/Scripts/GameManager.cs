@@ -120,7 +120,14 @@ public class GameManager : MonoBehaviour {
                 // Destroy(Animal);
             AnimalController.AnimalCount--;
             DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
-            player.GetComponent<AudioSource>().Play();
+            if (AnimalController.AnimalCount != 0)
+                player.GetComponent<AudioSource>().Play();
+            else
+            {
+                player.GetComponent<AudioSource>().clip = LevelsMusic[3];
+                player.GetComponent<AudioSource>().Play();
+            }
+               
            // Animal = null;
         }
     }

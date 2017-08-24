@@ -104,6 +104,7 @@ public class ButtonManager : MonoBehaviour {
 
     public void load(string scene)
     {
+        GameManager.instance.pauseGame = true;
         SceneManager.LoadScene(scene);
     }
     public void PauseGame()

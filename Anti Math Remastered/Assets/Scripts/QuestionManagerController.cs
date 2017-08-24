@@ -65,7 +65,7 @@ public class QuestionManagerController : MonoBehaviour {
     {
         GameManager.QuestionTime -= GenerateQuestion;
     }
-
+    int type = 0;
     public void GenerateQuestion()
     {
         int difficulty = 0;
@@ -108,12 +108,29 @@ public class QuestionManagerController : MonoBehaviour {
                     answer = b - a;
                 }
                 break;
-            default:
-                if (a >= b)
-                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+            case 2:
+                type+= Random.Range(0,4);
+                if (type % 2 == 0)
+                {
+                    if (a >= b)
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                    else
+                        QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                    answer = a + b;
+                }
                 else
-                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
-                answer = a + b;
+                {
+                    if (a >= b || a == b)
+                    {
+                        QuestionText.GetComponent<Text>().text = (a + 1).ToString() + "\n-" + b.ToString() + "\n----";
+                        answer = a + 1 - b;
+                    }
+                    else
+                    {
+                        QuestionText.GetComponent<Text>().text = b.ToString() + "\n-" + a.ToString() + "\n----";
+                        answer = b - a;
+                    }
+                }
                 break;
         }
         

@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour {
 
     //just cats for mow
     public Sprite[] cats;
-   
+
+    public Material[] SkyBoxes;
     //Notification system to alert when a question happens
     public delegate void QuestionAction();
 
@@ -66,10 +67,34 @@ public class GameManager : MonoBehaviour {
 
         //turn gyroscope functionality
         Input.gyro.enabled = true;
+        switch (InfoManager.instance.ID)
+        {
+            case 0:
+                planetRadius = InfoManager.instance.planetRadius = 50;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 10;
 
-        planetRadius = InfoManager.instance.planetRadius;
-        AnimalAmount = InfoManager.instance.AnimalAmount;
+                break;
+            case 1:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 10;
+                break;
+            case 2:
+                planetRadius = InfoManager.instance.planetRadius = 150;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 10;
+                break;
+        }
+        //Uncomment this and comment the switch case above to re enable custom sizes
+        //planetRadius = InfoManager.instance.planetRadius;
+        //AnimalAmount = InfoManager.instance.AnimalAmount;
+
+        //set audio source
         AS = GetComponent<AudioSource>();
+
+        //set skybox
+        RenderSettings.skybox = SkyBoxes[InfoManager.instance.ID];
+
+        pauseGame = false;
+        Time.timeScale = 1;
     }
 
     private void Start()

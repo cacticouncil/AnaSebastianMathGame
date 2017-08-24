@@ -16,6 +16,7 @@ public class ButtonManager : MonoBehaviour {
     [HideInInspector]
     public int number = 0;
 
+  
     
     //buffer for number input, prior to submission
     StringBuilder numbahs = new StringBuilder();
@@ -105,11 +106,10 @@ public class ButtonManager : MonoBehaviour {
     {
         SceneManager.LoadScene(scene);
     }
-    bool p = false;
     public void PauseGame()
     {
-        p = !p;
-        if (p)
+        GameManager.instance.pauseGame = !GameManager.instance.pauseGame;
+        if (GameManager.instance.pauseGame)
             Time.timeScale = 0;
         else
             Time.timeScale = 1;

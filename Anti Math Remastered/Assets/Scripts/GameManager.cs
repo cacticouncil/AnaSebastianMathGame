@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
     //just cats for mow
     public Sprite[] cats;
+   
     //Notification system to alert when a question happens
     public delegate void QuestionAction();
 
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour {
     float timer = 0;
     //Text for the timer
     public Text timerText;
+
+    public bool pauseGame = false;
     #endregion
 
 
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour {
         //30 fromaes per second
        // QualitySettings.vSyncCount = 0;
        // Application.targetFrameRate = 300;
-
+      
         //Do I exist?
         if (instance == null)
         {

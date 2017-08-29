@@ -107,6 +107,20 @@ public class ButtonManager : MonoBehaviour {
         GameManager.instance.pauseGame = true;
         SceneManager.LoadScene(scene);
     }
+
+    public void loadNextLevel()
+    {
+        if (InfoManager.instance.ID < 2)
+        {
+        InfoManager.instance.ID = InfoManager.instance.ID + 1;
+        load("3d camera behind kid");
+        }
+        else
+        {
+            InfoManager.instance.ID = 0;
+            load("3d camera behind kid");
+        }
+    }
     public void PauseGame()
     {
         GameManager.instance.pauseGame = !GameManager.instance.pauseGame;

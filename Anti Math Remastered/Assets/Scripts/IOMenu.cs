@@ -7,6 +7,7 @@ public class IOMenu : MonoBehaviour {
     public Text animalstext;
     public Text planettext;
     public Text LevelText;
+   public LevelSelectionController Levels;
     private void Start()
     {
         animalstext.text = "Total Targets: " + InfoManager.instance.AnimalAmount.ToString();
@@ -55,21 +56,13 @@ public class IOMenu : MonoBehaviour {
  //level
     public void addLevel()
     {
-        if (InfoManager.instance.ID < 2)
-        {
-
-        InfoManager.instance.ID++;
-        }
+        Levels.NextLevel();
         LevelText.text = "Level: " + (InfoManager.instance.ID+1).ToString();
     }
 
     public void subtractLevel()
     {
-        if (InfoManager.instance.ID > 0)
-        {
-            InfoManager.instance.ID--;
-
-        }
+        Levels.PreviousLevel();
         LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
     }
 }

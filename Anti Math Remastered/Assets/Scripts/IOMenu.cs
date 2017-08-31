@@ -12,7 +12,8 @@ public class IOMenu : MonoBehaviour {
     {
         animalstext.text = "Total Targets: " + InfoManager.instance.AnimalAmount.ToString();
         planettext.text = "Planet Radius: " + InfoManager.instance.planetRadius.ToString();
-        LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
+        // LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
+        LevelText.text = Levels.CurrentLevel().GetComponent<CityInfoController>().getName();
     }
 
  //planet
@@ -57,12 +58,14 @@ public class IOMenu : MonoBehaviour {
     public void addLevel()
     {
         Levels.NextLevel();
-        LevelText.text = "Level: " + (InfoManager.instance.ID+1).ToString();
+        //LevelText.text = "Level: " + (InfoManager.instance.ID+1).ToString();
+        LevelText.text = Levels.CurrentLevel().GetComponent<CityInfoController>().getName();
     }
 
     public void subtractLevel()
     {
         Levels.PreviousLevel();
-        LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
+        // LevelText.text = "Level: " + (InfoManager.instance.ID + 1).ToString();
+        LevelText.text = Levels.CurrentLevel().GetComponent<CityInfoController>().getName();
     }
 }

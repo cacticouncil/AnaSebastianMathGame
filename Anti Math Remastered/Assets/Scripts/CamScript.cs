@@ -14,6 +14,8 @@ public class CamScript : MonoBehaviour {
         look = Levels.GetLevel(0).transform.position;
         transform.LookAt(look);
     }
+
+
     private void LateUpdate()
     {
         if (Move)

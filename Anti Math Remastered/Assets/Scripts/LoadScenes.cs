@@ -13,12 +13,20 @@ public class LoadScenes : MonoBehaviour {
     }
     bool doit;
     float ratio;
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+        mainButt.enabled = true;
+        ratio = 0;
+        doit = false;
+    }
     public void Dissappear()
     {
         
         doit = true;
         mainButt.enabled = false;
-        mainButt.gameObject.SetActive(false);
+       mainButt.transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, ratio);
         Color col = new Color();
         
         col = pic.color;
@@ -27,17 +35,20 @@ public class LoadScenes : MonoBehaviour {
         pic.color = col;
 
         ratio += Time.deltaTime;
-        if (ratio >= 0.95)
+        if (ratio >= 0.95f)
         {
             pic.enabled = false;
            
             doit = false;
+            ratio = 0;
         }
         
     }
 
     private void Update()
     {
+        if(ratio > 0.5f)
+        Debug.Log(ratio);
         if (doit)
             Dissappear();
     }

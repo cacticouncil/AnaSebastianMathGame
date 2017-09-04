@@ -62,6 +62,7 @@ public class IOMenu : MonoBehaviour {
         LevelText.text = Levels.CurrentLevel().GetComponent<CityInfoController>().getName();
     }
 
+    
     public void subtractLevel()
     {
         Levels.PreviousLevel();

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class LevelSelectionController : MonoBehaviour {
 
     [SerializeField]
     List<GameObject> Levels;
     public Text LevelTexts;
+    public Text Topic;
     public GameObject Cam;
     public Button SelectCountryButton;
     public Button ZoomOutButton;
@@ -33,9 +35,10 @@ public class LevelSelectionController : MonoBehaviour {
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) 
-            && !Cam.GetComponent<CamScript>().Move && !Cam.GetComponent<CamScript>().zoom)
+            && !Cam.GetComponent<CamScript>().Move && !Cam.GetComponent<CamScript>().zoom && hit.collider.tag != "CurrentLevelButton")
         {
             InfoManager.instance.ID = (uint)hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getCityID() - 1;
             current = Levels[(int)InfoManager.instance.ID];
@@ -61,6 +64,7 @@ public class LevelSelectionController : MonoBehaviour {
             {
                 ratio += Time.deltaTime * 2;
                 LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
+                Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
                 SelectCountryButton.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
                 if (ratio >= 2)
                 {
@@ -89,6 +93,7 @@ public class LevelSelectionController : MonoBehaviour {
             }
             ratio += Time.deltaTime*4;
             LevelTexts.text = "Traveling..";
+            Topic.text = "";
             SelectCountryButton.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, ratio);
 
         }

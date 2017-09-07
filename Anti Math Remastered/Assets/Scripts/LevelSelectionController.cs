@@ -13,6 +13,7 @@ public class LevelSelectionController : MonoBehaviour {
     public Button SelectCountryButton;
     public Button ZoomOutButton;
     public Button StartGameButton;
+    public Button BackToMainMenu;
     GameObject current;
     GameObject previous;
 	// Use this for initialization
@@ -71,6 +72,7 @@ public class LevelSelectionController : MonoBehaviour {
 
                     ZoomOutButton.transform.localScale = Vector3.zero;
                 StartGameButton.transform.localScale = Vector3.zero;
+                    BackToMainMenu.transform.localScale = Vector3.one;
                 }
                 
                 
@@ -78,6 +80,7 @@ public class LevelSelectionController : MonoBehaviour {
             else
             {
                 SelectCountryButton.transform.localScale = Vector3.zero;
+                BackToMainMenu.transform.localScale = Vector3.zero;
                 ZoomOutButton.transform.localScale = Vector3.one;
                 StartGameButton.transform.localScale = Vector3.one;
             }

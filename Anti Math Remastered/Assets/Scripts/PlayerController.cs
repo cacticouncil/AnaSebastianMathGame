@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
    
     //Pc or mobile?
     public bool phone = true;
+  
     //change from pc to mobile
     public void SetPhone()
     {
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour {
             return;
         //Get angles (-1 to 1) from phone rotation
         float angleZ = -Input.acceleration.z;
+        GetComponentInChildren<Animator>().speed = Mathf.Abs(angleZ)*2;
         float angleY = Input.acceleration.y;
         float angleX = Input.acceleration.x;
         float speed = InfoManager.instance.planetRadius * 2 * Mathf.PI / 500.0f;

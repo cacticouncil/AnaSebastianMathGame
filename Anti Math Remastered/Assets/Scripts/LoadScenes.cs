@@ -59,7 +59,7 @@ public class LoadScenes : MonoBehaviour {
         mainButt.enabled = true;
         CreditsButton.enabled = true;
         OptionsButton.enabled = true;
-        mainButt.transform.localScale = new Vector3(10,10);//Vector3.Lerp(transform.localScale, Vector3.zero, ratio);
+        mainButt.transform.localScale = new Vector3(10,20);//Vector3.Lerp(transform.localScale, Vector3.zero, ratio);
         //CreditsButton.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, ratio);
         Color col = new Color();
 

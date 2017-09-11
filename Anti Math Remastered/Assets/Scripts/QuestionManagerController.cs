@@ -14,7 +14,9 @@ public class QuestionManagerController : MonoBehaviour {
     [SerializeField]
     int hardness;
 
-   
+    int b = 0;
+    int a = 0;
+
     //More readability
     enum Difficulty
     {
@@ -70,8 +72,7 @@ public class QuestionManagerController : MonoBehaviour {
     {
         int difficulty = 0;
         int Equationtype = (int)InfoManager.instance.ID;
-        int a = 0;
-        int b = 0;
+
         switch (difficulty)
         {
             case (int)Difficulty.easy:
@@ -87,6 +88,9 @@ public class QuestionManagerController : MonoBehaviour {
                 b = Hard[(int)Random.Range(0, 99)];
                 break;
         }
+
+        GameManager.instance.a = a;
+        GameManager.instance.b = b;
         switch (Equationtype)
         {
             case (int)Equation.Addition:
@@ -143,7 +147,7 @@ public class QuestionManagerController : MonoBehaviour {
         if (userSub == answer)
             GameManager.instance.CorrectAnswer();
         else
-            GenerateQuestion();
+            GameManager.instance.WrongAnswer();// GenerateQuestion();
 
 
 

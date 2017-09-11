@@ -38,14 +38,20 @@ public class GameManager : MonoBehaviour {
     //Notification system to alert when a question happens
     public delegate void QuestionAction();
 
+    public delegate void FillBasket();
+
     public static event QuestionAction QuestionTime;
 
+    public static event FillBasket SetBasket;
     //Timer to determine how long the player will take.
     float timer = 0;
     //Text for the timer
     public Text timerText;
 
     public bool pauseGame = false;
+
+    public int a;
+    public int b;
     #endregion
 
 
@@ -162,6 +168,15 @@ public class GameManager : MonoBehaviour {
            // Animal = null;
         }
     }
+
+    public void WrongAnswer()
+    {
+       // if (QuestionTime != null)
+       // {
+       //     //QuestionTime();
+       //     SetBasket();
+       // }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Animal")
@@ -169,6 +184,7 @@ public class GameManager : MonoBehaviour {
             if (QuestionTime != null)
             {
                 QuestionTime();
+                SetBasket();
                 Animal = other.gameObject;
             }
                 

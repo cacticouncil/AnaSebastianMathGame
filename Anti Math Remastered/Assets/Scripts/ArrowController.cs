@@ -36,7 +36,7 @@ public class ArrowController : MonoBehaviour {
                 transform.up = player.transform.up;
                 transform.right = leftt;
                 transform.forward = -forwardt;
-                Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
+               // Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
 
             }
             return;
@@ -63,7 +63,7 @@ public class ArrowController : MonoBehaviour {
         transform.up = player.transform.up;
         transform.right = left;
         transform.forward = -forward;
-        Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
+       // Debug.Log("targeting animal num. " + CurrTarget.GetComponent<AnimalController>().AnimalID);
 	}
 
     float Distance(Transform _from, Transform _to)

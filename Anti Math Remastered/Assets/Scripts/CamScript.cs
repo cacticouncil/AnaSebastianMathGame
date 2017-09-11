@@ -12,9 +12,10 @@ public class CamScript : MonoBehaviour {
     Vector3 look;
     float FOV;
     float zoomr;
-    private void Start()
+    private void Awake()
     {
-        look = Levels.GetLevel(0).transform.position;
+        look = Levels.GetLevel((int)InfoManager.instance.ID).transform.position;
+        Car.transform.position = look;
         Car.transform.LookAt(look,Vector3.back);
         transform.LookAt(look);
         FOV = Camera.main.fieldOfView;

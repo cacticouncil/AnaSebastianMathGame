@@ -89,8 +89,7 @@ public class QuestionManagerController : MonoBehaviour {
                 break;
         }
 
-        GameManager.instance.a = a;
-        GameManager.instance.b = b;
+      
         switch (Equationtype)
         {
             case (int)Equation.Addition:
@@ -104,12 +103,17 @@ public class QuestionManagerController : MonoBehaviour {
                 if (a >= b || a == b)
                 {
                     QuestionText.GetComponent<Text>().text = (a+1).ToString() + "\n-" + b.ToString() + "\n----";
-                    answer = a+1 - b;
+                    a++;
+                    answer = a - b;
                 }
                 else
                 {
-                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n-" + a.ToString() + "\n----";
-                    answer = b - a;
+                    int temp = a;
+                    a = b;
+                    b = temp;
+
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n-" + b.ToString() + "\n----";
+                    answer = a - b;
                 }
                 break;
             case 2:
@@ -119,7 +123,12 @@ public class QuestionManagerController : MonoBehaviour {
                     if (a >= b)
                         QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
                     else
-                        QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                    {
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                    }
                     answer = a + b;
                 }
                 else
@@ -127,17 +136,22 @@ public class QuestionManagerController : MonoBehaviour {
                     if (a >= b || a == b)
                     {
                         QuestionText.GetComponent<Text>().text = (a + 1).ToString() + "\n-" + b.ToString() + "\n----";
-                        answer = a + 1 - b;
+                        a++;
+                        answer =a - b;
                     }
                     else
                     {
-                        QuestionText.GetComponent<Text>().text = b.ToString() + "\n-" + a.ToString() + "\n----";
-                        answer = b - a;
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n-" + b.ToString() + "\n----";
+                        answer = a - b;
                     }
                 }
                 break;
         }
-
+        GameManager.instance.a = a;
+        GameManager.instance.b = b;
         GameManager.instance.answer = answer;
         
     }

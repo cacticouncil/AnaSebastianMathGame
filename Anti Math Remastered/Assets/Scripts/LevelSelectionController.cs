@@ -21,16 +21,17 @@ public class LevelSelectionController : MonoBehaviour {
         if (Levels.Count != 0)
         {
             
-            current = Levels[(int)InfoManager.instance.ID];
+            previous = current = Levels[(int)InfoManager.instance.ID];
         }
 
         ZoomOutButton.transform.localScale = Vector3.zero;
         StartGameButton.transform.localScale = Vector3.zero;
+        previousID = (int)InfoManager.instance.ID;
     }
 
 
     private RaycastHit hit;
-    int previousID = 0;
+    int previousID;
     float ratio = 0;
     bool change = true;
     void Update()

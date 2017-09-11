@@ -38,7 +38,7 @@ public class BucketCanvasController : MonoBehaviour {
     {
         LowBucket1.transform.position = Vector3.Lerp(LowBucket1Pos, new Vector3(100,540,0), ratio);
         LowBucket2.transform.position = Vector3.Lerp(LowBucket2Pos, new Vector3(1000, 540, 0), ratio);
-        Answer1.GetComponentInChildren<Text>().text = (GameManager.instance.a + GameManager.instance.b).ToString();
+        Answer1.GetComponentInChildren<Text>().text = (GameManager.instance.answer).ToString();
     }
     
     public void PleaseMove()

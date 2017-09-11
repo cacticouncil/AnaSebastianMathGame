@@ -137,6 +137,8 @@ public class QuestionManagerController : MonoBehaviour {
                 }
                 break;
         }
+
+        GameManager.instance.answer = answer;
         
     }
 

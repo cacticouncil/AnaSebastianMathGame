@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
 
     public int a;
     public int b;
+    public int answer;
     #endregion
 
 

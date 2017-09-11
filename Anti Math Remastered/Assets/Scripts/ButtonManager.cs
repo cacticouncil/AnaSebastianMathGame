@@ -102,6 +102,10 @@ public class ButtonManager : MonoBehaviour {
         }
     }
 
+    public void SubmitCorrect()
+    {
+        QuestionManager.GetComponent<QuestionManagerController>().CompareResults(GameManager.instance.answer);
+    }
     public void load(string scene)
     {
         GameManager.instance.pauseGame = true;

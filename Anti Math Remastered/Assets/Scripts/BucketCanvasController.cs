@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BucketCanvasController : MonoBehaviour {
 
+    public GameObject QuestionManager;
+
     public GameObject LowBucket1;
     Vector3 LowBucket1Pos;
     public GameObject LowBucket2;
     Vector3 LowBucket2Pos;
-
+    public Image sign;
+    Vector3 SignPos;
     public Button Answer1;
     public Button Answer2;
     public Button Answer3;
@@ -33,11 +36,13 @@ public class BucketCanvasController : MonoBehaviour {
     {
         LowBucket1Pos = LowBucket1.transform.position;
         LowBucket2Pos = LowBucket2.transform.position;
+        SignPos = sign.transform.position;
     }
     void MoveToCenter()
     {
         LowBucket1.transform.position = Vector3.Lerp(LowBucket1Pos, new Vector3(100,540,0), ratio);
         LowBucket2.transform.position = Vector3.Lerp(LowBucket2Pos, new Vector3(1000, 540, 0), ratio);
+        sign.transform.position = Vector3.Lerp(SignPos, new Vector3(950,500,0), ratio);
         Answer1.GetComponentInChildren<Text>().text = (GameManager.instance.answer).ToString();
     }
     
@@ -51,6 +56,7 @@ public class BucketCanvasController : MonoBehaviour {
     }
     private void Update()
     {
+        sign.sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
         if (move)
         {
             MoveToCenter();

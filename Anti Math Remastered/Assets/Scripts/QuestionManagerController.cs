@@ -13,6 +13,9 @@ public class QuestionManagerController : MonoBehaviour {
     GameObject kid;
     [SerializeField]
     int hardness;
+    [HideInInspector]
+    public int SymbolType;
+    
 
     int b = 0;
     int a = 0;
@@ -67,7 +70,7 @@ public class QuestionManagerController : MonoBehaviour {
     {
         GameManager.QuestionTime -= GenerateQuestion;
     }
-    int type = 0;
+    int type;
     public void GenerateQuestion()
     {
         int difficulty = 0;
@@ -89,10 +92,12 @@ public class QuestionManagerController : MonoBehaviour {
                 break;
         }
 
-      
+        type = 0;
         switch (Equationtype)
         {
+            
             case (int)Equation.Addition:
+                SymbolType = 0;
                 if (a >= b)
                     QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
                 else
@@ -100,6 +105,7 @@ public class QuestionManagerController : MonoBehaviour {
                 answer = a + b;
                 break;
             case (int)Equation.Subtraction:
+                SymbolType = 1;
                 if (a >= b || a == b)
                 {
                     QuestionText.GetComponent<Text>().text = (a+1).ToString() + "\n-" + b.ToString() + "\n----";
@@ -117,9 +123,10 @@ public class QuestionManagerController : MonoBehaviour {
                 }
                 break;
             case 2:
-                type+= Random.Range(0,4);
+                type+= Random.Range(0,2);
                 if (type % 2 == 0)
                 {
+                    SymbolType = 0;
                     if (a >= b)
                         QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
                     else
@@ -133,6 +140,7 @@ public class QuestionManagerController : MonoBehaviour {
                 }
                 else
                 {
+                    SymbolType = 1;
                     if (a >= b || a == b)
                     {
                         QuestionText.GetComponent<Text>().text = (a + 1).ToString() + "\n-" + b.ToString() + "\n----";

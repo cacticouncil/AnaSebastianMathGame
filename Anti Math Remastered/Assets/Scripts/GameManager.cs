@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour {
     //just cats for mow
     public Sprite[] cats;
 
+    //Add? Subtract? you choose
+    public Sprite[] Symbols;
+
     public Material[] SkyBoxes;
     //Notification system to alert when a question happens
     public delegate void QuestionAction();

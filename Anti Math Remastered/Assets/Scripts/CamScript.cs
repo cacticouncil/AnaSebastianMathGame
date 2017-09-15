@@ -27,6 +27,10 @@ public class CamScript : MonoBehaviour {
     }
     private void LateUpdate()
     {
+        if (!InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Stop();
+        else if(!GetComponent<AudioSource>().isPlaying)
+            GetComponent<AudioSource>().Play();
         if (Move)
         {
             look = Vector3.Lerp(Levels.GivePreviousLevel().transform.position, Levels.CurrentLevel().transform.position, t);

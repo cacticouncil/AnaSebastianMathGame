@@ -17,6 +17,8 @@ public class InfoManager : MonoBehaviour {
 
     public uint ID;
 
+    public bool Sound = true;
+
     private void Awake()
     {
         //Do I exist?

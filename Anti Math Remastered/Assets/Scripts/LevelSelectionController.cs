@@ -27,6 +27,8 @@ public class LevelSelectionController : MonoBehaviour {
         ZoomOutButton.transform.localScale = Vector3.zero;
         StartGameButton.transform.localScale = Vector3.zero;
         previousID = (int)InfoManager.instance.ID;
+        LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
+        Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
     }
 
 
@@ -39,6 +41,7 @@ public class LevelSelectionController : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (EventSystem.current.IsPointerOverGameObject())
             return;
+        //if I hit a country and ONLY a country
         if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) 
             && !Cam.GetComponent<CamScript>().Move && !Cam.GetComponent<CamScript>().zoom && hit.collider.tag != "CurrentLevelButton")
         {
@@ -53,8 +56,8 @@ public class LevelSelectionController : MonoBehaviour {
             Debug.Log(InfoManager.instance.ID);
             
         }
-        if (current == previous)
-            return;
+      //  if (current == previous)
+      //      return;
         if (!Cam.GetComponent<CamScript>().Move)
         {
             if (change)

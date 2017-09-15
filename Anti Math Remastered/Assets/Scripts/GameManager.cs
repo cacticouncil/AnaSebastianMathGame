@@ -111,7 +111,9 @@ public class GameManager : MonoBehaviour {
     {
         MusicToPlay = LevelsMusic[InfoManager.instance.ID];
         AS.clip = MusicToPlay;
+        if (InfoManager.instance.Sound)
         AS.Play();
+
     }
 
     #region Accessors and mutators

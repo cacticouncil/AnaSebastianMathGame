@@ -133,4 +133,10 @@ public class ButtonManager : MonoBehaviour {
         else
             Time.timeScale = 1;
     }
+
+    public void ToggleSound(bool _toggle)
+    {
+        InfoManager.instance.Sound = !InfoManager.instance.Sound;
+        //_toggle;
+    }
 }

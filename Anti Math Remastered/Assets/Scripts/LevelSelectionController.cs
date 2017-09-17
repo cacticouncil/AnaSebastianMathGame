@@ -13,6 +13,7 @@ public class LevelSelectionController : MonoBehaviour {
     public Button SelectCountryButton;
     public Button ZoomOutButton;
     public Button StartGameButton;
+    public Text AboutCityText;
     public Button BackToMainMenu;
     GameObject current;
     GameObject previous;
@@ -26,9 +27,11 @@ public class LevelSelectionController : MonoBehaviour {
 
         ZoomOutButton.transform.localScale = Vector3.zero;
         StartGameButton.transform.localScale = Vector3.zero;
+        AboutCityText.transform.localScale = Vector3.zero;
         previousID = (int)InfoManager.instance.ID;
         LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
         Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
+        AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity();
     }
 
 
@@ -47,6 +50,7 @@ public class LevelSelectionController : MonoBehaviour {
             && !Cam.GetComponent<CamScript>().Move && !Cam.GetComponent<CamScript>().zoom && hit.collider.tag != "CurrentLevelButton")
         {
             InfoManager.instance.ID = (uint)hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getCityID() - 1;
+            AboutCityText.text = hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
             current = Levels[(int)InfoManager.instance.ID];
             previous = Levels[previousID];
             previousID = (int)InfoManager.instance.ID;
@@ -78,6 +82,7 @@ public class LevelSelectionController : MonoBehaviour {
 
                     ZoomOutButton.transform.localScale = Vector3.zero;
                 StartGameButton.transform.localScale = Vector3.zero;
+                    AboutCityText.transform.localScale = Vector3.zero;
                     BackToMainMenu.transform.localScale = Vector3.one;
                 }
                 
@@ -89,6 +94,7 @@ public class LevelSelectionController : MonoBehaviour {
                 BackToMainMenu.transform.localScale = Vector3.zero;
                 ZoomOutButton.transform.localScale = Vector3.one;
                 StartGameButton.transform.localScale = Vector3.one;
+                AboutCityText.transform.localScale = Vector3.one;
                
             }
             

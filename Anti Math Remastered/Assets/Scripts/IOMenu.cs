@@ -20,7 +20,7 @@ public class IOMenu : MonoBehaviour {
     string message;
     string loadmessage = "It works";
     string data;
-    FileInfo f;
+    FileInfo file;
 
     private void Start()
     {
@@ -28,13 +28,13 @@ public class IOMenu : MonoBehaviour {
      //  testt = Resources.Load<TextAsset>(Application.dataPath+ "PokemonNames.txt");      
      //   readPath = Application.dataPath + "/PokemonNames.txt";
      //   IOText.text = Keyss.text;
-        f = new FileInfo(Application.dataPath + "\\" + "PokemonNames.txt");
+        file = new FileInfo(Application.dataPath + "\\" + "PokemonNames.txt");
        // Save();
         ReadStuff(readPath);
 #elif UNITY_ANDROID
         //testt = Resources.Load<TextAsset>("PokemonNames.txt");
         readPath = Application.persistentDataPath + "/PokemonNames.txt";
-        f = new FileInfo(Application.persistentDataPath + "\\" + "PokemonNames.txt");
+        file = new FileInfo(Application.persistentDataPath + "\\" + "PokemonNames.txt");
        // Save();
 
         //IOText.text = testt.text;
@@ -66,14 +66,14 @@ public class IOMenu : MonoBehaviour {
     void Save()
     {
         StreamWriter w;
-        if (!f.Exists)
+        if (!file.Exists)
         {
-            w = f.CreateText();
+            w = file.CreateText();
         }
         else
         {
-            f.Delete();
-            w = f.CreateText();
+            file.Delete();
+            w = file.CreateText();
         }
         w.WriteLine(loadmessage);
         w.Close();

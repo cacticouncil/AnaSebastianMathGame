@@ -36,6 +36,7 @@ public class LevelSelectionController : MonoBehaviour {
     int previousID;
     float ratio = 0;
     bool change = true;
+    
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -56,8 +57,8 @@ public class LevelSelectionController : MonoBehaviour {
             Debug.Log(InfoManager.instance.ID);
             
         }
-      //  if (current == previous)
-      //      return;
+      // if (current == previous)
+      //     return;
         if (!Cam.GetComponent<CamScript>().Move)
         {
             if (change)
@@ -71,6 +72,7 @@ public class LevelSelectionController : MonoBehaviour {
                 LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
                 Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
                 SelectCountryButton.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
+
                 if (ratio >= 2)
                 {
 
@@ -87,6 +89,7 @@ public class LevelSelectionController : MonoBehaviour {
                 BackToMainMenu.transform.localScale = Vector3.zero;
                 ZoomOutButton.transform.localScale = Vector3.one;
                 StartGameButton.transform.localScale = Vector3.one;
+               
             }
             
 
@@ -97,6 +100,7 @@ public class LevelSelectionController : MonoBehaviour {
             {
                 ratio = 0;
                 change = true;
+                
             }
             ratio += Time.deltaTime*4;
             LevelTexts.text = "Traveling..";

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 683, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 48
+  controlID: 10
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1364
     height: 947
-  m_MinSize: {x: 406, y: 342}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 404, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 49
+  controlID: 11
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1364
     height: 606
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 50
+  controlID: 12
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,15 +228,15 @@ MonoBehaviour:
     y: 606
     width: 1364
     height: 341
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,9 +366,9 @@ MonoBehaviour:
     height: 585
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 46010000
     m_LastClickedID: 0
-    m_ExpandedIDs: defbffff00000000342c0000
+    m_ExpandedIDs: 60c6fcfff2c6fcfff2c8fcfffcc8fcff8ed5fcfff0d5fcffecd7fcfff2d7fcff88f4fcff1af5fcff16f7fcff1cf7fcff6234fdffea34fdffe636fdffec36fdff5e3cfdffe63cfdffe23efdffe83efdff5244fdffda44fdffd646fdffdc46fdff5e82fdffd887fdff4088fdff3c8afdff7a8bfdff1490fdff9490fdff9492fdff9e92fdff9a9efdff2c9ffdff28a1fdff2ea1fdff7aa4fdff0ca5fdff08a7fdff0ea7fdff74adfdff06aefdff02b0fdff08b0fdff72b8fdff06b9fdff02bbfdff08bbfdfff028feffb629feffb62bfeffc02bfeff6238feff886ffeff3684feff8894feffa4a2feff208bffffdefbffff00000000c64300002667000086890000ec8b000014b20000362b0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,14 +418,14 @@ MonoBehaviour:
     width: 1080
     height: 585
   m_SceneLighting: 1
-  lastFramingTime: 1063.048311404022
+  lastFramingTime: 86521.15879260082
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960.0003, y: 540.0002, z: 0}
+    m_Target: {x: 960, y: 540, z: 0}
     speed: 2
-    m_Value: {x: 960.0003, y: 540.0002, z: 0}
+    m_Value: {x: 960, y: 540, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -452,9 +452,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.010483366, y: -0.03611729, z: 0.00072058773, w: -0.9995743}
   m_Size:
-    m_Target: 2212.3208
+    m_Target: 1346.4
     speed: 2
-    m_Value: 2212.3208
+    m_Value: 1346.4
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -549,18 +549,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Pablo\Desktop\MathGame\Anti Math Remastered
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 961}
-    m_SelectedIDs: 00280000
-    m_LastClickedID: 10240
+    scrollPos: {x: 0, y: 159}
+    m_SelectedIDs: e2240000
+    m_LastClickedID: 9442
     m_ExpandedIDs: 00000000e22400001e250000262500002e2500004c250000a6250000fe250000162600004c2600007e2600001c270000442700005c270000d62800000e290000382900001e2a0000262a0000282a0000322a0000342a0000682a0000482f00004a2f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -614,8 +614,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 50260000
-    m_LastClickedInstanceID: 9808
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000038ad00007aad00000e360000fc3500005c36000002360000623600006e360000
     m_RenameOverlay:

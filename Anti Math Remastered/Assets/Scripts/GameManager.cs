@@ -86,11 +86,11 @@ public class GameManager : MonoBehaviour {
                 break;
             case 1:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 2;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 3;
                 break;
             case 2:
                 planetRadius = InfoManager.instance.planetRadius = 150;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 2;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
                 break;
         }
         //Uncomment this and comment the switch case above to re enable custom sizes

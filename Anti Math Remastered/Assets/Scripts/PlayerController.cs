@@ -46,22 +46,11 @@ public class PlayerController : MonoBehaviour {
         float angleY = Input.acceleration.y;
         float angleX = Input.acceleration.x;
         float speed = InfoManager.instance.planetRadius * 2 * Mathf.PI / 500.0f;
-        if (phone)
-        {
-            Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
-            if ((Mathf.Abs(angleZ) > 0.01f))
-            {
-                //Move
-                transform.RotateAround(Vector3.zero, m.GetColumn(0), (angleZ*2f-1f)/ speed);
-            }
-            if ((Mathf.Abs(angleX) > 0.01f))
-            {
-                //rotate
-                transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX*2));
-            }
-        }
-        else
-        {      
+#if UNITY_EDITOR
+
+      
+     //   if(!phone)
+     // {      
             int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
             int vert = (Input.GetKey(KeyCode.UpArrow) ? 1 : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
 
@@ -71,7 +60,23 @@ public class PlayerController : MonoBehaviour {
             //Move
             transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 
-        }
+      // }
+#elif UNITY_ANDROID
+      //  else
+      //  {
+            Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
+            if ((Mathf.Abs(angleZ) > 0.01f))
+            {
+                //Move
+                transform.RotateAround(Vector3.zero, m.GetColumn(0), (angleZ * 2f - 1f) / speed);
+            }
+            if ((Mathf.Abs(angleX) > 0.01f))
+            {
+                //rotate
+                transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX * 2));
+            }
+    //    }
+#endif
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();
     }
 

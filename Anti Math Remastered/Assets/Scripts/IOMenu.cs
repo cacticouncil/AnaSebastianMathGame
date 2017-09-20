@@ -22,23 +22,34 @@ public class IOMenu : MonoBehaviour {
     string data;
     FileInfo file;
 
+
+   // public Language English;
+    private void Awake()
+    {
+        string loadLanguage = ReadJsonStuff.LoadJsonFile("English.json");
+        IOText.text = loadLanguage;
+         InfoManager.instance.English = JsonUtility.FromJson<Language>(loadLanguage);
+    }
     private void Start()
     {
     #if UNITY_EDITOR
-     //  testt = Resources.Load<TextAsset>(Application.dataPath+ "PokemonNames.txt");      
-     //   readPath = Application.dataPath + "/PokemonNames.txt";
-     //   IOText.text = Keyss.text;
-        file = new FileInfo(Application.dataPath + "\\" + "PokemonNames.txt");
-       // Save();
-        ReadStuff(readPath);
+       testt = Resources.Load<TextAsset>(/*Application.dataPath +*/ "PokemonNames");
+        ///IOText.text = testt.ToString();
+        //   readPath = Application.dataPath + "/PokemonNames.txt";
+        //   IOText.text = Keyss.text;
+        //   file = new FileInfo(Application.dataPath + "\\" + "PokemonNames.txt");
+        // Save();
+        //ReadStuff(readPath);
 #elif UNITY_ANDROID
-        //testt = Resources.Load<TextAsset>("PokemonNames.txt");
-        readPath = Application.persistentDataPath + "/PokemonNames.txt";
-        file = new FileInfo(Application.persistentDataPath + "\\" + "PokemonNames.txt");
-       // Save();
-
-        //IOText.text = testt.text;
-       ReadStuff(readPath);
+        testt = Resources.Load<TextAsset>(/*Application.dataPath +*/ "PokemonNames");
+        //IOText.text = testt.ToString();
+    //     //testt = Resources.Load<TextAsset>("PokemonNames.txt");
+    //     readPath = Application.persistentDataPath + "/PokemonNames.txt";
+    //     file = new FileInfo(Application.persistentDataPath + "\\" + "TestPoem.txt");
+    //    // Save();
+    // 
+    //     //IOText.text = testt.text;
+    //    ReadStuff(readPath);
         
 #endif
         animalstext.text = "Total Targets: " + InfoManager.instance.AnimalAmount.ToString();
@@ -51,9 +62,9 @@ public class IOMenu : MonoBehaviour {
     {
         //StreamReader reader = new StreamReader(path);
 #if UNITY_EDITOR
-        StreamReader reader = File.OpenText(Application.dataPath + "\\" + "PokemonNames.txt");
+        StreamReader reader = new StreamReader(Application.dataPath + "\\" + "PokemonNames.txt");//File.OpenText(Application.dataPath + "\\" + "PokemonNames.txt");
 #elif UNITY_ANDROID
-        StreamReader reader = File.OpenText(Application.persistentDataPath + "\\" + "PokemonNames.txt");
+        StreamReader reader = new StreamReader(Application.persistentDataPath + "\\" + "PokemonNames.txt");//File.OpenText(Application.persistentDataPath + "\\" + "TestPoem.txt");
 
 #endif
         while (!reader.EndOfStream)

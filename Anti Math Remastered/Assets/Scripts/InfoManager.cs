@@ -19,6 +19,10 @@ public class InfoManager : MonoBehaviour {
 
     public bool Sound = true;
 
+    public Language English;
+
+    public Dictionary<int,string> GameTexts = new Dictionary<int,string>();
+    public List<string> GameTextsList = new List<string>();
     private void Awake()
     {
         //Do I exist?

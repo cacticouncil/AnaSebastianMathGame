@@ -27,7 +27,7 @@ public class QuestionManagerController : MonoBehaviour {
     }
     enum Equation
     {
-        Addition = 0, Subtraction
+        Addition = 0, Subtraction,AddAndSubtract,GreaterThan,LessThan
     }
     //This is for addition
     int[] Easy = new int[20];
@@ -122,7 +122,7 @@ public class QuestionManagerController : MonoBehaviour {
                     answer = a - b;
                 }
                 break;
-            case 2:
+            case (int)Equation.AddAndSubtract:
                 type+= Random.Range(0,2);
                 if (type % 2 == 0)
                 {
@@ -157,6 +157,11 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
+            case (int)Equation.GreaterThan:
+                break;
+            case (int)Equation.LessThan:
+                break;
+
         }
         GameManager.instance.a = a;
         GameManager.instance.b = b;

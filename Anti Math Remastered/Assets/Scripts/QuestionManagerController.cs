@@ -157,9 +157,14 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
-            case (int)Equation.GreaterThan:
-                break;
-            case (int)Equation.LessThan:
+
+            default:
+                SymbolType = 0;
+                if (a >= b)
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                else
+                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                answer = a + b;
                 break;
 
         }

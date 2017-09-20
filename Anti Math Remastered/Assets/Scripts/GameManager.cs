@@ -92,6 +92,36 @@ public class GameManager : MonoBehaviour {
                 planetRadius = InfoManager.instance.planetRadius = 150;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
                 break;
+            case 3:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+
+                break;
+            case 4:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                break;
+            case 5:
+                planetRadius = InfoManager.instance.planetRadius = 150;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                break;
+            case 6:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+
+                break;
+            case 7:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                break;
+            case 8:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                break;
+            case 9:
+                planetRadius = InfoManager.instance.planetRadius = 100;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                break;
         }
         //Uncomment this and comment the switch case above to re enable custom sizes
         //planetRadius = InfoManager.instance.planetRadius;

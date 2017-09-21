@@ -118,7 +118,7 @@ public class ButtonManager : MonoBehaviour {
 
     public void loadNextLevel()
     {
-        if (InfoManager.instance.ID < 2)
+        if (InfoManager.instance.ID < 10)
         {
         InfoManager.instance.ID = InfoManager.instance.ID + 1;
         load("3d camera behind kid");

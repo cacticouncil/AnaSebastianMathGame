@@ -40,6 +40,13 @@ public class BucketCanvasController : MonoBehaviour {
     private void Start()
     {
         LowBucket1Pos = LowBucket1.transform.position;
+        if (InfoManager.instance.ID == 3)
+        {
+            Answer1.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+            Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+            Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+        }
+        
         LowBucket2Pos = LowBucket2.transform.position;
         SignPos = sign.transform.position;
         Answer1Pos = Answer1.transform.position;
@@ -49,7 +56,7 @@ public class BucketCanvasController : MonoBehaviour {
         Answer3Pos = Answer3.transform.position;
         Positions[2] = Answer3Pos;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             SwapArrayElement(Positions,Random.Range(0,3), Random.Range(0, 3));
         }
@@ -58,7 +65,7 @@ public class BucketCanvasController : MonoBehaviour {
     {
         if (swapOrder)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 SwapArrayElement(Positions, Random.Range(0, 3), Random.Range(0, 3));
                 swapOrder = false;
@@ -85,9 +92,33 @@ public class BucketCanvasController : MonoBehaviour {
         int tempB = Random.Range(1, 5);
         if (tempA == tempB)
             tempA++;
+
+        if (InfoManager.instance.ID == 3)
+        {
+                    Answer1.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+            switch (QuestionManager.GetComponent<QuestionManagerController>().SymbolType)
+            {
+                case 2:
+                    Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[3];
+                    Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[4];
+                    break;
+                case 3:
+                    Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[2];
+                    Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[4];
+                    break;
+                case 4:
+                    Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[2];
+                    Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[3];
+                    break;
+            }
+            
+        }
+        else
+        {
         Answer1.GetComponentInChildren<Text>().text = (GameManager.instance.answer).ToString();
         Answer2.GetComponentInChildren<Text>().text = (GameManager.instance.answer +tempA ).ToString();
         Answer3.GetComponentInChildren<Text>().text = (GameManager.instance.answer + tempB).ToString();
+        }
 
 
     }
@@ -103,7 +134,12 @@ public class BucketCanvasController : MonoBehaviour {
     }
     private void Update()
     {
-        sign.sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+        if (InfoManager.instance.ID == 3)
+            sign.sprite = GameManager.instance.Symbols[5];
+        else
+            sign.sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+
+
         if (move)
         {
             MoveToCenter();

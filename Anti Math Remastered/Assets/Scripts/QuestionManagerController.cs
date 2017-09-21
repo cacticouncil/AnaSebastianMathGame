@@ -157,7 +157,19 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
+            case (int)Equation.GreaterThan:
+                if (a > b)
+                   answer = SymbolType = 3;   
+                
+                else if (b > a)
+                    answer = SymbolType = 4;
 
+                else
+                    answer = SymbolType = 2;
+
+                
+                   
+                break;
             default:
                 SymbolType = 0;
                 if (a >= b)

@@ -15,11 +15,12 @@ public class QuestionManagerController : MonoBehaviour {
     int hardness;
     [HideInInspector]
     public int SymbolType;
-    
+    [HideInInspector]
+    public int SymbolType2;
 
     int b = 0;
     int a = 0;
-
+    int c = 0;
     //More readability
     enum Difficulty
     {
@@ -81,14 +82,17 @@ public class QuestionManagerController : MonoBehaviour {
             case (int)Difficulty.easy:
                  a = Easy[(int)Random.Range(0, 10)];
                  b = Easy[(int)Random.Range(0, 10)];
+                c = Easy[(int)Random.Range(0, 10)];
                 break;
             case (int)Difficulty.normal:
                 a = Normal[(int)Random.Range(0, 49)];
                 b = Normal[(int)Random.Range(0, 49)];
+                c = Easy[(int)Random.Range(0, 49)]; 
                 break;
             case (int)Difficulty.hard:
                 a = Hard[(int)Random.Range(0, 99)];
                 b = Hard[(int)Random.Range(0, 99)];
+                c = Easy[(int)Random.Range(0, 99)];
                 break;
         }
 
@@ -165,11 +169,86 @@ public class QuestionManagerController : MonoBehaviour {
                     answer = SymbolType = 4;
 
                 else
-                    answer = SymbolType = 2;
-
-                
-                   
+                    answer = SymbolType = 2;       
                 break;
+         //   case (int)Equation.LessThan:
+         //       SymbolType = 0;
+         //      // SymbolType2 = 1;
+         //
+         //       break;
+            case 5:
+                SymbolType = 0;
+                if (a >= b)
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                else
+                    QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
+                answer = a + b;
+                break;
+            case 6:
+                SymbolType = 1;
+                if (a >= b || a == b)
+                {
+                    QuestionText.GetComponent<Text>().text = (a + 1).ToString() + "\n-" + b.ToString() + "\n----";
+                    a++;
+                    answer = a - b;
+                }
+                else
+                {
+                    int temp = a;
+                    a = b;
+                    b = temp;
+
+                    QuestionText.GetComponent<Text>().text = a.ToString() + "\n-" + b.ToString() + "\n----";
+                    answer = a - b;
+                }
+                break;
+            case 7:
+                type += Random.Range(0, 2);
+                if (type % 2 == 0)
+                {
+                    SymbolType = 0;
+                    if (a >= b)
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                    else
+                    {
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n----";
+                    }
+                    answer = a + b;
+                }
+                else
+                {
+                    SymbolType = 1;
+                    if (a >= b || a == b)
+                    {
+                        QuestionText.GetComponent<Text>().text = (a + 1).ToString() + "\n-" + b.ToString() + "\n----";
+                        a++;
+                        answer = a - b;
+                    }
+                    else
+                    {
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                        QuestionText.GetComponent<Text>().text = a.ToString() + "\n-" + b.ToString() + "\n----";
+                        answer = a - b;
+                    }
+                }
+                break;
+            case 8:
+                if (a > b)
+                    answer = SymbolType = 3;
+
+                else if (b > a)
+                    answer = SymbolType = 4;
+
+                else
+                    answer = SymbolType = 2;
+                break;
+          //  case 9:
+          //      break;
             default:
                 SymbolType = 0;
                 if (a >= b)

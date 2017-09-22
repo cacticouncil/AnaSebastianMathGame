@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
     AudioSource AS;
 
     //just cats for mow
-    public Sprite[] cats;
+    //public Sprite[] cats;
 
     //Add? Subtract? you choose
     public Sprite[] Symbols;

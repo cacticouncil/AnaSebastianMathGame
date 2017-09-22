@@ -10,7 +10,8 @@ public class LoadScenes : MonoBehaviour {
     public Button CreditsButton;
     public Button OptionsButton;
     public Button BackToMainButton;
-
+    public Text Title;
+    public Text TapToStart;
     public void load(string scene)
     {
         SceneManager.LoadScene(scene);
@@ -45,6 +46,8 @@ public class LoadScenes : MonoBehaviour {
         if (ratio >= 0.95f)
         {
             pic.enabled = false;
+            Title.enabled = false;
+            TapToStart.enabled = false;
             CreditsButton.transform.localScale = Vector3.zero;
             OptionsButton.transform.localScale = Vector3.zero;
              doit = false;
@@ -72,6 +75,8 @@ public class LoadScenes : MonoBehaviour {
         if (ratio <= 0.95f)
         {
             pic.enabled = true;
+            Title.enabled = true;
+            TapToStart.enabled = true;
             CreditsButton.transform.localScale = Vector3.one;
             OptionsButton.transform.localScale = Vector3.one;
             

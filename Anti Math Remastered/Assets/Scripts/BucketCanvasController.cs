@@ -8,10 +8,22 @@ public class BucketCanvasController : MonoBehaviour {
 
     public GameObject LowBucket1;
     Vector3 LowBucket1Pos;
+    public Transform Skybucket1;
+
     public GameObject LowBucket2;
     Vector3 LowBucket2Pos;
+    public Transform Skybucket2;
+
+    public GameObject LowBucket3;
+    Vector3 LowBucket3Pos;
+    public Transform Skybucket3;
+
     public Image sign;
     Vector3 SignPos;
+
+    public Image sign2;
+    Vector3 SignPos2;
+
     public Button Answer1;
     Vector3 Answer1Pos;
     public Button Answer2;
@@ -39,15 +51,17 @@ public class BucketCanvasController : MonoBehaviour {
 
     private void Start()
     {
-        LowBucket1Pos = LowBucket1.transform.position;
-        if (InfoManager.instance.ID == 3)
+        if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
         {
-            Answer1.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
-            Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
-            Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
+            Answer1.GetComponent<Image>().sprite = GameManager.instance.Symbols[2];
+            Answer2.GetComponent<Image>().sprite = GameManager.instance.Symbols[3];
+            Answer3.GetComponent<Image>().sprite = GameManager.instance.Symbols[4];
         }
         
+        LowBucket1Pos = LowBucket1.transform.position;       
         LowBucket2Pos = LowBucket2.transform.position;
+        //LowBucket3Pos = LowBucket3.transform.position;
+
         SignPos = sign.transform.position;
         Answer1Pos = Answer1.transform.position;
         Positions[0] = Answer1Pos;
@@ -61,6 +75,7 @@ public class BucketCanvasController : MonoBehaviour {
             SwapArrayElement(Positions,Random.Range(0,3), Random.Range(0, 3));
         }
     }
+
     void MoveToCenter()
     {
         if (swapOrder)
@@ -71,9 +86,9 @@ public class BucketCanvasController : MonoBehaviour {
                 swapOrder = false;
             }
         }
-        LowBucket1.transform.position = Vector3.Lerp(LowBucket1Pos, new Vector3(100,540,0), ratio);
-        LowBucket2.transform.position = Vector3.Lerp(LowBucket2Pos, new Vector3(1000, 540, 0), ratio);
-        sign.transform.position = Vector3.Lerp(SignPos, new Vector3(950,500,0), ratio);
+        LowBucket1.transform.position = Vector3.Lerp(LowBucket1Pos, new Vector3(Screen.width/22,540,0), ratio);
+        LowBucket2.transform.position = Vector3.Lerp(LowBucket2Pos, new Vector3(Screen.width/20*10.5f, 540, 0), ratio);
+        sign.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 2, 500, 0), ratio);
         Answer1.transform.position = Vector3.Lerp(Positions[0], new Vector3(Positions[0].x, 120, 0), ratio);
       //  Answer1.GetComponentInChildren<Text>().text = (GameManager.instance.answer).ToString();
         Answer2.transform.position = Vector3.Lerp(Positions[1], new Vector3(Positions[1].x, 120, 0), ratio);
@@ -93,7 +108,7 @@ public class BucketCanvasController : MonoBehaviour {
         if (tempA == tempB)
             tempA++;
 
-        if (InfoManager.instance.ID == 3)
+        if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
         {
                     Answer1.GetComponent<Image>().sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];
             switch (QuestionManager.GetComponent<QuestionManagerController>().SymbolType)
@@ -134,7 +149,7 @@ public class BucketCanvasController : MonoBehaviour {
     }
     private void Update()
     {
-        if (InfoManager.instance.ID == 3)
+        if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
             sign.sprite = GameManager.instance.Symbols[5];
         else
             sign.sprite = GameManager.instance.Symbols[QuestionManager.GetComponent<QuestionManagerController>().SymbolType];

@@ -27,7 +27,7 @@ public class UIQuestionCanvasManager : MonoBehaviour {
         }
 
         SetQuestionCanvasState();
-        EndGameUi.GetComponentInChildren<Image>().sprite = GameManager.instance.cats[InfoManager.instance.ID];
+       // EndGameUi.GetComponentInChildren<Image>().sprite = GameManager.instance.cats[InfoManager.instance.ID];
     }
 
     private void Update()

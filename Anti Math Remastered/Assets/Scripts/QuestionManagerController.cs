@@ -108,6 +108,7 @@ public class QuestionManagerController : MonoBehaviour {
                     QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
                 answer = a + b;
                 break;
+/////////////////
             case (int)Equation.Subtraction:
                 SymbolType = 1;
                 if (a >= b || a == b)
@@ -126,6 +127,8 @@ public class QuestionManagerController : MonoBehaviour {
                     answer = a - b;
                 }
                 break;
+
+/////////////////
             case (int)Equation.AddAndSubtract:
                 type+= Random.Range(0,2);
                 if (type % 2 == 0)
@@ -161,6 +164,8 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
+
+/////////////////
             case (int)Equation.Comparisson:
                 if (a > b)
                    answer = SymbolType = 3;   
@@ -171,11 +176,24 @@ public class QuestionManagerController : MonoBehaviour {
                 else
                     answer = SymbolType = 2;       
                 break;
+/////////////////
+
             case (int)Equation.MultipleEq:
+                type = Random.Range(0, 2);
+                if (type == 0)
+                {
+
+                }
+                else
+                {
+
+                }
                 SymbolType = 0;
                  SymbolType2 = 1;
 
                 break;
+
+/////////////////
             case 5:
                 SymbolType = 0;
                 if (a >= b)
@@ -184,6 +202,8 @@ public class QuestionManagerController : MonoBehaviour {
                     QuestionText.GetComponent<Text>().text = b.ToString() + "\n+" + a.ToString() + "\n----";
                 answer = a + b;
                 break;
+
+/////////////////
             case 6:
                 SymbolType = 1;
                 if (a >= b || a == b)
@@ -202,6 +222,8 @@ public class QuestionManagerController : MonoBehaviour {
                     answer = a - b;
                 }
                 break;
+
+/////////////////
             case 7:
                 type += Random.Range(0, 2);
                 if (type % 2 == 0)
@@ -237,6 +259,8 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
+
+/////////////////
             case 8:
                 if (a > b)
                     answer = SymbolType = 3;
@@ -247,6 +271,7 @@ public class QuestionManagerController : MonoBehaviour {
                 else
                     answer = SymbolType = 2;
                 break;
+/////////////////
           //  case 9:
           //      break;
             default:

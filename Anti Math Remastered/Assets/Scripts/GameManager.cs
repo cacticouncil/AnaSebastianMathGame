@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour {
         switch (InfoManager.instance.ID)
         {
             case 0:
-                planetRadius = InfoManager.instance.planetRadius = 50;
+                planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 2;
 
                 break;
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
                 AnimalAmount = InfoManager.instance.AnimalAmount = 3;
                 break;
             case 2:
-                planetRadius = InfoManager.instance.planetRadius = 150;
+                planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
                 break;
             case 3:
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
                 break;
             case 5:
-                planetRadius = InfoManager.instance.planetRadius = 150;
+                planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
                 break;
             case 6:

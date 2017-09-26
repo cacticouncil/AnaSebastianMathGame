@@ -29,7 +29,7 @@ public class LevelSelectionController : MonoBehaviour {
         StartGameButton.transform.localScale = Vector3.zero;
         AboutCityText.transform.localScale = Vector3.zero;
         previousID = (int)InfoManager.instance.ID;
-        LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
+        LevelTexts.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getName();//.ToString();
         Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
         AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity();
     }
@@ -73,7 +73,7 @@ public class LevelSelectionController : MonoBehaviour {
             if (!Cam.GetComponent<CamScript>().zoom)
             {
                 ratio += Time.deltaTime * 2;
-                LevelTexts.text = Levels[(int)InfoManager.instance.ID].ToString();
+                LevelTexts.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getName(); //Levels[(int)InfoManager.instance.ID].ToString();
                 Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
                 SelectCountryButton.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
 

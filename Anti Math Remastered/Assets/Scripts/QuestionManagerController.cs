@@ -26,9 +26,9 @@ public class QuestionManagerController : MonoBehaviour {
     {
         easy = 0, normal, hard
     }
-    enum Equation
+   public enum Equation
     {
-        Addition = 0, Subtraction,AddAndSubtract,GreaterThan,LessThan
+        Addition = 0, Subtraction,AddAndSubtract,Comparisson,MultipleEq
     }
     //This is for addition
     int[] Easy = new int[20];
@@ -161,7 +161,7 @@ public class QuestionManagerController : MonoBehaviour {
                     }
                 }
                 break;
-            case (int)Equation.GreaterThan:
+            case (int)Equation.Comparisson:
                 if (a > b)
                    answer = SymbolType = 3;   
                 
@@ -171,11 +171,11 @@ public class QuestionManagerController : MonoBehaviour {
                 else
                     answer = SymbolType = 2;       
                 break;
-         //   case (int)Equation.LessThan:
-         //       SymbolType = 0;
-         //      // SymbolType2 = 1;
-         //
-         //       break;
+            case (int)Equation.MultipleEq:
+                SymbolType = 0;
+                 SymbolType2 = 1;
+
+                break;
             case 5:
                 SymbolType = 0;
                 if (a >= b)

@@ -60,12 +60,14 @@ public class IOMenu : MonoBehaviour {
 
     void ReadStuff(string path)
     {
+
         //StreamReader reader = new StreamReader(path);
 #if UNITY_EDITOR
         StreamReader reader = new StreamReader(Application.dataPath + "\\" + "PokemonNames.txt");//File.OpenText(Application.dataPath + "\\" + "PokemonNames.txt");
 #elif UNITY_ANDROID
         StreamReader reader = new StreamReader(Application.persistentDataPath + "\\" + "PokemonNames.txt");//File.OpenText(Application.persistentDataPath + "\\" + "TestPoem.txt");
-
+#else
+        StreamReader reader = new StreamReader(Application.dataPath + "\\" + "PokemonNames.txt");
 #endif
         while (!reader.EndOfStream)
         {

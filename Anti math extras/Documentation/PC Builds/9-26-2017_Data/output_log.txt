@@ -1,0 +1,316 @@
+Initialize engine version: 5.6.3p1 (9c92e827232b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA Quadro K2200M (ID=0x13b3)
+    Vendor:   NVIDIA
+    VRAM:     2017 MB
+    Driver:   22.21.13.8178
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.095 seconds
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Pablo\Desktop\MathGame\Anti math extras\Documentation\PC Builds\9-26-2017_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.433626 ms
+{
+	
+	"Title": "The adventures of Ana and Sebastian",
+	"OptionsB": "Options",		
+	"CreditsB": "Credits",
+	"TapStart": "Tap to Start",
+	"Sound": "Sound",
+	"Languaje": "Languaje",
+	"BackToMenuB": "Back to Menu",
+	"People": "Pablo Bernal",
+	"Bogota": "Bogota, Colombia",
+	"BogotaTopic": "Addition",
+	"BogotaDescription": "Cold",
+	"Quito": "Quito, Ecuador",
+	"QuitoTopic": "Subtraction",
+	"QuitoDescription": "Center of the world",
+	"Lima": "Lima, Peru",
+	"LimaTopic": "Addition and Subtraction",
+	"LimaDescription": "Llamas",
+	"LaPaz": "La Paz, Bolivia",
+	"LaPazTopic": "Greater Than",
+	"LaPazDescription": "RIP sea",
+	"Santiago": "Santiago, Chile",
+	"SantiagoTopic": "Less Than",
+	"SantiagoDescription": "Good wine",
+	"BuenosAires": "Buenos Aires, Argentina",
+	"BuenosAiresTopic": "Greater and Less Than",
+	"BuenosAiresDescription": "Europe in South America",
+	"Montevideo": "Montevideo, Uruguay",
+	"MontevideoTopic": "TBD",
+	"MontevideoDescription": "Very calm",
+	"Asuncion": "Asuncion, Paraguay",
+	"AsuncionTopic": "TBD",
+	"AsuncionDescription": "Very hot during summer",
+	"Brasilia": "Brasilia, Brazil",
+	"BrasiliaTopic": "TBD",
+	"BrasiliaDescription": "Portuguese instead fo spanish",
+	"Caracas": "Caracas, Venezuela",
+	"CaracasTopic": "TBD",
+	"CaracasDescription": "There is a lot of oil here",
+	"StartGame": "Start Trip!",
+	"Return": "Return",
+	"TargetsRemaining": "Targets remaining: ",
+	"PauseB": "Pause game",
+	"Continue": "Continue"
+}
+
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 19ba4 -> priority: 1 
+  Thread -> id: 608 -> priority: 1 
+  Thread -> id: 15f60 -> priority: 1 
+  Thread -> id: 1a52c -> priority: 1 
+0.5003549
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.5173594
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.5337012
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.5503213
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.5672982
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.5837308
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.6005718
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.6170354
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.634
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.6504325
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.6669402
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.6837122
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7002145
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7172481
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7336798
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7503574
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7673606
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.7838025
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8006998
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8173676
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8339581
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8503599
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8670592
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.8843083
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.9003747
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.9171742
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.9338014
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.901328 ms
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 1399.
+Total: 1.448816 ms (FindLiveObjects: 0.117416 ms CreateObjectMapping: 0.059529 ms MarkObjects: 1.020206 ms  DeleteObjects: 0.250433 ms)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+9
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+9
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+10
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.392982 ms
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 852.
+Total: 0.729129 ms (FindLiveObjects: 0.046391 ms CreateObjectMapping: 0.026685 ms MarkObjects: 0.394945 ms  DeleteObjects: 0.260696 ms)
+
+{
+	
+	"Title": "The adventures of Ana and Sebastian",
+	"OptionsB": "Options",		
+	"CreditsB": "Credits",
+	"TapStart": "Tap to Start",
+	"Sound": "Sound",
+	"Languaje": "Languaje",
+	"BackToMenuB": "Back to Menu",
+	"People": "Pablo Bernal",
+	"Bogota": "Bogota, Colombia",
+	"BogotaTopic": "Addition",
+	"BogotaDescription": "Cold",
+	"Quito": "Quito, Ecuador",
+	"QuitoTopic": "Subtraction",
+	"QuitoDescription": "Center of the world",
+	"Lima": "Lima, Peru",
+	"LimaTopic": "Addition and Subtraction",
+	"LimaDescription": "Llamas",
+	"LaPaz": "La Paz, Bolivia",
+	"LaPazTopic": "Greater Than",
+	"LaPazDescription": "RIP sea",
+	"Santiago": "Santiago, Chile",
+	"SantiagoTopic": "Less Than",
+	"SantiagoDescription": "Good wine",
+	"BuenosAires": "Buenos Aires, Argentina",
+	"BuenosAiresTopic": "Greater and Less Than",
+	"BuenosAiresDescription": "Europe in South America",
+	"Montevideo": "Montevideo, Uruguay",
+	"MontevideoTopic": "TBD",
+	"MontevideoDescription": "Very calm",
+	"Asuncion": "Asuncion, Paraguay",
+	"AsuncionTopic": "TBD",
+	"AsuncionDescription": "Very hot during summer",
+	"Brasilia": "Brasilia, Brazil",
+	"BrasiliaTopic": "TBD",
+	"BrasiliaDescription": "Portuguese instead fo spanish",
+	"Caracas": "Caracas, Venezuela",
+	"CaracasTopic": "TBD",
+	"CaracasDescription": "There is a lot of oil here",
+	"StartGame": "Start Trip!",
+	"Return": "Return",
+	"TargetsRemaining": "Targets remaining: ",
+	"PauseB": "Pause game",
+	"Continue": "Continue"
+}
+
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

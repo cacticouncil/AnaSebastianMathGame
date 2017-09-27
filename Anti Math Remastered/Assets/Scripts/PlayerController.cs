@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
             //Move
             transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 
-      // }
+        // }
 #elif UNITY_ANDROID
       //  else
       //  {
@@ -76,6 +76,16 @@ public class PlayerController : MonoBehaviour {
                 transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX * 2));
             }
     //    }
+
+#else
+        int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
+            int vert = (Input.GetKey(KeyCode.UpArrow) ? 1 : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
+
+            Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
+            //Rotate
+            transform.RotateAround(Vector3.zero, m.GetColumn(1), horiz*2);
+            //Move
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 #endif
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();
     }

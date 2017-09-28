@@ -42,16 +42,17 @@ public class PlayerController : MonoBehaviour {
             return;
         //Get angles (-1 to 1) from phone rotation
         float angleZ = -Input.acceleration.z;
-        GetComponentInChildren<Animator>().speed = Mathf.Abs(angleZ)*2;
+       
         float angleY = Input.acceleration.y;
         float angleX = Input.acceleration.x;
         float speed = InfoManager.instance.planetRadius * 2 * Mathf.PI / 500.0f;
 #if UNITY_EDITOR
 
-      
-     //   if(!phone)
-     // {      
-            int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
+
+        //   if(!phone)
+        // {      
+        GetComponentInChildren<Animator>().speed = Mathf.Abs(1);
+        int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
             int vert = (Input.GetKey(KeyCode.UpArrow) ? 1 : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
 
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 #elif UNITY_ANDROID
       //  else
       //  {
+         GetComponentInChildren<Animator>().speed = Mathf.Abs(angleZ)*2;
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
             if ((Mathf.Abs(angleZ) > 0.01f))
             {

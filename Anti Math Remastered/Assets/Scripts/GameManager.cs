@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour {
     AudioClip MusicToPlay;
     AudioSource AS;
 
-    //just cats for mow
-    //public Sprite[] cats;
+    //just cats for now
+    public Sprite[] Skylines;
 
     //Add? Subtract? you choose
     public Sprite[] Symbols;

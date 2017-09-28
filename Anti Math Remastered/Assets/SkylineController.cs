@@ -39,7 +39,7 @@ public class SkylineController : MonoBehaviour {
 
         Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
         //Rotate
-        transform.RotateAround(Vector3.zero, m.GetColumn(1), -horiz *2);
+        transform.RotateAround(Vector3.zero, m.GetColumn(1),0 /*-horiz *2*/);
         //Move
        // transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 

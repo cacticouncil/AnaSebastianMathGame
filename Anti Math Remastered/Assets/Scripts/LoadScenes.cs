@@ -12,6 +12,9 @@ public class LoadScenes : MonoBehaviour {
     public Button BackToMainButton;
     public Text Title;
     public Text TapToStart;
+
+    
+    
     public void load(string scene)
     {
         SceneManager.LoadScene(scene);

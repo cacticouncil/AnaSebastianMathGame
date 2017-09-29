@@ -178,20 +178,20 @@ public class QuestionManagerController : MonoBehaviour {
                 break;
 /////////////////
 
-            case (int)Equation.MultipleEq:
-                type = Random.Range(0, 2);
-                if (type == 0)
-                {
+            //case (int)Equation.MultipleEq:
+            //    type = Random.Range(0, 2);
+            //    if (type == 0)
+            //    {
 
-                }
-                else
-                {
+            //    }
+            //    else
+            //    {
 
-                }
-                SymbolType = 0;
-                 SymbolType2 = 1;
+            //    }
+            //    SymbolType = 0;
+            //     SymbolType2 = 1;
 
-                break;
+            //    break;
 
 /////////////////
             case 5:

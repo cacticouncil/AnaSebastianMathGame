@@ -75,7 +75,7 @@ public class LoadScenes : MonoBehaviour {
         pic.color = col;
 
         ratio -= Time.deltaTime;
-        if (ratio <= 0.95f)
+        if (ratio <= 0.5f)
         {
             pic.enabled = true;
             Title.enabled = true;

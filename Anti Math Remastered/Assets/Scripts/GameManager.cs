@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour {
                 player.GetComponent<AudioSource>().Play();
             else
             {
-                player.GetComponent<AudioSource>().clip = LevelsMusic[3];
+                player.GetComponent<AudioSource>().clip = LevelsMusic[10];
                 player.GetComponent<AudioSource>().Play();
             }
                

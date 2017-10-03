@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour {
 
     public GameObject MainMenu;
@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour {
     private void Start()
     {
         GoToMainMenu();
+        Time.timeScale = 1;
     }
 
     public void GoToMainMenu()
@@ -40,6 +41,29 @@ public class MenuManager : MonoBehaviour {
         CreditsMenu.SetActive(true);
         LevelSelectionMenu.SetActive(false);
         LevelSelectedMenu.SetActive(false);
+    }
+
+    public void GoToLevelSelection()
+    {
+        MainMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
+        LevelSelectionMenu.SetActive(true);
+        LevelSelectedMenu.SetActive(false);
+    }
+
+    public void GoToLevelSelected()
+    {
+        MainMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
+        LevelSelectionMenu.SetActive(false);
+        LevelSelectedMenu.SetActive(true);
+    }
+
+    public void load(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
 }

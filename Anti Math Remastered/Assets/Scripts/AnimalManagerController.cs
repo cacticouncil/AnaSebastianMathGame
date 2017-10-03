@@ -6,6 +6,7 @@ public class AnimalManagerController : MonoBehaviour {
 
     uint animaltotal;
     GameObject animal;
+    public GameObject plant;
     public Text DonkeyAmount;
     [HideInInspector]
     public  List<GameObject> Animals = new List<GameObject>();
@@ -22,6 +23,15 @@ public class AnimalManagerController : MonoBehaviour {
             temp.transform.Rotate(-90, 0, 0);
             AnimalController.AnimalCount++;
             Animals.Add(temp);
+        }
+
+        for (int i = 0; i < 200; i++)
+        {
+            GameObject temp = Instantiate(plant);
+            temp.GetComponent<PlantsController>().SetupPlants();
+            temp.GetComponent<SpriteRenderer>().sprite = GameManager.instance.Plants[Random.Range(0,44)];
+            temp.transform.LookAt(Vector3.zero);
+            temp.transform.Rotate(-90, 0, 0);
         }
         DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
     }

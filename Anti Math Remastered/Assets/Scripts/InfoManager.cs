@@ -35,6 +35,7 @@ public class InfoManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this);
+        QualitySettings.vSyncCount = 2;
     }
 
    

@@ -38,6 +38,12 @@ public class BucketsCanvasController : MonoBehaviour {
 
     private void Start()
     {
+        if (InfoManager.instance.Basquet)
+            gameObject.SetActive(true);
+        
+        else
+            gameObject.SetActive(false);
+        
         SignPos = Sign.transform.position;
         if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
         {

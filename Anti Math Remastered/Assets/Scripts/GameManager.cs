@@ -223,7 +223,10 @@ public class GameManager : MonoBehaviour {
             if (QuestionTime != null)
             {
                 QuestionTime();
-                SetBasket();
+                if (SetBasket != null)
+                 SetBasket();
+                
+
                 Animal = other.gameObject;
             }
                 

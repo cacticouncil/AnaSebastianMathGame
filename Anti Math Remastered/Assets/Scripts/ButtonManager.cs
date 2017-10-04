@@ -16,14 +16,23 @@ public class ButtonManager : MonoBehaviour {
     [HideInInspector]
     public int number = 0;
 
-  
+    public Toggle Sound;
+    public Toggle BucketOrCalc;
     
     //buffer for number input, prior to submission
     StringBuilder numbahs = new StringBuilder();
-    
-    
+
+
     //The way this function is setup does not account for negative numbers,
     //since the numbers than can be passed in are fixed ( 0 to 11).
+    private void Start()
+    {
+        if(Sound != null)
+        Sound.isOn = InfoManager.instance.Sound;
+        if(BucketOrCalc != null)
+        BucketOrCalc.isOn = InfoManager.instance.Basquet;
+    }
+
     public void SetNumber(int _in)
     {
         
@@ -115,7 +124,7 @@ public class ButtonManager : MonoBehaviour {
         GameManager.instance.pauseGame = true;
         SceneManager.LoadScene(scene);
     }
-
+    
     public void loadNextLevel()
     {
         if (InfoManager.instance.ID < 10)
@@ -140,7 +149,17 @@ public class ButtonManager : MonoBehaviour {
 
     public void ToggleSound(bool _toggle)
     {
-        InfoManager.instance.Sound = !InfoManager.instance.Sound;
+        InfoManager.instance.Sound = _toggle;
         //_toggle;
     }
+
+    
+    public void ToggleBucketCalculator(bool _toggle)
+    {
+        InfoManager.instance.Basquet = _toggle;
+        
+        //_toggle;
+    }
+
+    
 }

@@ -17,7 +17,11 @@ public class InfoManager : MonoBehaviour {
 
     public uint ID;
 
-    public bool Sound = true;
+    public bool Sound;
+
+   
+    public bool Basquet;
+
 
     public Language English;
 
@@ -35,6 +39,7 @@ public class InfoManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this);
+        
         QualitySettings.vSyncCount = 2;
     }
 

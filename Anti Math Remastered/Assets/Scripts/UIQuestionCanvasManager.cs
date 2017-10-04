@@ -25,6 +25,11 @@ public class UIQuestionCanvasManager : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+        if (!InfoManager.instance.Basquet)
+        uitrans.gameObject.SetActive(true);
+        else
+           uitrans.gameObject.SetActive(false);
+
 
         SetQuestionCanvasState();
        // EndGameUi.GetComponentInChildren<Image>().sprite = GameManager.instance.cats[InfoManager.instance.ID];

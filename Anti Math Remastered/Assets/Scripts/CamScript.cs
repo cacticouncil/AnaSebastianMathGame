@@ -17,7 +17,8 @@ public class CamScript : MonoBehaviour {
         look = Levels.GetLevel((int)InfoManager.instance.ID).transform.position;
         Car.transform.position = look;
         Car.transform.LookAt(look,Vector3.back);
-        transform.LookAt(look);
+       // transform.LookAt(look,Vector3.up);
+        transform.position = new Vector3(look.x, look.y, transform.position.z);
         FOV = Camera.main.fieldOfView;
     }
 
@@ -34,6 +35,7 @@ public class CamScript : MonoBehaviour {
         if (Move)
         {
             look = Vector3.Lerp(Levels.GivePreviousLevel().transform.position, Levels.CurrentLevel().transform.position, t);
+            transform.position = new Vector3(look.x, look.y, transform.position.z);
             Car.transform.position = look;
             t += Time.deltaTime;
             if (t > 1)
@@ -51,6 +53,7 @@ public class CamScript : MonoBehaviour {
         if (zoom)
         {
             Camera.main.fieldOfView = Mathf.Lerp(FOV, 20, zoomr);
+           
             zoomr += Time.deltaTime;
             if (zoomr >= 1)
                 zoomr = 1;

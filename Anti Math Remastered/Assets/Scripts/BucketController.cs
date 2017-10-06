@@ -61,6 +61,16 @@ public class BucketController : MonoBehaviour {
             case 2:
                 amount = GameManager.instance.b;
                 break;
+            case 3:
+                amount = GameManager.instance.a;
+                break;
+            case 4:
+                amount = GameManager.instance.b;
+                break;
+            case 5:
+                amount = GameManager.instance.c;
+                break;
+          
         }
         Debug.Log(amount);
         if (ContainedElements.Count != 0)

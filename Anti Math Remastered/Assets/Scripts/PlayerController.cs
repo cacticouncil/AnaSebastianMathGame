@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
    
     //Pc or mobile?
     public bool phone = true;
-  
+    public GameObject Joystick;
+    JoystickController js;
     //change from pc to mobile
     public void SetPhone()
     {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         ////use the gyroscope
         //Input.gyro.enabled = true;
-        
+        js = Joystick.GetComponent<JoystickController>();
 	}
 	
 	// Update is called once per frame
@@ -57,16 +58,21 @@ public class PlayerController : MonoBehaviour {
 
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
             //Rotate
-            transform.RotateAround(Vector3.zero, m.GetColumn(1), horiz*2);
+            transform.RotateAround(Vector3.zero, m.GetColumn(1), js.getX()/*horiz*2*/);
             //Move
-            transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), /*vert*/ js.GetY() / speed);
 
-        // }
+
+
+
 #elif UNITY_ANDROID
+        // }
       //  else
       //  {
          GetComponentInChildren<Animator>().speed = Mathf.Abs(angleZ)*2;
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
+        if(InfoManager.instance.Gyroscope)
+        {
             if ((Mathf.Abs(angleZ) > 0.01f))
             {
                 //Move
@@ -77,7 +83,15 @@ public class PlayerController : MonoBehaviour {
                 //rotate
                 transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX * 2));
             }
+        }
+        else
+        {
+           
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), js.GetY() / speed);
+
+            transform.RotateAround(Vector3.zero, m.GetColumn(1), (js.getX() * 2));
     //    }
+        }
 
 #else
         int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
@@ -85,9 +99,9 @@ public class PlayerController : MonoBehaviour {
 
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
             //Rotate
-            transform.RotateAround(Vector3.zero, m.GetColumn(1), horiz*2);
+            transform.RotateAround(Vector3.zero, m.GetColumn(1),  js.getX());
             //Move
-            transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), js.getY() / speed);
 #endif
         text.GetComponent<Text>().text = "X: " + angleX.ToString() + "\n Y: " + angleY.ToString() + "\n Z: " + angleZ.ToString();
     }

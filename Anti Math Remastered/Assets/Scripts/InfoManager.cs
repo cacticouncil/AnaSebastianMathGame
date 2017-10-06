@@ -17,11 +17,11 @@ public class InfoManager : MonoBehaviour {
 
     public uint ID;
 
-    public bool Sound;
-
+    public volatile bool Sound;
    
-    public bool Basquet;
+    public volatile bool Basquet;
 
+    public volatile bool Gyroscope;
 
     public Language English;
 

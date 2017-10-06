@@ -18,7 +18,7 @@ public class ButtonManager : MonoBehaviour {
 
     public Toggle Sound;
     public Toggle BucketOrCalc;
-    
+    public Toggle GyroToggle;
     //buffer for number input, prior to submission
     StringBuilder numbahs = new StringBuilder();
 
@@ -31,6 +31,8 @@ public class ButtonManager : MonoBehaviour {
         Sound.isOn = InfoManager.instance.Sound;
         if(BucketOrCalc != null)
         BucketOrCalc.isOn = InfoManager.instance.Basquet;
+        if (GyroToggle != null)
+            GyroToggle.isOn = InfoManager.instance.Gyroscope;
     }
 
     public void SetNumber(int _in)
@@ -161,5 +163,11 @@ public class ButtonManager : MonoBehaviour {
         //_toggle;
     }
 
-    
+    public void ToggleJoystic(bool _toggle)
+    {
+        InfoManager.instance.Gyroscope = _toggle;
+
+        //_toggle;
+    }
+
 }

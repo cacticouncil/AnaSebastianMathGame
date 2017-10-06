@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     // pass the player
     public GameObject player;
 
+    //joystic
+    public GameObject Joystic;
     // the planet
     public GameObject planet;
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour {
 
     public int a;
     public int b;
+    public int c;
     public int answer;
     #endregion
 

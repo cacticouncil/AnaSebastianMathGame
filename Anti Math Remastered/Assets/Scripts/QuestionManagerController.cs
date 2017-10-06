@@ -81,8 +81,8 @@ public class QuestionManagerController : MonoBehaviour {
         {
             case (int)Difficulty.easy:
                  a = Easy[(int)Random.Range(0, 10)];
-                 b = Easy[(int)Random.Range(0, 10)];
-                c = Easy[(int)Random.Range(0, 10)];
+                 b = Easy[(int)Random.Range(0, 5)];
+                c = Easy[(int)Random.Range(0, 5)];
                 break;
             case (int)Difficulty.normal:
                 a = Normal[(int)Random.Range(0, 49)];
@@ -176,24 +176,17 @@ public class QuestionManagerController : MonoBehaviour {
                 else
                     answer = SymbolType = 2;       
                 break;
-/////////////////
+            /////////////////
 
-            //case (int)Equation.MultipleEq:
-            //    type = Random.Range(0, 2);
-            //    if (type == 0)
-            //    {
+            case (int)Equation.MultipleEq:
+                type = Random.Range(0, 2);
+                QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n-" + c.ToString()+ "\n----";
+                SymbolType = 0;
+                SymbolType2 = 1;
+                answer = a + b - c;
+                break;
 
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //    SymbolType = 0;
-            //     SymbolType2 = 1;
-
-            //    break;
-
-/////////////////
+            /////////////////
             case 5:
                 SymbolType = 0;
                 if (a >= b)
@@ -286,6 +279,7 @@ public class QuestionManagerController : MonoBehaviour {
         }
         GameManager.instance.a = a;
         GameManager.instance.b = b;
+        GameManager.instance.c  = c;
         GameManager.instance.answer = answer;
         
     }

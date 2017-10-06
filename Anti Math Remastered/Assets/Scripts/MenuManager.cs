@@ -10,10 +10,12 @@ public class MenuManager : MonoBehaviour {
     public GameObject LevelSelectionMenu;
     public GameObject LevelSelectedMenu;
 
+    public GameObject InfoPanel;
     private void Start()
     {
         GoToMainMenu();
         Time.timeScale = 1;
+        
     }
 
     public void GoToMainMenu()
@@ -59,11 +61,28 @@ public class MenuManager : MonoBehaviour {
         CreditsMenu.SetActive(false);
         LevelSelectionMenu.SetActive(false);
         LevelSelectedMenu.SetActive(true);
+     
     }
-
     public void load(string scene)
     {
         SceneManager.LoadScene(scene);
     }
 
+    private void FixedUpdate()
+    {
+        if (InfoPanel == null)
+            return;
+        if (Camera.main.GetComponent<CamScript>().Right)
+        {
+            InfoPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0.5f);
+            InfoPanel.GetComponent<RectTransform>().anchorMax = new Vector2(0, 0.5f);
+            InfoPanel.GetComponent<RectTransform>().pivot = new Vector2(0, 0.5f);
+        }
+        else
+        {
+            InfoPanel.GetComponent<RectTransform>().anchorMin = new Vector2(1, 0.5f);
+            InfoPanel.GetComponent<RectTransform>().anchorMax = new Vector2(1, 0.5f);
+            InfoPanel.GetComponent<RectTransform>().pivot = new Vector2(1, 0.5f);
+        }
+    }
 }

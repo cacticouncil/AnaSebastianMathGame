@@ -10,6 +10,9 @@ public class BucketsCanvasController : MonoBehaviour {
     public List<GameObject> Buckets = new List<GameObject>();
     List<Vector3> BucketsPos = new List<Vector3>();
 
+    int min = 0;
+    int max = 1;
+
     public List<Button> Buttons = new List<Button>();
     List<Vector3> ButtonsPos = new List<Vector3>();
 
@@ -45,6 +48,7 @@ public class BucketsCanvasController : MonoBehaviour {
             gameObject.SetActive(false);
         
         SignPos = Sign.transform.position;
+        //is it the comparisson levels?
         if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
         {
             for (int i = 0; i < Buttons.Count; i++)
@@ -54,12 +58,34 @@ public class BucketsCanvasController : MonoBehaviour {
             }           
            
         }
-        for (int i = 0; i < Buckets.Count; i++)
+
+        if (InfoManager.instance.ID == 4 || InfoManager.instance.ID == 9)
+        {
+            Buckets[0].gameObject.SetActive(false);
+            Buckets[1].gameObject.SetActive(false);
+            Buckets[2].gameObject.SetActive(true);
+            Buckets[3].gameObject.SetActive(true);
+            Buckets[4].gameObject.SetActive(true);
+            min = 2;
+            max = 4;
+        }
+        else
+        {
+            Buckets[0].gameObject.SetActive(true);
+            Buckets[1].gameObject.SetActive(true);
+            Buckets[2].gameObject.SetActive(false);
+            Buckets[3].gameObject.SetActive(false);
+            Buckets[4].gameObject.SetActive(false);
+        }
+            for (int i = 0; i < 3; i++)
         {
             ButtonsPos.Add(Buttons[i].transform.position);
-            BucketsPos.Add(Buckets[i].transform.position);
         }
 
+        for (int i = min; i <= max; i++)
+        {
+            BucketsPos.Add(Buttons[min].transform.position);
+        }
        
 
         for (int i = 0; i < 5; i++)
@@ -98,7 +124,11 @@ public class BucketsCanvasController : MonoBehaviour {
         {
             for (int i = 0; i < 5; i++)
             {
-                SwapArrayElement(BucketsPos, Random.Range(0, 3), Random.Range(0, 3));
+                if (InfoManager.instance.ID == 4 || InfoManager.instance.ID == 9)
+                    SwapArrayElement(BucketsPos, Random.Range(0, 3), Random.Range(0, 3));
+                else
+                    SwapArrayElement(BucketsPos, Random.Range(0, 2), Random.Range(0, 2));
+
                 swapOrder = false;
             }
         }

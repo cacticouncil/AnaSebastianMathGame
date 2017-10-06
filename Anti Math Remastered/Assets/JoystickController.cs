@@ -14,6 +14,8 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
     {
         if (InfoManager.instance.Gyroscope)
             this.gameObject.SetActive(false);
+
+        JoystickBall.rectTransform.anchoredPosition = currpos = Vector3.zero;
     }
 
     public virtual void OnPointerDown(PointerEventData _p)
@@ -42,6 +44,10 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
         }
     }
 
+    public void ResetJoystickPos()
+    {
+        JoystickBall.rectTransform.anchoredPosition = currpos = Vector3.zero;
+    }
     public float getX()
     {
        // if (currpos.x != 0)

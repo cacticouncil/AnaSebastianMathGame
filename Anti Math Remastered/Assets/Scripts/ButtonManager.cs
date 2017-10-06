@@ -119,6 +119,9 @@ public class ButtonManager : MonoBehaviour {
     }
     public void SubmitWrong()
     {
+        if(InfoManager.instance.Sound)
+        GetComponent<AudioSource>().Play();
+
         QuestionManager.GetComponent<QuestionManagerController>().CompareResults(GameManager.instance.answer+1);
     }
     public void load(string scene)

@@ -2,6 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//#if UNITY_EDITOR
+//using UnityEditor;
+//#endif
+
+
+public class MenuManagerImproved : MonoBehaviour
+{
+    public enum Menus { Main, Options, Credits, LevelSelection, Confirmation }
+
+    public GameObject[] menus;
+
+    public int bob;
+
+    public void ChangeMenu(string menu)
+    {
+        Menus current = Menus.Main;
+        for (int i = 0; i < System.Enum.GetValues(typeof(Menus)).Length; i++)
+        {
+            if(menu == ((Menus)i).ToString())
+            {
+                current = (Menus)i;
+            }
+        }
+
+        for (int i = 0; i < menus.Length; i++)
+        {
+            if ((Menus)i == current)
+                menus[i].SetActive(true);
+            else
+                menus[i].SetActive(false);
+        }
+    }
+}
+
+//#if UNITY_EDITOR
+//[CustomEditor(typeof(MenuManagerImproved))]
+//public class ManagerEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        MenuManagerImproved script = target as MenuManagerImproved;
+//
+//        GUILayout.BeginHorizontal();
+//        GUILayout.Label("Somethin");
+//        serializedObject.FindProperty("menus");
+//        script.bob = EditorGUILayout.IntField(script.bob);
+//        GUILayout.EndHorizontal();
+//        EditorGUILayout.yes
+//
+//    }
+//}
+//#endif
+
 public class MenuManager : MonoBehaviour {
 
     public GameObject MainMenu;

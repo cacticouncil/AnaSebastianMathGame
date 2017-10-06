@@ -191,6 +191,8 @@ public class GameManager : MonoBehaviour {
 
     public void CorrectAnswer()
     {
+        if (!InfoManager.instance.Gyroscope)
+            Joystic.SetActive(true);
         if (QuestionTime != null)
         {
             QuestionTime();
@@ -223,6 +225,11 @@ public class GameManager : MonoBehaviour {
     {
         if (other.tag == "Animal")
         {
+            if (!InfoManager.instance.Gyroscope)
+            {
+                Joystic.GetComponent<JoystickController>().ResetJoystickPos();
+                Joystic.gameObject.SetActive(false);
+            }
             if (QuestionTime != null)
             {
                 QuestionTime();

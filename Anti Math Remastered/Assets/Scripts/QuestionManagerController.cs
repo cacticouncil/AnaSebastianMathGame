@@ -81,7 +81,7 @@ public class QuestionManagerController : MonoBehaviour {
         {
             case (int)Difficulty.easy:
                  a = Easy[(int)Random.Range(0, 10)];
-                 b = Easy[(int)Random.Range(0, 5)];
+                 b = Easy[(int)Random.Range(0, 10)];
                 c = Easy[(int)Random.Range(0, 5)];
                 break;
             case (int)Difficulty.normal:
@@ -179,11 +179,20 @@ public class QuestionManagerController : MonoBehaviour {
             /////////////////
 
             case (int)Equation.MultipleEq:
-                type = Random.Range(0, 2);
-                QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n-" + c.ToString()+ "\n----";
+                c /= 2;
+                c++;
                 SymbolType = 0;
                 SymbolType2 = 1;
                 answer = a + b - c;
+
+                do
+                {
+                    a = Easy[(int)Random.Range(0, 10)];
+                    b = Easy[(int)Random.Range(0, 10)];
+                    c = Easy[(int)Random.Range(0, 10)];
+                    answer = a + b - c;
+                } while (answer <= 0);
+                QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n-" + c.ToString()+ "\n----";
                 break;
 
             /////////////////
@@ -264,9 +273,23 @@ public class QuestionManagerController : MonoBehaviour {
                 else
                     answer = SymbolType = 2;
                 break;
-/////////////////
-          //  case 9:
-          //      break;
+            /////////////////
+            case 9:
+                c /= 2;
+                c++;
+                SymbolType = 0;
+                SymbolType2 = 1;
+                do
+                {
+                    a = Easy[(int)Random.Range(0, 10)];
+                    b = Easy[(int)Random.Range(0, 10)];
+                    c = Easy[(int)Random.Range(0, 10)];
+                    answer = a + b - c;
+                } while (answer <= 0);
+                QuestionText.GetComponent<Text>().text = a.ToString() + "\n+" + b.ToString() + "\n-" + c.ToString() + "\n----";
+
+                break;
+            ////////////////
             default:
                 SymbolType = 0;
                 if (a >= b)
@@ -294,7 +317,9 @@ public class QuestionManagerController : MonoBehaviour {
             GameManager.instance.WrongAnswer();// GenerateQuestion();
 
 
-
+        
     }
     
 }
+
+

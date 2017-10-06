@@ -68,6 +68,9 @@ public class BucketsCanvasController : MonoBehaviour {
             Buckets[4].gameObject.SetActive(true);
             min = 2;
             max = 4;
+            Sign.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            Sign2.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+
         }
         else
         {
@@ -135,7 +138,15 @@ public class BucketsCanvasController : MonoBehaviour {
 
        // Buckets[0].transform.position = Vector3.Lerp(BucketsPos[0], new Vector3(Screen.width / 22, 540, 0), ratio);
        // Buckets[1].transform.position = Vector3.Lerp(BucketsPos[1], new Vector3(Screen.width / 20 * 10.5f, 540, 0), ratio);
-        Sign.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 2, Screen.height/2, 0), ratio);
+       if (InfoManager.instance.ID == 4 || InfoManager.instance.ID == 9)
+        {
+            Sign.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 3, Screen.height/2, 0), ratio);
+            Sign2.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 3*2, Screen.height / 2, 0), ratio);
+
+        }
+        else
+            Sign.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 2, Screen.height / 2, 0), ratio);
+
         for (int i = 0; i < Buttons.Count; i++)
         {
             Buttons[i].transform.position = Vector3.Lerp(ButtonsPos[i], new Vector3(ButtonsPos[i].x, Screen.height/5, 0), ratio);
@@ -187,6 +198,7 @@ public class BucketsCanvasController : MonoBehaviour {
     {
         move = true;
         swapOrder = true;
+        
     }
     public void PleaseDontMove()
     {

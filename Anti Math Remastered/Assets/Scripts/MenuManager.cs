@@ -73,6 +73,9 @@ public class MenuManager : MonoBehaviour {
 
     public void GoToMainMenu()
     {
+        if (InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Play();
+        InfoManager.instance.Save();
         MainMenu.SetActive(true);
         OptionsMenu.SetActive(false);
         CreditsMenu.SetActive(false);
@@ -82,6 +85,8 @@ public class MenuManager : MonoBehaviour {
 
     public void GoToOptions()
     {
+        if(InfoManager.instance.Sound)
+        GetComponent<AudioSource>().Play();
         MainMenu.SetActive(true);
         OptionsMenu.SetActive(true);
         CreditsMenu.SetActive(false);
@@ -91,6 +96,8 @@ public class MenuManager : MonoBehaviour {
 
     public void GoToCredits()
     {
+        if (InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Play();
         MainMenu.SetActive(true);
         OptionsMenu.SetActive(false);
         CreditsMenu.SetActive(true);
@@ -100,6 +107,8 @@ public class MenuManager : MonoBehaviour {
 
     public void GoToLevelSelection()
     {
+        if (InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Play();
         MainMenu.SetActive(false);
         OptionsMenu.SetActive(false);
         CreditsMenu.SetActive(false);
@@ -109,6 +118,8 @@ public class MenuManager : MonoBehaviour {
 
     public void GoToLevelSelected()
     {
+        if (InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Play();
         MainMenu.SetActive(false);
         OptionsMenu.SetActive(false);
         CreditsMenu.SetActive(false);
@@ -118,6 +129,8 @@ public class MenuManager : MonoBehaviour {
     }
     public void load(string scene)
     {
+        if (InfoManager.instance.Sound)
+            GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(scene);
     }
 

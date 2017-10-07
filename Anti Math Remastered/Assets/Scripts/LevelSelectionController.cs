@@ -31,7 +31,14 @@ public class LevelSelectionController : MonoBehaviour {
         previousID = (int)InfoManager.instance.ID;
         LevelTexts.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getName();//.ToString();
         Topic.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().GetTopic();
-        AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity();
+        if (InfoManager.instance.ID >= 5)
+        {
+        AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity() + "\nYour Highest score is: " + InfoManager.instance.HighScores[InfoManager.instance.ID -5].ToString();
+        }
+        else
+        {
+            AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity();
+        }
     }
 
 
@@ -50,7 +57,15 @@ public class LevelSelectionController : MonoBehaviour {
             && !Cam.GetComponent<CamScript>().Move && !Cam.GetComponent<CamScript>().zoom && hit.collider.tag != "CurrentLevelButton")
         {
             InfoManager.instance.ID = (uint)hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getCityID() - 1;
-            AboutCityText.text = hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
+            //AboutCityText.text = hit.transform.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
+            if (InfoManager.instance.ID >= 5)
+            {
+                AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity() + "\nYour Highest score is: " + InfoManager.instance.HighScores[InfoManager.instance.ID - 5].ToString();
+            }
+            else
+            {
+                AboutCityText.text = Levels[(int)InfoManager.instance.ID].GetComponent<CityInfoController>().getAboutCity();
+            }
             current = Levels[(int)InfoManager.instance.ID];
             previous = Levels[previousID];
             previousID = (int)InfoManager.instance.ID;

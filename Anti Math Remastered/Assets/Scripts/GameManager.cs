@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 
     public static event FillBasket SetBasket;
     //Timer to determine how long the player will take.
-    float timer = 0;
+   public  float timer;
     //Text for the timer
     public Text timerText;
 
@@ -88,51 +88,67 @@ public class GameManager : MonoBehaviour {
             case 0:
                 planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 2;
+                InfoManager.instance.timeAttack = false;
 
                 break;
             case 1:
                 planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 3;
+                InfoManager.instance.timeAttack = false;
+
                 break;
             case 2:
                 planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                InfoManager.instance.timeAttack = false;
+
                 break;
             case 3:
                 planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                InfoManager.instance.timeAttack = false;
 
                 break;
             case 4:
                 planetRadius = InfoManager.instance.planetRadius = 100;
                 AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                InfoManager.instance.timeAttack = false;
+
                 break;
             case 5:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 1;
+                InfoManager.instance.timeAttack = true;
                 break;
             case 6:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
-
+                AnimalAmount = InfoManager.instance.AnimalAmount = 1;
+                InfoManager.instance.timeAttack = true;
                 break;
             case 7:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 1;
+                InfoManager.instance.timeAttack = true;
                 break;
             case 8:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 1;
+                InfoManager.instance.timeAttack = true;
                 break;
             case 9:
                 planetRadius = InfoManager.instance.planetRadius = 100;
-                AnimalAmount = InfoManager.instance.AnimalAmount = 5;
+                AnimalAmount = InfoManager.instance.AnimalAmount = 1;
+                InfoManager.instance.timeAttack = true;
                 break;
         }
         //Uncomment this and comment the switch case above to re enable custom sizes
         //planetRadius = InfoManager.instance.planetRadius;
         //AnimalAmount = InfoManager.instance.AnimalAmount;
 
+        if (InfoManager.instance.timeAttack)
+            timer = 30;
+        else
+            timer = 0;
         //set audio source
         AS = GetComponent<AudioSource>();
 
@@ -149,6 +165,11 @@ public class GameManager : MonoBehaviour {
         AS.clip = MusicToPlay;
         if (InfoManager.instance.Sound)
         AS.Play();
+        if(InfoManager.instance.timeAttack)
+        DonkeyAmount.text = "Kids Found:" + (AnimalController.AnimalCount -1);
+        else
+         DonkeyAmount.text = "Kids Remaining: " + AnimalController.AnimalCount;
+
 
     }
 
@@ -178,7 +199,11 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
+        if (InfoManager.instance.timeAttack && timer >= 0)
+            timer -= Time.deltaTime;
+        else
             timer += Time.deltaTime;
+
             timerText.text = Mathf.Floor(timer).ToString();     
     }
 
@@ -198,16 +223,40 @@ public class GameManager : MonoBehaviour {
             QuestionTime();
             if (Animal != null)
                 Animal.transform.position = new Vector3(9999, 9999, 9999);
-                // Destroy(Animal);
-            AnimalController.AnimalCount--;
-            DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
-            if (AnimalController.AnimalCount != 0)
+            // Destroy(Animal);
+
+            if (InfoManager.instance.timeAttack)
+            {
+                AnimalController.AnimalCount++;
+                timer += 5;
+                DonkeyAmount.text = "Kids Found:" + (AnimalController.AnimalCount -1);
+                Animal.GetComponent<AnimalController>().SetupAnimals(1);
+                Animal.transform.LookAt(Vector3.zero);
+                Animal.transform.Rotate(-90, 0, 0);
+                if ( timer >= 0)
                 player.GetComponent<AudioSource>().Play();
+                else
+                {
+                    player.GetComponent<AudioSource>().clip = LevelsMusic[10];
+                    player.GetComponent<AudioSource>().Play();
+                }
+
+            }
             else
             {
-                player.GetComponent<AudioSource>().clip = LevelsMusic[10];
-                player.GetComponent<AudioSource>().Play();
+                AnimalController.AnimalCount--;
+                DonkeyAmount.text = "Kids remaining:" + AnimalController.AnimalCount;
+                if (AnimalController.AnimalCount != 0)
+                    player.GetComponent<AudioSource>().Play();
+
+
+                else
+                {
+                    player.GetComponent<AudioSource>().clip = LevelsMusic[10];
+                    player.GetComponent<AudioSource>().Play();
+                }
             }
+           
                
            // Animal = null;
         }

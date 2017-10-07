@@ -63,11 +63,19 @@ public class UIQuestionCanvasManager : MonoBehaviour {
             scalepause = 0;
         }
         //End game actions
-       if (AnimalController.AnimalCount == 0)
+       if (AnimalController.AnimalCount == 0 || (GameManager.instance.timer <= 1 && InfoManager.instance.timeAttack))
        {
+            if(InfoManager.instance.timeAttack && InfoManager.instance.HighScores[InfoManager.instance.ID - 5] < (AnimalController.AnimalCount - 1))
+            InfoManager.instance.HighScores[InfoManager.instance.ID - 5] = AnimalController.AnimalCount - 1;
+
            scale2 += Time.deltaTime;
             GetComponent<Canvas>().enabled = true;
            EndGameUi.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Clamp(scale2, 0, 1));
+
+            if (scale2 > 0.8 && scale2 < 0.9)
+            {
+                InfoManager.instance.Save();
+            }
        }
         else
         {

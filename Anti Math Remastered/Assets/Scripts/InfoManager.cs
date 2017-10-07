@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 public class InfoManager : MonoBehaviour {
 
     //Singleton instence for the class
@@ -15,13 +17,20 @@ public class InfoManager : MonoBehaviour {
     
     public  uint AnimalAmount;
 
+    public bool timeAttack;
+
     public uint ID;
 
     public volatile bool Sound;
-   
+     int SoundInt;
+
     public volatile bool Basquet;
+     int BasquetInt;
 
     public volatile bool Gyroscope;
+    int GyroscopeInt;
+
+    public int[] HighScores = new int[5];
 
     public Language English;
 
@@ -39,10 +48,42 @@ public class InfoManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this);
-        
+
+        SoundInt = PlayerPrefs.GetInt("SoundInt", 1);
+        Sound = (SoundInt == 1) ? true : false;
+
+        BasquetInt = PlayerPrefs.GetInt("BasquetInt", 1);
+        Basquet = (BasquetInt == 1) ? true : false;
+
+        GyroscopeInt = PlayerPrefs.GetInt("GyroscopeInt", 1);
+        Gyroscope = (GyroscopeInt == 1) ? true : false;
+
+        for (int i = 0; i < 5; i++)
+        {
+            HighScores[i] = PlayerPrefs.GetInt("High Score " + i.ToString(), 0);
+        }
         QualitySettings.vSyncCount = 2;
     }
 
-   
+   public void Save()
+    {
+
+        SoundInt = (Sound == true) ? 1 : 0;
+        PlayerPrefs.SetInt("SoundInt", SoundInt);
+
+        BasquetInt = (Basquet == true) ? 1 : 0;
+        PlayerPrefs.SetInt("BasquetInt", BasquetInt);
+
+        GyroscopeInt = (Gyroscope == true) ? 1 : 0;
+        PlayerPrefs.SetInt("GyroscopeInt", GyroscopeInt);
+
+        for (int i = 0; i < 5; i++)
+        {
+             PlayerPrefs.SetInt("High Score " + i.ToString(), HighScores[i]);
+        }
+
+    }
 
 }
+
+

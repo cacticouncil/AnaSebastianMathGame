@@ -11,7 +11,7 @@ public class AnimalManagerController : MonoBehaviour {
     [HideInInspector]
     public  List<GameObject> Animals = new List<GameObject>();
     // Use this for initialization
-    void Start () {
+    void Awake () {
         AnimalController.AnimalCount = 0;
         animaltotal = GameManager.instance.getAnimalAmount();
         animal = GameManager.instance.getAnimal();
@@ -33,7 +33,7 @@ public class AnimalManagerController : MonoBehaviour {
             temp.transform.LookAt(Vector3.zero);
             temp.transform.Rotate(-90, 0, 0);
         }
-        DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
+        //DonkeyAmount.text = "Targets remaining:" + AnimalController.AnimalCount;
     }
 
     private void Update()

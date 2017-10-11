@@ -10,6 +10,10 @@ public class QuestionManagerController : MonoBehaviour {
     [SerializeField]
     GameObject QuestionText;
     [SerializeField]
+    GameObject comparison1Text;
+    [SerializeField]
+    GameObject comparison2Text;
+    [SerializeField]
     GameObject kid;
     [SerializeField]
     int hardness;
@@ -21,6 +25,7 @@ public class QuestionManagerController : MonoBehaviour {
     int b = 0;
     int a = 0;
     int c = 0;
+
     //More readability
     enum Difficulty
     {
@@ -168,13 +173,29 @@ public class QuestionManagerController : MonoBehaviour {
 /////////////////
             case (int)Equation.Comparisson:
                 if (a > b)
-                   answer = SymbolType = 3;   
-                
+                {
+                    answer = SymbolType = 3;
+
+                }
+
                 else if (b > a)
+                {
                     answer = SymbolType = 4;
 
+                }
+
                 else
-                    answer = SymbolType = 2;       
+                {
+                    answer = SymbolType = 2;
+                
+                }
+                if (!InfoManager.instance.Basquet)
+                {
+
+                SymbolType = 3;
+                }
+                comparison1Text.GetComponent<Text>().text = a.ToString();
+                comparison2Text.GetComponent<Text>().text = b.ToString();
                 break;
             /////////////////
 
@@ -272,6 +293,14 @@ public class QuestionManagerController : MonoBehaviour {
 
                 else
                     answer = SymbolType = 2;
+
+                if (!InfoManager.instance.Basquet)
+                {
+
+                    SymbolType = 3;
+                }
+                comparison1Text.GetComponent<Text>().text = a.ToString();
+                comparison2Text.GetComponent<Text>().text = b.ToString();
                 break;
             /////////////////
             case 9:

@@ -113,6 +113,43 @@ public class ButtonManager : MonoBehaviour {
         }
     }
 
+    public void SubmitCompare(int ans)
+    {
+        switch (QuestionManager.GetComponent<QuestionManagerController>().SymbolType)
+        {
+            case 2:
+                if ((GameManager.instance.a == GameManager.instance.b && ans == 1) || (GameManager.instance.a != GameManager.instance.b && ans == 2))
+                {
+                    SubmitCorrect();
+                }
+                else
+                {
+                    SubmitWrong();
+                }
+                break;
+            case 3:
+                if ((GameManager.instance.a < GameManager.instance.b && ans == 1) || (!(GameManager.instance.a < GameManager.instance.b) && ans == 2) || (GameManager.instance.a == GameManager.instance.b && ans == 3))
+                {
+                    SubmitCorrect();
+                }
+                else
+                {
+                    SubmitWrong();
+                }
+                break;
+            case 4:
+                if ((GameManager.instance.a < GameManager.instance.b && ans == 1) || (!(GameManager.instance.a < GameManager.instance.b) && ans == 2) || (GameManager.instance.a == GameManager.instance.b && ans == 3))
+                {
+                    SubmitCorrect();
+                }
+                else
+                {
+                    SubmitWrong();
+                }
+                break;
+        }
+    }
+
     public void SubmitCorrect()
     {
         QuestionManager.GetComponent<QuestionManagerController>().CompareResults(GameManager.instance.answer);

@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour {
     //Pc or mobile?
     public bool phone = true;
     public GameObject Joystick;
-    JoystickController js;
+    public GameObject SteeringWheel;
+
+   // JoystickController js;
+    WheelController wc;
     //change from pc to mobile
     public void SetPhone()
     {
@@ -34,7 +37,8 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         ////use the gyroscope
         //Input.gyro.enabled = true;
-        js = Joystick.GetComponent<JoystickController>();
+       // js = Joystick.GetComponent<JoystickController>();
+        wc = SteeringWheel.GetComponentInChildren<WheelController>();
 	}
 	
 	// Update is called once per frame
@@ -55,12 +59,12 @@ public class PlayerController : MonoBehaviour {
         GetComponentInChildren<Animator>().speed = Mathf.Abs(1);
         int horiz = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
             int vert = (Input.GetKey(KeyCode.UpArrow) ? 1 : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
-
+       // speed = wc.GetSpeed();
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
             //Rotate
-            transform.RotateAround(Vector3.zero, m.GetColumn(1), js.getX()/*horiz*2*/);
+            transform.RotateAround(Vector3.zero, m.GetColumn(1), wc.GetSpeed()*wc.getX()*2/*horiz*2*/);
             //Move
-            transform.RotateAround(Vector3.zero, m.GetColumn(0), /*vert*/ js.GetY() / speed);
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), /*vert*/ wc.GetSpeed() / speed);
 
 
 
@@ -87,9 +91,9 @@ public class PlayerController : MonoBehaviour {
         else
         {
            
-            transform.RotateAround(Vector3.zero, m.GetColumn(0), js.GetY() / speed);
+            transform.RotateAround(Vector3.zero, m.GetColumn(0), wc.GetSpeed() / speed);
 
-            transform.RotateAround(Vector3.zero, m.GetColumn(1), (js.getX() * 2));
+            transform.RotateAround(Vector3.zero, m.GetColumn(1),wc.GetSpeed()*wc.getX()*2 /*(js.getX() * 2)*/);
     //    }
         }
 

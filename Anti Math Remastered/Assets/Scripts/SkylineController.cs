@@ -39,11 +39,11 @@ public class SkylineController : MonoBehaviour {
 
         Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
         //Rotate
-        transform.RotateAround(Vector3.zero, m.GetColumn(1), 0 - GameManager.instance.Joystic.GetComponent<JoystickController>().getX() * 0.05f);
+        transform.RotateAround(Vector3.zero, m.GetColumn(1), 0 - GameManager.instance.Joystic.GetComponentInChildren<WheelController>().getX() * 0.05f* GameManager.instance.Joystic.GetComponentInChildren<WheelController>().GetSpeed());
         //Move
         // transform.RotateAround(Vector3.zero, m.GetColumn(0), vert / speed);
 
-   
+
 #elif UNITY_ANDROID
             Matrix4x4 m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
         if (InfoManager.instance.Gyroscope)
@@ -59,7 +59,7 @@ public class SkylineController : MonoBehaviour {
             if ((Mathf.Abs(angleX) > 0.01f))
             {
                 //rotate
-                transform.RotateAround(Vector3.zero, m.GetColumn(1), (-GameManager.instance.Joystic.GetComponent<JoystickController>().getX() * 0.05f));
+                transform.RotateAround(Vector3.zero, m.GetColumn(1), (-GameManager.instance.Joystic.GetComponent<WheelController>().getX() * 0.05f* GameManager.instance.Joystic.GetComponentInChildren<WheelController>().GetSpeed()));
             }
         }
             

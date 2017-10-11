@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour {
     public int a;
     public int b;
     public int c;
+    public bool Agtb;
+    public bool Bgta;
+    public bool Equal;
     public int answer;
     #endregion
 
@@ -276,7 +279,7 @@ public class GameManager : MonoBehaviour {
         {
             if (!InfoManager.instance.Gyroscope)
             {
-                Joystic.GetComponent<JoystickController>().ResetJoystickPos();
+                Joystic.GetComponentInChildren<WheelController>().ResetJoystickPos();
                 Joystic.gameObject.SetActive(false);
             }
             if (QuestionTime != null)

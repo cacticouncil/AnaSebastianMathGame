@@ -11,6 +11,7 @@ public class UIQuestionCanvasManager : MonoBehaviour {
     public RectTransform uitrans;
     public RectTransform EndGameUi;
     public RectTransform PauseUI;
+    public RectTransform CompareNotBucket;
     float scale = 0;
     float scale2 = 0;
     float scalepause = 0;
@@ -26,9 +27,15 @@ public class UIQuestionCanvasManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
         if (!InfoManager.instance.Basquet)
-        uitrans.gameObject.SetActive(true);
+        {
+            uitrans.gameObject.SetActive(true);
+           CompareNotBucket.gameObject.SetActive(true);
+        }
         else
+        {
            uitrans.gameObject.SetActive(false);
+           CompareNotBucket.gameObject.SetActive(false);
+        }
 
 
         SetQuestionCanvasState();
@@ -41,12 +48,17 @@ public class UIQuestionCanvasManager : MonoBehaviour {
         if (setCanvas)
         {
             scale += Time.deltaTime;
-            uitrans.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Clamp(scale, 0, 1));
+            if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
+            CompareNotBucket.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Clamp(scale, 0, 1));
+
+            else
+                uitrans.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Clamp(scale, 0, 1));
 
         }
         else
         {
             uitrans.localScale = Vector3.zero;
+            CompareNotBucket.localScale = Vector3.zero;
             scale = 0;
         }
         //pause actions

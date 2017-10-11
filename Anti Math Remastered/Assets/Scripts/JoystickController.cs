@@ -12,7 +12,7 @@ public class JoystickController : MonoBehaviour, IDragHandler, IPointerUpHandler
 
     private void Start()
     {
-        if (InfoManager.instance.Gyroscope)
+        if (InfoManager.instance != null && InfoManager.instance.Gyroscope)
             this.gameObject.SetActive(false);
 
         JoystickBall.rectTransform.anchoredPosition = currpos = Vector3.zero;

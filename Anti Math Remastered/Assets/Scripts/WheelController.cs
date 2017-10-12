@@ -113,7 +113,7 @@ public class WheelController : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     {
         if (AccelerateV)
         {
-            if (Speed <= 2)
+            if (Speed <= 1)
                 Speed += Time.deltaTime;
         }
         else if(!AccelerateV)
@@ -123,7 +123,7 @@ public class WheelController : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         }
         /*else*/ if (RevV)
         {
-            if (Speed >= -2)
+            if (Speed >= -1)
                 Speed -= Time.deltaTime;
         }
         else if (!RevV)

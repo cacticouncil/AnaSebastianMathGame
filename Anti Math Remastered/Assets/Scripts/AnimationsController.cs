@@ -1,48 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class AnimationsController : MonoBehaviour {
-    public Animator Cover;
-    bool MoveCover;
-    public Animator PG1;
-    public bool MovePG1 = false;
-    public Animator PG2;
-    public bool MovePG2 = false;
-    public Animator PG3;
-    public bool MovePG3 = false;
-    public Animator PG4;
-    public bool MovePG4 = false;
 
-    int toggle = -1;
 
+   public BookMark[] Bookmarks;
+   RaycastHit hit;
     private void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0))
+        {
+            AnimateTheBook(hit);
+        }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+    void AnimateTheBook(RaycastHit _hit)
+    {
+        int ThatOne = -1;
+        for (int i = 0; i < Bookmarks.Length; i++)
         {
-            MoveCover = !MoveCover;
-            Cover.SetBool("Turn Page", MoveCover);
+            if (_hit.collider.gameObject == Bookmarks[i].gameObject)
+            {
+                ThatOne = i;
+                break;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            MovePG1 = !MovePG1;
-            PG1.SetBool("Turn Page", MovePG1);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            MovePG2 = !MovePG2;
-            PG2.SetBool("Turn Page", MovePG2);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            MovePG3 = !MovePG3;
-            PG3.SetBool("Turn Page", MovePG3);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            MovePG4 = !MovePG4;
-            PG4.SetBool("Turn Page", MovePG4);
-        }
+        if(ThatOne >=0 && ThatOne < Bookmarks.Length -1)
+            for (int i = ThatOne; i >= 0; i--)
+            {
+                    Bookmarks[i].TurnPage(true);
+            }
+        else if(ThatOne == (Bookmarks.Length -1))
+            for (int i = ThatOne; i >= 0; i--)
+            {
+                Bookmarks[i].TurnPage(false);
+            }
     }
 }

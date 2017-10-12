@@ -152,6 +152,9 @@ public class GameManager : MonoBehaviour {
             timer = 30;
         else
             timer = 0;
+
+        if (InfoManager.instance.Gyroscope)
+            Joystic.SetActive(false);
         //set audio source
         AS = GetComponent<AudioSource>();
 

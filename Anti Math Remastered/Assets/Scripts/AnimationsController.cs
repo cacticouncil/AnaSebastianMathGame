@@ -9,12 +9,27 @@ public class AnimationsController : MonoBehaviour {
    public BookMark[] Bookmarks;
     public GameObject[] Countries;
     public Animator CamAnim;
+    public Animator ControlsAnim;
+    public Animator BasquetAnim;
+    public Animator SoundAnim;
     public Text CountryText;
    RaycastHit hit;
     int ID = -1;
     bool zoom = false;
     bool Zleft;
     bool Zright;
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+       ControlsAnim.SetBool("Decide", InfoManager.instance.Gyroscope);
+        ControlsAnim.SetTrigger("Change");
+        BasquetAnim.SetBool("Decide", InfoManager.instance.Basquet);
+        BasquetAnim.SetTrigger("Change");
+        SoundAnim.SetBool("Decide", InfoManager.instance.Sound);
+        SoundAnim.SetTrigger("Change");
+
+    }
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -103,15 +118,34 @@ public class AnimationsController : MonoBehaviour {
             else if(hit.collider.gameObject.tag == "BookMark")
             {
                 CountryText.text = "Tap any country on the map to know what it holds for you! \n You can zoom in by tapping the sea!";
+                InfoManager.instance.Save();
                 ID = -1;
             }
 
+            //check for options
+            if (hit.collider.gameObject.tag == "ControlsToggle")
+            {
+                InfoManager.instance.Gyroscope = !InfoManager.instance.Gyroscope;
+                ControlsAnim.SetBool("Decide", InfoManager.instance.Gyroscope);
+            }
+            if (hit.collider.gameObject.tag == "BasquetToggle")
+            {
+                InfoManager.instance.Basquet = !InfoManager.instance.Basquet;
+                BasquetAnim.SetBool("Decide", InfoManager.instance.Basquet);
+            }
+            if (hit.collider.gameObject.tag == "SoundToggle")
+            {
+                InfoManager.instance.Sound = !InfoManager.instance.Sound;
+                SoundAnim.SetBool("Decide", InfoManager.instance.Sound);
+            }
             //check to proceed to play
             if (hit.collider.gameObject.tag == "Accept" && ID != -1)
             {
+             
                 InfoManager.instance.LoadLoadScene();
             }
             
+
             
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.IO;
 public class InfoManager : MonoBehaviour {
 
@@ -82,6 +83,11 @@ public class InfoManager : MonoBehaviour {
              PlayerPrefs.SetInt("High Score " + i.ToString(), HighScores[i]);
         }
 
+    }
+
+    public void LoadLoadScene()
+    {
+        SceneManager.LoadScene("Loading");
     }
 
 }

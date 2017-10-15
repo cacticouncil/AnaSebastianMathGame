@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour {
     public void ResetLevel()
     {
         timer = 0;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main Menu Book");
     }
 
     public void CorrectAnswer()

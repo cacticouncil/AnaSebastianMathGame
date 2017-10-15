@@ -1,25 +1,118 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class AnimationsController : MonoBehaviour {
 
 
    public BookMark[] Bookmarks;
+    public GameObject[] Countries;
     public Animator CamAnim;
+    public Text CountryText;
    RaycastHit hit;
+    int ID = -1;
+    bool zoom = false;
+    bool Zleft;
+    bool Zright;
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+       //if (EventSystem.current.IsPointerOverGameObject())
+       //     return;
        //if (CamAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !CamAnim.IsInTransition(0))
        //    return;
         if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0))
         {
             
             CamAnim.SetBool("OpenPage", true);
-            AnimateTheBook(hit);
+
+            if (zoom)
+            {
+                //zoom out from the right page
+                if (hit.collider.gameObject.tag == "TopCollider" && Zright)
+                {
+                    zoom =Zright = false;
+                    CamAnim.SetBool("ZoomIntoLeftPage", false);
+                    CamAnim.SetBool("ZoomIntoPage", false);
+                    CamAnim.SetBool("ZoomIntoPage", zoom);
+                }
+
+                else if (hit.collider.gameObject.tag == "TopCollider" && !Zright)
+                {
+                    CamAnim.SetBool("ZoomIntoLeftPage", true);
+                    CamAnim.SetBool("ZoomIntoPage", true);
+                    CamAnim.SetTrigger("MoveToPage");
+                    //CamAnim.SetBool("ZoomIntoLeftPage", false);
+                    Zleft = false;
+                    Zright = true;
+                }
+
+                //zoom in from the left page
+                if (hit.collider.gameObject.tag == "BottomCollider" && Zleft)
+                {
+                    zoom = Zleft = false;
+                    CamAnim.SetBool("ZoomIntoLeftPage", false);
+                    CamAnim.SetBool("ZoomIntoPage", false);
+                    CamAnim.SetBool("ZoomIntoLeftPage", zoom);
+                }
+
+                else if (hit.collider.gameObject.tag == "BottomCollider" && !Zleft)
+                {
+                    CamAnim.SetBool("ZoomIntoPage", true);
+                    CamAnim.SetBool("ZoomIntoLeftPage", true);
+                    CamAnim.SetTrigger("MoveToPage");
+                  //  CamAnim.SetBool("ZoomIntoPage", false);
+                    Zright = false;
+                    Zleft = true;
+                }
+            }
+            else
+            {
+                //check to change page
+                if (hit.collider.gameObject.tag == "TopCollider")
+                {
+                    zoom = Zright = true;
+                    CamAnim.SetBool("ZoomIntoPage", zoom);
+
+                }
+
+
+                //check where to zoom
+                if (hit.collider.gameObject.tag == "BottomCollider")
+                {
+                    zoom = Zleft = true;
+                    CamAnim.SetBool("ZoomIntoLeftPage", zoom);
+
+                }
+
+                AnimateTheBook(hit);
+
+            }
+
+
+            //Check for countries
+            if (hit.collider.gameObject.tag == "Country")
+            {
+                CountryText.text = hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getName()+ '\n'+'\n';
+                CountryText.text +=  hit.collider.gameObject.GetComponentInChildren<CityInfoController>().GetTopic() + '\n' + '\n';
+                CountryText.text += hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
+               InfoManager.instance.ID = ((uint)hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getCityID()-1);
+                ID = 1;
+            }
+            else if(hit.collider.gameObject.tag == "BookMark")
+            {
+                CountryText.text = "Tap any country on the map to know what it holds for you! \n You can zoom in by tapping the sea!";
+                ID = -1;
+            }
+
+            //check to proceed to play
+            if (hit.collider.gameObject.tag == "Accept" && ID != -1)
+            {
+                InfoManager.instance.LoadLoadScene();
+            }
+            
+            
         }
     }
 

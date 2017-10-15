@@ -16,6 +16,8 @@ public class CityInfoController : MonoBehaviour {
     [SerializeField]
     string About;
 
+    public string Summary;
+
     public string getName()
     {
         return Name;
@@ -34,5 +36,10 @@ public class CityInfoController : MonoBehaviour {
     public string getAboutCity()
     {
         return About;
+    }
+
+    public string getSummary()
+    {
+        return Summary;
     }
 }

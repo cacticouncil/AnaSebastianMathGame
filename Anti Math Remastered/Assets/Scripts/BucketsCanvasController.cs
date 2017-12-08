@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BucketsCanvasController : MonoBehaviour {
 
     public GameObject QuestionManager;
-
+    public Image Back;
     public List<GameObject> Buckets = new List<GameObject>();
     List<Vector3> BucketsPos = new List<Vector3>();
 
@@ -46,7 +46,8 @@ public class BucketsCanvasController : MonoBehaviour {
         
         else
             gameObject.SetActive(false);
-        
+
+        Back.transform.localScale = Vector3.zero;
         SignPos = Sign.transform.position;
         //is it the comparisson levels?
         if (InfoManager.instance.ID == 3 || InfoManager.instance.ID == 8)
@@ -147,6 +148,8 @@ public class BucketsCanvasController : MonoBehaviour {
         else
             Sign.transform.position = Vector3.Lerp(SignPos, new Vector3(Screen.width / 2, Screen.height / 2, 0), ratio);
 
+        Back.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
+
         for (int i = 0; i < Buttons.Count; i++)
         {
             Buttons[i].transform.position = Vector3.Lerp(ButtonsPos[i], new Vector3(ButtonsPos[i].x, Screen.height/5, 0), ratio);
@@ -194,6 +197,7 @@ public class BucketsCanvasController : MonoBehaviour {
 
     }
 
+   
     public void PleaseMove()
     {
         move = true;

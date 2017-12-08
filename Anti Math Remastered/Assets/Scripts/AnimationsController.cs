@@ -141,8 +141,9 @@ public class AnimationsController : MonoBehaviour {
             //check to proceed to play
             if (hit.collider.gameObject.tag == "Accept" && ID != -1)
             {
-             
-                InfoManager.instance.LoadLoadScene();
+                CamAnim.SetTrigger("StartPlaying");
+
+              //  InfoManager.instance.LoadLoadScene();
             }
             
 

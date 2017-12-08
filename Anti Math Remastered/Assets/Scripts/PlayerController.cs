@@ -66,7 +66,21 @@ public class PlayerController : MonoBehaviour {
             //Move
             transform.RotateAround(Vector3.zero, m.GetColumn(0), /*vert*/ wc.GetSpeed() / speed);
 
-
+        GetComponentInChildren<Animator>().speed = Mathf.Abs(angleZ) * 2;
+        if (InfoManager.instance.Gyroscope)
+        {
+            if ((Mathf.Abs(angleZ) > 0.01f))
+            {
+                //Move
+                transform.RotateAround(Vector3.zero, m.GetColumn(0), (angleZ * 2f - 1f) / speed);
+            }
+            if ((Mathf.Abs(angleX) > 0.01f))
+            {
+                //rotate
+                transform.RotateAround(Vector3.zero, m.GetColumn(1), (angleX * 2));
+            }
+        }
+        
 
 
 #elif UNITY_ANDROID

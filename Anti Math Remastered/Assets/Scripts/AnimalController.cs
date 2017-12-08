@@ -14,7 +14,7 @@ public class AnimalController : MonoBehaviour {
         //transform.position = Vector3.zero;
         AnimalPos = new Vector3(Random.Range(-10, 11), Random.Range(-10, 11), Random.Range(-10, 11));
         AnimalPos.Normalize();
-        AnimalPos *= GameManager.instance.getPlanetRadius();
+        AnimalPos *= (GameManager.instance.getPlanetRadius() - 2.5f);
         //set position
         //startingY = GameManager.instance.getPlanetRadius();
         transform.position = AnimalPos;

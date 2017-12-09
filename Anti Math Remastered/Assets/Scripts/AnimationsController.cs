@@ -12,9 +12,12 @@ public class AnimationsController : MonoBehaviour {
     public Animator ControlsAnim;
     public Animator BasquetAnim;
     public Animator SoundAnim;
+    public Animator HandAnim;
+    public GameObject ParticleSys;
     public Text CountryText;
    RaycastHit hit;
     int ID = -1;
+    int CurrentPage = -1;
     bool zoom = false;
     bool Zleft;
     bool Zright;
@@ -22,6 +25,7 @@ public class AnimationsController : MonoBehaviour {
     private void Start()
     {
         Time.timeScale = 1;
+        ParticleSys.SetActive(false);
        ControlsAnim.SetBool("Decide", InfoManager.instance.Gyroscope);
         ControlsAnim.SetTrigger("Change");
         BasquetAnim.SetBool("Decide", InfoManager.instance.Basquet);
@@ -41,7 +45,7 @@ public class AnimationsController : MonoBehaviour {
         {
             
             CamAnim.SetBool("OpenPage", true);
-
+            HandAnim.SetBool("OpenedBook", true);
             if (zoom)
             {
                 //zoom out from the right page
@@ -109,6 +113,8 @@ public class AnimationsController : MonoBehaviour {
             //Check for countries
             if (hit.collider.gameObject.tag == "Country")
             {
+                ParticleSys.SetActive(true);
+                ParticleSys.transform.position = hit.collider.gameObject.GetComponentInChildren<CityInfoController>().gameObject.transform.position;
                 CountryText.text = hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getName()+ '\n'+'\n';
                 CountryText.text +=  hit.collider.gameObject.GetComponentInChildren<CityInfoController>().GetTopic() + '\n' + '\n';
                 CountryText.text += hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
@@ -117,9 +123,11 @@ public class AnimationsController : MonoBehaviour {
             }
             else if(hit.collider.gameObject.tag == "BookMark")
             {
+                ParticleSys.SetActive(false);
                 CountryText.text = "Tap any country on the map to know what it holds for you! \n You can zoom in by tapping the sea!";
                 InfoManager.instance.Save();
                 ID = -1;
+                HandAnim.SetBool("TouchedBookMark", true);
             }
 
             //check for options
@@ -163,19 +171,43 @@ public class AnimationsController : MonoBehaviour {
                 break;
             }
         }
-        if(ThatOne >=0 && ThatOne < Bookmarks.Length -1)
-            for (int i = ThatOne; i >= 0; i--)
-            {
-                    Bookmarks[i].TurnPage(true);
-            }
-        else if(ThatOne == (Bookmarks.Length - 1))
+
+        if (ThatOne <= CurrentPage && CurrentPage != -1 && ThatOne > 0)
         {
-            for (int i = ThatOne; i >= 0; i--)
+
+            for (int i = CurrentPage; i >= 0; i--)
             {
                 Bookmarks[i].TurnPage(false);
             }
-            CamAnim.SetBool("OpenPage", false);
+
+            for (int i = ThatOne - 1; i >= 0; i--)
+            {
+                Bookmarks[i].TurnPage(true);
+            }
+
+        }
+        else
+        {
+            if (ThatOne >= 0 && ThatOne < Bookmarks.Length - 1)
+                for (int i = ThatOne; i >= 0; i--)
+                {
+                    Bookmarks[i].TurnPage(true);
+                }
+            else if (ThatOne == (Bookmarks.Length - 1))
+            {
+                for (int i = ThatOne; i >= 0; i--)
+                {
+                    Bookmarks[i].TurnPage(false);
+                }
+                CamAnim.SetBool("OpenPage", false);
+                CurrentPage = -1;
+            }
         }
 
+
+        if (ThatOne == CurrentPage || CurrentPage == Bookmarks.Length - 1)
+            CurrentPage = -1;
+        else
+            CurrentPage = ThatOne;
     }
 }

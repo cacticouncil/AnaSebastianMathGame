@@ -22,7 +22,8 @@ public class LoadingScreen : MonoBehaviour {
     IEnumerator LoadingScene()
     {
         SceneToLoad.SetActive(true);
-        Async = SceneManager.LoadSceneAsync("3d camera behind kid");
+        // Async = SceneManager.LoadSceneAsync("3d camera behind kid");
+        Async = SceneManager.LoadSceneAsync("Main Game");
         Async.allowSceneActivation = false;
 
         while (Async.isDone == false)

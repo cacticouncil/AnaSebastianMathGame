@@ -114,11 +114,15 @@ public class AnimationsController : MonoBehaviour {
             if (hit.collider.gameObject.tag == "Country")
             {
                 ParticleSys.SetActive(true);
+                ParticleSys.GetComponentInChildren<ParticleSystem>().Clear();
                 ParticleSys.transform.position = hit.collider.gameObject.GetComponentInChildren<CityInfoController>().gameObject.transform.position;
                 CountryText.text = hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getName()+ '\n'+'\n';
                 CountryText.text +=  hit.collider.gameObject.GetComponentInChildren<CityInfoController>().GetTopic() + '\n' + '\n';
                 CountryText.text += hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getAboutCity();
                InfoManager.instance.ID = ((uint)hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getCityID()-1);
+
+                NewInfoManager.instance.SetID(((uint)hit.collider.gameObject.GetComponentInChildren<CityInfoController>().getCityID() - 1));
+
                 ID = 1;
             }
             else if(hit.collider.gameObject.tag == "BookMark")

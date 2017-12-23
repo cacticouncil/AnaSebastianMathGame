@@ -11,7 +11,7 @@ public class CountingItem : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         transform.localScale = Vector3.zero;
-        //GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(NewInfoManager.instance.GetCurrentThingyToLoad().ItemtoCount);
+        GetComponent<Image>().sprite = Resources.Load<Sprite>(NewInfoManager.instance.GetCurrentThingyToLoad().ItemtoCount);
     }
 	 IEnumerator AppearCorr()
     {

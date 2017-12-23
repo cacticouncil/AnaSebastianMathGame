@@ -27,16 +27,46 @@ public class ButtonHandler : MonoBehaviour {
         }
     }
 
+
+    IEnumerator WaitForaBitAndThenGo()
+    {
+        yield return new WaitForSeconds(0.3f);
+    
+    }
    void  SwapButtonID()
     {
         for (int i = 0; i < 5; i++)
         {
-        SwapElement(IDS, Random.Range(0, 2), Random.Range(0, 2));
+            SwapElement(IDS, Random.Range(0, 2), Random.Range(0, 2));
         }
-
-        for (int i = 0; i < buttons.Length; i++)
+        int yomama = (int)NewInfoManager.instance.GetID();
+        if (NewInfoManager.instance.GetID() != 3 && NewInfoManager.instance.GetID() != 8)
         {
-            buttons[i].SetID(IDS[i]);
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].SetID(IDS[i]);
+            }
+        }
+        else
+        {
+            if (NewQuestionManager.instance.GetAnswer() == 1)
+            {
+                buttons[0].SetID(1);
+                buttons[1].SetID(0);
+                buttons[2].SetID(0);
+            }
+            if (NewQuestionManager.instance.GetAnswer() == 2)
+            {
+                buttons[0].SetID(0);
+                buttons[1].SetID(1);
+                buttons[2].SetID(0);
+            }
+            if (NewQuestionManager.instance.GetAnswer() == 3)
+            {
+                buttons[0].SetID(0);
+                buttons[1].SetID(0);
+                buttons[2].SetID(1);
+            }
         }
     }
 

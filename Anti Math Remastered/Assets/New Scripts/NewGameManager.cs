@@ -41,6 +41,7 @@ public class NewGameManager : MonoBehaviour {
     //How many animals in the level?
     public uint AnimalAmount;
 
+
     //Music stuff
     AudioClip MusicToPlay;
     AudioSource AS;

@@ -15,6 +15,10 @@ public class AnswerButton : MonoBehaviour {
     {
         ID = newID;
     }
+    public int GetID()
+    {
+        return ID;
+    }
     private void OnEnable()
     {
         NewGameManager.QuestionTime += setNewValue;
@@ -37,6 +41,9 @@ public class AnswerButton : MonoBehaviour {
     IEnumerator setNewValueCor()
     {
         yield return new WaitForSeconds(0.2f);
+        if (ButtonText == null)
+            yield break;
+
         if (ID == 1)
             ButtonText.text = NewQuestionManager.instance.GetAnswer().ToString();
 

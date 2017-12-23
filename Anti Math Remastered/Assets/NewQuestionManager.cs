@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class NewQuestionManager : MonoBehaviour {
 
+    [SerializeField]
+    QuestioCanvasesHolder CanvasHolder;
+
+   
+
     private void OnEnable()
     {
         NewGameManager.QuestionTime += QuestionRequested;
@@ -16,13 +21,15 @@ public class NewQuestionManager : MonoBehaviour {
 
     public static NewQuestionManager instance;
     
+
+   
     int a = 0;
     int b = 0;
     int c = 0;
     int answer = 0;
-    //for the comparissons part, an answer of 1 will mean that the ">" should be used.
-    // An answer of 2 means that the "<" symbol must be used. 
-    // An answer of 3 emans that the "=" symbol must be used.
+    //for the comparissons part, an answer of 1 will mean that the "<" should be used.
+    // An answer of 2 means that the "=" symbol must be used. 
+    // An answer of 3 emans that the ">" symbol must be used.
     public int GetA() { return a; }
     public int GetB() { return b; }
     public int GetC() { return c; }
@@ -38,6 +45,9 @@ public class NewQuestionManager : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+
+
+        
     }
 
     void QuestionRequested()
@@ -50,19 +60,26 @@ public class NewQuestionManager : MonoBehaviour {
         else if (ID == 2 || ID == 7)
         {
             if (Random.Range(1, 10) % 2 == 0)
+            {
+              CanvasHolder.SwitchCanvasStates(true);
                 GenerateAddition();
+            }
             else
-                GenerateSubtraction();
+            {
+               CanvasHolder.SwitchCanvasStates(false);
+               GenerateSubtraction();
+            }
         }
         else if (ID == 3 || ID == 8)
-            GenerateBigEquation();
-        else
             GenerateComparisson();
+        else
+            GenerateBigEquation();
 
 
 
     }
 
+    
     void RollTheDice(bool threeNumbers)
     {
         a = (int)Random.Range(1, 10);
@@ -104,9 +121,9 @@ public class NewQuestionManager : MonoBehaviour {
     {
         RollTheDice(false);
 
-        if (a > b)
+        if (a < b)
             answer = 1;
-        else if (a < b)
+        else if (a == b)
             answer = 2;
         else
             answer = 3;

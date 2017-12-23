@@ -10,18 +10,20 @@ public class NewQuestionCanvasController : MonoBehaviour {
     [SerializeField]
     GameObject[] CanvasPieces;
 
-    private void OnEnable()
-    {
-        NewGameManager.QuestionTime += MakeAppear;
-        NewGameManager.QuestionCorrect += MakeDissappear;
-    }
+    public bool UseMe = true;
+
+  private void OnEnable()
+  {
+      NewGameManager.QuestionTime += MakeAppear;
+      NewGameManager.QuestionCorrect += MakeDissappear;
+  }
     private void OnDisable()
     {
         NewGameManager.QuestionTime -= MakeAppear;
         NewGameManager.QuestionCorrect -= MakeDissappear;
     }
 
-  
+   
     void MakeAppear()
     {
         StartCoroutine(MakeThemAppear());
@@ -33,6 +35,7 @@ public class NewQuestionCanvasController : MonoBehaviour {
     }
     IEnumerator MakeThemAppear()
     {
+
         yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < CanvasPieces.Length; i++)
         {
@@ -51,6 +54,7 @@ public class NewQuestionCanvasController : MonoBehaviour {
 
     IEnumerator MakeThemDissapear()
     {
+
         for (int i = 0; i < CanvasPieces.Length; i++)
         {
             if (CanvasPieces[i].GetComponent<QuestionItemScript>() != null)
@@ -67,15 +71,5 @@ public class NewQuestionCanvasController : MonoBehaviour {
     }
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(MakeThemDissapear());
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(MakeThemAppear());
-        }
-    }
+   
 }

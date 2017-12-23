@@ -145,6 +145,9 @@ public class ThingiesToLoad
     [SerializeField]
     private string[] PlantTextures = new string[3];
 
+    [SerializeField]
+    private string ItemToCountSprite;
+
     [HideInInspector]
     public string PlanetTexture1
     {
@@ -195,6 +198,15 @@ public class ThingiesToLoad
             return PlantTextures[Index];
         }
         return null;
+    }
+
+    [HideInInspector]
+    public string ItemtoCount
+    {
+        get
+        {
+            return ItemToCountSprite;
+        }
     }
 
 

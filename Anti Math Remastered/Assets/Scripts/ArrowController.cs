@@ -10,6 +10,7 @@ public class ArrowController : MonoBehaviour {
     List<GameObject> Targets;
     GameObject CurrTarget;
 
+    
     //Timer for checking every so frames
     int timer = 0;
 	// Use this for initialization
@@ -68,6 +69,7 @@ public class ArrowController : MonoBehaviour {
 
     float Distance(Transform _from, Transform _to)
     {
+        
         return (_to.position.x - _from.position.x)*(_to.position.x - _from.position.x)+
             (_to.position.y - _from.position.y) * (_to.position.y - _from.position.y)+
             (_to.position.z - _from.position.z) * (_to.position.z - _from.position.z);

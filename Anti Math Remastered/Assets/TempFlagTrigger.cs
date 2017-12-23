@@ -10,6 +10,8 @@ public class TempFlagTrigger : MonoBehaviour {
     [SerializeField]
     int ID;
 
+    
+
     IEnumerator ShowThemUP()
     {
         int length;

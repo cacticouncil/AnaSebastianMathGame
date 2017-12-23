@@ -111,8 +111,12 @@ public class NewQuestionManager : MonoBehaviour {
 
    void GenerateBigEquation()
     {
-        while ((a + b) <= c)
-           RollTheDice(true);
+        do
+        {
+            RollTheDice(true);
+
+        } while ((a + b) <= c);
+        
 
         answer = a + b -c;
     }

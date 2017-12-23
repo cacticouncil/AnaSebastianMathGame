@@ -12,7 +12,7 @@ public class QuestioCanvasesHolder : MonoBehaviour {
     {
         int Survive = (int)NewInfoManager.instance.GetID();
 
-        if (Survive >= 4)
+        if (Survive >= 5)
         {
             Survive -= 5;
         }

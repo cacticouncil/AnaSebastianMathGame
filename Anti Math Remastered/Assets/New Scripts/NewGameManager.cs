@@ -42,20 +42,26 @@ public class NewGameManager : MonoBehaviour {
     public uint AnimalAmount;
 
 
-    //Music stuff
-    AudioClip MusicToPlay;
-    AudioSource AS;
+   // //Music stuff
+   // AudioClip MusicToPlay;
+   // AudioSource AS;
 
     //Notification system to alert when a question happens
     public delegate void QuestionAsked();
     public delegate void QuestionAnsweredRight();
+    public delegate void PausedTriggered();
 
     public static event QuestionAsked QuestionTime;
     public static event QuestionAnsweredRight QuestionCorrect;
+
+    public static event PausedTriggered Paused;
+    public static event PausedTriggered UnPaused;
     //Timer to determine how long the player will take.
+    [HideInInspector]
     public float timer;
 
     public bool pauseGame = false;
+    bool StoTimeThereIsAQuestion = false;
 
     ThingiesToLoad LevelToLoad;
    
@@ -176,6 +182,24 @@ public class NewGameManager : MonoBehaviour {
         return Boy;
     }
 
+    public GameObject getGirl()
+    {
+        return Girl;
+    }
+
+    public int getTotalChildren()
+    {
+        return childrenAmount;
+    }
+
+    public float GetTimerF()
+    {
+        return timer;
+    }
+    public int GetTimerI()
+    {
+        return (int)timer;
+    }
     public GameObject getPlanet()
     {
         return planet;
@@ -185,18 +209,36 @@ public class NewGameManager : MonoBehaviour {
 
     private void Update()
     {
-      //  if (InfoManager.instance.timeAttack && timer >= 0)
-      //      timer -= Time.deltaTime;
-      //  else
-      //      timer += Time.deltaTime;
-        
+        if(!StoTimeThereIsAQuestion && !pauseGame)
+        timer += Time.deltaTime;    
     }
 
-
-    public void ResetLevel()
+    public void PauseGame(bool _pause)
     {
-        timer = 0;
-        SceneManager.LoadScene("Main Menu Book");
+        if (_pause)
+        {
+            Time.timeScale = 0;
+            pauseGame = true;
+            if (Paused != null)
+             Paused();
+            //the timescale set to 0 is done in the pausemenucanvas script, since they 
+            //need to be aniamted prior to stopping time to pause.
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pauseGame = false;
+            if (UnPaused != null)
+                UnPaused();
+
+        }
+    }
+
+   
+    public void ChangeScene(string scene)
+    {
+       
+        SceneManager.LoadScene(scene);
     }
 
     public void CorrectAnswer()
@@ -204,6 +246,8 @@ public class NewGameManager : MonoBehaviour {
         if (QuestionCorrect != null)
         {
             QuestionCorrect();
+            StoTimeThereIsAQuestion = false;
+            childrenAmount--;
         }
     }
 
@@ -216,6 +260,7 @@ public class NewGameManager : MonoBehaviour {
             if (QuestionTime != null)
             {
                 QuestionTime();
+                StoTimeThereIsAQuestion = true;
             }
 
         }

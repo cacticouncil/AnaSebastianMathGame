@@ -76,7 +76,7 @@ public class NewPlayerController : MonoBehaviour {
 
       
         FLWheel.localEulerAngles= FRWheel.localEulerAngles = new Vector3(0, 30 * horiz, 0);
-        CarBody.localEulerAngles = new Vector3(0, 0,15 * horiz);
+        CarBody.localEulerAngles = new Vector3(0, 0,30 * horiz);
 
         //update Matrix for rotation around the planet
         m = Matrix4x4.TRS(Vector3.zero, transform.rotation, Vector3.one);
@@ -100,12 +100,12 @@ public class NewPlayerController : MonoBehaviour {
             //update the wheels
                ActualFRWheel.Rotate(Vector3.right * angleZ * speed * 50);
                ActualFLWheel.Rotate(Vector3.right * angleZ * speed * 50);
-               BRWheel.Rotate(Vector3.right * angleZ * speed * 50);
-               BLWheel.Rotate(Vector3.right * angleZ * speed * 50);
+               BRWheel.Rotate(Vector3.right * (angleZ-0.5f) * speed * 50);
+               BLWheel.Rotate(Vector3.right * (angleZ-0.5f) * speed * 50);
               if(angleZ >= 0)
                 {
                FLWheel.localEulerAngles = FRWheel.localEulerAngles = new Vector3(0, angleX *45, 0);
-        CarBody.localEulerAngles = new Vector3(0, 0,15 * angleX);
+        CarBody.localEulerAngles = new Vector3(0, 0,30 * angleX);
                  }
 
                else

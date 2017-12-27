@@ -8,6 +8,10 @@ public class QuestionItemScript : MonoBehaviour {
     {
         transform.localScale = Vector3.zero;
     }
+
+    [SerializeField]
+    bool pauseItem;
+
     IEnumerator AppearCorr()
     {
         float ratio = 0;
@@ -17,7 +21,10 @@ public class QuestionItemScript : MonoBehaviour {
         {
             transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
             ratio += 0.1f;
-            yield return new WaitForSeconds(0.02f);
+            if(pauseItem)
+                 yield return new WaitForSecondsRealtime(0.02f);
+            else
+                yield return new WaitForSeconds(0.02f);
         }
     }
 
@@ -30,7 +37,10 @@ public class QuestionItemScript : MonoBehaviour {
         {
             transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, ratio);
             ratio -= 0.1f;
-            yield return new WaitForSeconds(0.01f);
+            if (pauseItem)
+                yield return new WaitForSecondsRealtime(0.02f);
+            else
+                yield return new WaitForSeconds(0.02f);
         }
     }
 

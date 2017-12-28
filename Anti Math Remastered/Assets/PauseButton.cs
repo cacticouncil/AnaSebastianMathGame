@@ -9,6 +9,7 @@ public class PauseButton : MonoBehaviour {
     {
         NewGameManager.Paused += CannotUse;
         NewGameManager.UnPaused += CanUse;
+        NewGameManager.EndGame += CannotUse;
     }
 
     private void Start()
@@ -19,6 +20,7 @@ public class PauseButton : MonoBehaviour {
     {
         NewGameManager.Paused -= CannotUse;
         NewGameManager.UnPaused -= CanUse;
+        NewGameManager.EndGame -= CannotUse;
     }
 
     void CanUse()

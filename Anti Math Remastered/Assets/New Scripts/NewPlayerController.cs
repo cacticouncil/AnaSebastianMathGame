@@ -8,11 +8,13 @@ public class NewPlayerController : MonoBehaviour {
     {
         NewGameManager.QuestionTime += StopMoving;
         NewGameManager.QuestionCorrect += ContinueMoving;
+        NewGameManager.EndGame += StopMoving;
     }
     private void OnDisable()
     {
         NewGameManager.QuestionTime -= StopMoving;
         NewGameManager.QuestionCorrect -= ContinueMoving;
+        NewGameManager.EndGame -= StopMoving;
     }
     private float speed;
     private Matrix4x4 m;
@@ -53,7 +55,18 @@ public class NewPlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         if (!Move)
+        {
+            //update the wheels
+            ActualFRWheel.Rotate(Vector3.right* 0);
+            ActualFLWheel.Rotate(Vector3.right* 0);
+            BRWheel.Rotate(Vector3.right *0);
+            BLWheel.Rotate(Vector3.right *0);
+
+
+            FLWheel.localEulerAngles = FRWheel.localEulerAngles = new Vector3(0, 0, 0);
+            CarBody.localEulerAngles = new Vector3(0, 0, 0);
             return;
+        }
         //ratios obtained from the gyroscope
         float angleX = Input.acceleration.x;
         float angleY = Input.acceleration.y;
@@ -95,7 +108,7 @@ public class NewPlayerController : MonoBehaviour {
             if ((Mathf.Abs(angleZ) > 0.01f))
             {
             //Move
-                transform.RotateAround(Vector3.zero, m.GetColumn(0), (angleZ * 2f - 1f) / speed);
+                transform.RotateAround(Vector3.zero, m.GetColumn(0), StabilizeSpeed( (angleZ * 2f - 1f) / speed) );
              
             //update the wheels
                ActualFRWheel.Rotate(Vector3.right * angleZ * speed * 50);
@@ -122,5 +135,59 @@ public class NewPlayerController : MonoBehaviour {
 #else
 
 #endif
+    }
+
+
+    float StabilizeSpeed(float _speed)
+    {
+        float ans = 0;
+        if (_speed< 0)
+        {
+            if (_speed < 0 && _speed >= -0.2f)
+            {
+                ans = -0.1f;
+            }
+            if (_speed < -0.2f && _speed >= -0.4f)
+            {
+                ans = -0.3f;
+            }
+            if (_speed < -0.4f && _speed >= -0.6f)
+            {
+                ans = -0.5f;
+            }
+            if (_speed < -0.6f && _speed >= -0.8f)
+            {
+                ans = -0.7f;
+            }
+            if (_speed < -0.8f && _speed >= -1f)
+            {
+                ans = -0.9f;
+            }
+        }
+        else
+        {
+            if (_speed > 0 && _speed <= 0.2f)
+            {
+                ans = 0.1f;
+            }
+            if (_speed > 0.2f && _speed <= 0.4f)
+            {
+                ans = 0.3f;
+            }
+            if (_speed >0.4f && _speed <= 0.6f)
+            {
+                ans = 0.5f;
+            }
+            if (_speed > 0.6f && _speed <= 0.8f)
+            {
+                ans = 0.7f;
+            }
+            if (_speed > 0.8f && _speed <= 1f)
+            {
+                ans = 0.9f;
+            }
+        }
+
+        return ans;
     }
 }

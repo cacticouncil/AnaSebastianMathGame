@@ -12,11 +12,13 @@ public class PauseMenuCanvas : MonoBehaviour {
     {
         NewGameManager.Paused += MakeAppear;
         NewGameManager.UnPaused += MakeDissappear;
+        NewGameManager.EndGame += rip;
     }
     private void OnDisable()
     {
         NewGameManager.Paused -= MakeAppear;
         NewGameManager.UnPaused -= MakeDissappear;
+        NewGameManager.EndGame -= rip;
     }
 
     public void MakeAppear()
@@ -27,6 +29,11 @@ public class PauseMenuCanvas : MonoBehaviour {
    public void MakeDissappear()
     {
         StartCoroutine(MakeThemDissapear());
+    }
+
+    void rip()
+    {
+        gameObject.SetActive(false);
     }
     IEnumerator MakeThemAppear()
     {

@@ -50,18 +50,22 @@ public class NewGameManager : MonoBehaviour {
     public delegate void QuestionAsked();
     public delegate void QuestionAnsweredRight();
     public delegate void PausedTriggered();
+    public delegate void GameDone();
 
     public static event QuestionAsked QuestionTime;
     public static event QuestionAnsweredRight QuestionCorrect;
 
     public static event PausedTriggered Paused;
     public static event PausedTriggered UnPaused;
+
+    public static event GameDone EndGame;
     //Timer to determine how long the player will take.
     [HideInInspector]
     public float timer;
 
     public bool pauseGame = false;
     bool StoTimeThereIsAQuestion = false;
+    bool gameOver = false;
 
     ThingiesToLoad LevelToLoad;
    
@@ -209,8 +213,20 @@ public class NewGameManager : MonoBehaviour {
 
     private void Update()
     {
-        if(!StoTimeThereIsAQuestion && !pauseGame)
-        timer += Time.deltaTime;    
+        if (gameOver)
+            return;
+
+        if(!StoTimeThereIsAQuestion && !pauseGame && !gameOver)
+        timer += Time.deltaTime;
+
+        if (childrenAmount <= 0)
+        {
+            if (EndGame != null)
+            {
+            EndGame();
+                gameOver = true;
+            }
+        }
     }
 
     public void PauseGame(bool _pause)

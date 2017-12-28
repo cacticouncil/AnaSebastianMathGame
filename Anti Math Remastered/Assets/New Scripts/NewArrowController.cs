@@ -6,11 +6,13 @@ public class NewArrowController : MonoBehaviour {
 
     [SerializeField]
     Transform player;
-
+    int maxChildren;
+    int countNull;
     Transform CurrTarget;
     float ClosestToMe = 99999;
     private void Start()
     {
+        maxChildren = NewGameManager.instance.childrenAmount;
         StartCoroutine(CheckForTarget());
     }
 
@@ -20,13 +22,25 @@ public class NewArrowController : MonoBehaviour {
         while (true)
         {
             float highest = float.MaxValue;
-            for (int i = 0; i < NewGameManager.instance.childrenAmount; i++)
+            countNull = 0;
+            for (int i = 0; i < maxChildren; i++)
             {
                 if(NewGameManager.instance.GetChild(i) != null)
-                if (Mathf.Abs(Vector3.Distance(transform.position, NewGameManager.instance.GetChild(i).transform.position)) < highest)
                 {
-                    CurrTarget = NewGameManager.instance.GetChild(i).transform;
-                    highest = Mathf.Abs(Mathf.Abs(Vector3.Distance(transform.position, NewGameManager.instance.GetChild(i).transform.position)));
+                    if (Mathf.Abs(Vector3.Distance(transform.position, NewGameManager.instance.GetChild(i).transform.position)) < highest)
+                    {
+                        CurrTarget = NewGameManager.instance.GetChild(i).transform;
+                        highest = Mathf.Abs(Mathf.Abs(Vector3.Distance(transform.position, NewGameManager.instance.GetChild(i).transform.position)));
+                    }
+                }
+                else
+                {
+                    countNull++;
+                }
+
+                if (countNull == maxChildren)
+                {
+                    gameObject.SetActive(false);
                 }
             }
 

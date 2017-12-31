@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TempFlagTrigger : MonoBehaviour {
+public class OperandNumber : MonoBehaviour {
 
     [SerializeField]
     GameObject[] ItemTocount;
@@ -18,29 +18,23 @@ public class TempFlagTrigger : MonoBehaviour {
         int length;
 
         if (ID == 1)
-         length = NewQuestionManager.instance.GetA();
-          
-        else if (ID == 2)
-         length = NewQuestionManager.instance.GetB();
+            length = NewQuestionManager.instance.GetA();
 
-        
+        else if (ID == 2)
+            length = NewQuestionManager.instance.GetB();
+
+
         else
-         length = NewQuestionManager.instance.GetC();
-        
+            length = NewQuestionManager.instance.GetC();
+
 
         if (NumberNotFlag)
-        {
-         GetComponentInChildren<Text>().text = length.ToString();
-            length = 1;
-        }
-        
+            GetComponentInChildren<Text>().text = length.ToString();
+
         for (int i = 0; i < length; i++)
         {
             if (ItemTocount[i].transform.localScale.x < 0.9f)
             {
-                if(NumberNotFlag)
-                    ItemTocount[i].GetComponent<QuestionItemScript>().Appear();
-                else
                 ItemTocount[i].GetComponent<CountingItem>().Appear();
                 yield return new WaitForSeconds(0.2f);
             }
@@ -53,11 +47,8 @@ public class TempFlagTrigger : MonoBehaviour {
         {
             if (ItemTocount[i].transform.localScale.x > 0.1f)
             {
-                if (NumberNotFlag)
-                    ItemTocount[i].GetComponent<QuestionItemScript>().Dissappear();
-                else
                 ItemTocount[i].GetComponent<CountingItem>().Dissappear();
-            yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.2f);
 
             }
         }
@@ -72,18 +63,4 @@ public class TempFlagTrigger : MonoBehaviour {
     {
         StartCoroutine(HideThemAll());
     }
-  //  private void Update()
-  //  {
-  //      if (Input.GetKeyDown(KeyCode.L))
-  //      {
-  //      StartCoroutine(ShowThemUP());
-  //
-  //      }
-  //
-  //      if (Input.GetKeyDown(KeyCode.K))
-  //      {
-  //          StartCoroutine(HideThemAll());
-  //      }
-  //  }
-
 }

@@ -11,11 +11,29 @@ public class ButtonHandler : MonoBehaviour {
 
     private void OnEnable()
     {
+        if (NewInfoManager.instance.GetID() == 8)
+        {
+        NewGameManager.QuestionTime += imdesperate;
+
+        }
+        else
+        {
+
         NewGameManager.QuestionTime += SwapButtonID;
+        }
     }
     private void OnDisable()
     {
-       NewGameManager.QuestionTime -= SwapButtonID;
+        if (NewInfoManager.instance.GetID() == 8)
+        {
+        NewGameManager.QuestionTime -= imdesperate;
+
+        }
+        else
+        {
+        NewGameManager.QuestionTime -= SwapButtonID;
+
+        }
     }
 
     private void Awake()
@@ -27,14 +45,20 @@ public class ButtonHandler : MonoBehaviour {
         }
     }
 
-
+    void imdesperate()
+    {
+        StartCoroutine(WaitForaBitAndThenGo());
+        
+    }
     IEnumerator WaitForaBitAndThenGo()
     {
         yield return new WaitForSeconds(0.3f);
+        SwapButtonID();
     
     }
    void  SwapButtonID()
     {
+        
         for (int i = 0; i < 5; i++)
         {
             SwapElement(IDS, Random.Range(0, 2), Random.Range(0, 2));

@@ -22,10 +22,13 @@ public class NewQuestionManager : MonoBehaviour {
     public static NewQuestionManager instance;
     
 
-   
+   [SerializeField]
     int a = 0;
+    [SerializeField]
     int b = 0;
+    [SerializeField]
     int c = 0;
+    [SerializeField]
     int answer = 0;
     //for the comparissons part, an answer of 1 will mean that the "<" should be used.
     // An answer of 2 means that the "=" symbol must be used. 

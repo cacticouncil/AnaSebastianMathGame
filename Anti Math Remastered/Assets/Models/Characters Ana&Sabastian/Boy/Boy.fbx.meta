@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: f360ea1ed035e7f4b9d4a3688f18b380
+timeCreated: 1508451429
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: PM3D_BoyBody_1:Group1
+    100004: PM3D_BoyBody_1:PM3D_BoyBody_1:transform1
+    100006: PM3D_BoyBody_1:PM3D_BoyBody_1:transform2
+    100008: PM3D_BoyBody_1:PM3D_BoyBody_1:ZBrush_defualt_group
+    100010: PM3D_BoyBody_1:polySurface1
+    100012: PM3D_BoyBody_1:polySurface1 1
+    100014: PM3D_BoyBody_1:polySurface10
+    100016: PM3D_BoyBody_1:polySurface1_MeshPart0
+    100018: PM3D_BoyBody_1:polySurface1_MeshPart1
+    100020: PM3D_BoyBody_1:polySurface2
+    100022: PM3D_BoyBody_1:polySurface3
+    100024: PM3D_BoyBody_1:polySurface4
+    100026: PM3D_BoyBody_1:polySurface5
+    100028: PM3D_BoyBody_1:polySurface6
+    100030: PM3D_BoyBody_1:polySurface7
+    100032: PM3D_BoyBody_1:polySurface8
+    100034: PM3D_BoyBody_1:polySurface9
+    100036: PM3D_BoyBody_1:transform1
+    100038: PM3D_BoyBody_1:transform10
+    100040: PM3D_BoyBody_1:transform11
+    100042: PM3D_BoyBody_1:transform2
+    100044: PM3D_BoyBody_1:transform3
+    100046: PM3D_BoyBody_1:transform4
+    100048: PM3D_BoyBody_1:transform5
+    100050: PM3D_BoyBody_1:transform6
+    100052: PM3D_BoyBody_1:transform7
+    100054: PM3D_BoyBody_1:transform8
+    100056: PM3D_BoyBody_1:transform9
+    100058: PM3D_BoyBody_1:ZBrush_defualt_group
+    400000: //RootNode
+    400002: PM3D_BoyBody_1:Group1
+    400004: PM3D_BoyBody_1:PM3D_BoyBody_1:transform1
+    400006: PM3D_BoyBody_1:PM3D_BoyBody_1:transform2
+    400008: PM3D_BoyBody_1:PM3D_BoyBody_1:ZBrush_defualt_group
+    400010: PM3D_BoyBody_1:polySurface1
+    400012: PM3D_BoyBody_1:polySurface1 1
+    400014: PM3D_BoyBody_1:polySurface10
+    400016: PM3D_BoyBody_1:polySurface1_MeshPart0
+    400018: PM3D_BoyBody_1:polySurface1_MeshPart1
+    400020: PM3D_BoyBody_1:polySurface2
+    400022: PM3D_BoyBody_1:polySurface3
+    400024: PM3D_BoyBody_1:polySurface4
+    400026: PM3D_BoyBody_1:polySurface5
+    400028: PM3D_BoyBody_1:polySurface6
+    400030: PM3D_BoyBody_1:polySurface7
+    400032: PM3D_BoyBody_1:polySurface8
+    400034: PM3D_BoyBody_1:polySurface9
+    400036: PM3D_BoyBody_1:transform1
+    400038: PM3D_BoyBody_1:transform10
+    400040: PM3D_BoyBody_1:transform11
+    400042: PM3D_BoyBody_1:transform2
+    400044: PM3D_BoyBody_1:transform3
+    400046: PM3D_BoyBody_1:transform4
+    400048: PM3D_BoyBody_1:transform5
+    400050: PM3D_BoyBody_1:transform6
+    400052: PM3D_BoyBody_1:transform7
+    400054: PM3D_BoyBody_1:transform8
+    400056: PM3D_BoyBody_1:transform9
+    400058: PM3D_BoyBody_1:ZBrush_defualt_group
+    2300000: PM3D_BoyBody_1:polySurface1_MeshPart0
+    2300002: PM3D_BoyBody_1:polySurface1_MeshPart1
+    3300000: PM3D_BoyBody_1:polySurface1_MeshPart0
+    3300002: PM3D_BoyBody_1:polySurface1_MeshPart1
+    4300000: PM3D_BoyBody_1:polySurface1_MeshPart0
+    4300002: PM3D_BoyBody_1:polySurface1_MeshPart1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

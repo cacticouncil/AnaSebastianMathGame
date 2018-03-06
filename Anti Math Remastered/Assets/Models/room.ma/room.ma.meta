@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: 386dbb8967e07d24da109cb2a679f160
+timeCreated: 1518205096
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ambientLight1
+    100002: clearBulb1MeshGroup
+    100004: extrudedSurface1
+    100006: extrudedSurface1 1
+    100008: extrudedSurface1 2
+    100010: extrudedSurface1 3
+    100012: extrudedSurface2
+    100014: extrudedSurface3
+    100016: frostedBulb1MeshGroup
+    100018: group1
+    100020: group3
+    100022: group3 1
+    100024: group5
+    100026: group6
+    100028: nurbsPlane1
+    100030: nurbsPlane2
+    100032: nurbsPlane3
+    100034: nurbsPlane5
+    100036: nurbsPlane6
+    100038: nurbsPlane7
+    100040: nurbsToPoly1
+    100042: nurbsToPoly2
+    100044: pCube10
+    100046: pCube11
+    100048: pCube12
+    100050: pCube13
+    100052: pCube14
+    100054: pCube15
+    100056: pCube16
+    100058: pCube17
+    100060: pCube3
+    100062: pCube4
+    100064: pCube5
+    100066: pCube6
+    100068: pCube7
+    100070: pCube8
+    100072: pCube9
+    100074: place3dTexture1
+    100076: place3dTexture2
+    100078: place3dTexture3
+    100080: place3dTexture4
+    100082: place3dTexture5
+    100084: place3dTexture6
+    100086: place3dTexture7
+    100088: planarTrimmedSurface1
+    100090: planarTrimmedSurface1 1
+    100092: planarTrimmedSurface1 2
+    100094: planarTrimmedSurface1 3
+    100096: planarTrimmedSurface2
+    100098: planarTrimmedSurface3
+    100100: pPlane1
+    100102: pPlane1 1
+    100104: pPlane2
+    100106: //RootNode
+    100108: strokeClearBulb1
+    100110: wall_outlet
+    100112: wall_outlet1
+    400000: ambientLight1
+    400002: clearBulb1MeshGroup
+    400004: extrudedSurface1
+    400006: extrudedSurface1 1
+    400008: extrudedSurface1 2
+    400010: extrudedSurface1 3
+    400012: extrudedSurface2
+    400014: extrudedSurface3
+    400016: frostedBulb1MeshGroup
+    400018: group1
+    400020: group3
+    400022: group3 1
+    400024: group5
+    400026: group6
+    400028: nurbsPlane1
+    400030: nurbsPlane2
+    400032: nurbsPlane3
+    400034: nurbsPlane5
+    400036: nurbsPlane6
+    400038: nurbsPlane7
+    400040: nurbsToPoly1
+    400042: nurbsToPoly2
+    400044: pCube10
+    400046: pCube11
+    400048: pCube12
+    400050: pCube13
+    400052: pCube14
+    400054: pCube15
+    400056: pCube16
+    400058: pCube17
+    400060: pCube3
+    400062: pCube4
+    400064: pCube5
+    400066: pCube6
+    400068: pCube7
+    400070: pCube8
+    400072: pCube9
+    400074: place3dTexture1
+    400076: place3dTexture2
+    400078: place3dTexture3
+    400080: place3dTexture4
+    400082: place3dTexture5
+    400084: place3dTexture6
+    400086: place3dTexture7
+    400088: planarTrimmedSurface1
+    400090: planarTrimmedSurface1 1
+    400092: planarTrimmedSurface1 2
+    400094: planarTrimmedSurface1 3
+    400096: planarTrimmedSurface2
+    400098: planarTrimmedSurface3
+    400100: pPlane1
+    400102: pPlane1 1
+    400104: pPlane2
+    400106: //RootNode
+    400108: strokeClearBulb1
+    400110: wall_outlet
+    400112: wall_outlet1
+    2300000: extrudedSurface1
+    2300002: extrudedSurface1 1
+    2300004: extrudedSurface1 2
+    2300006: extrudedSurface1 3
+    2300008: extrudedSurface2
+    2300010: extrudedSurface3
+    2300012: nurbsToPoly1
+    2300014: nurbsToPoly2
+    2300016: pCube10
+    2300018: pCube11
+    2300020: pCube12
+    2300022: pCube13
+    2300024: pCube14
+    2300026: pCube15
+    2300028: pCube16
+    2300030: pCube17
+    2300032: pCube3
+    2300034: pCube4
+    2300036: pCube5
+    2300038: pCube6
+    2300040: pCube7
+    2300042: pCube8
+    2300044: pCube9
+    2300046: planarTrimmedSurface1
+    2300048: planarTrimmedSurface1 1
+    2300050: planarTrimmedSurface1 2
+    2300052: planarTrimmedSurface1 3
+    2300054: planarTrimmedSurface2
+    2300056: planarTrimmedSurface3
+    2300058: pPlane1
+    2300060: pPlane1 1
+    2300062: pPlane2
+    3300000: extrudedSurface1
+    3300002: extrudedSurface1 1
+    3300004: extrudedSurface1 2
+    3300006: extrudedSurface1 3
+    3300008: extrudedSurface2
+    3300010: extrudedSurface3
+    3300012: nurbsToPoly1
+    3300014: nurbsToPoly2
+    3300016: pCube10
+    3300018: pCube11
+    3300020: pCube12
+    3300022: pCube13
+    3300024: pCube14
+    3300026: pCube15
+    3300028: pCube16
+    3300030: pCube17
+    3300032: pCube3
+    3300034: pCube4
+    3300036: pCube5
+    3300038: pCube6
+    3300040: pCube7
+    3300042: pCube8
+    3300044: pCube9
+    3300046: planarTrimmedSurface1
+    3300048: planarTrimmedSurface1 1
+    3300050: planarTrimmedSurface1 2
+    3300052: planarTrimmedSurface1 3
+    3300054: planarTrimmedSurface2
+    3300056: planarTrimmedSurface3
+    3300058: pPlane1
+    3300060: pPlane1 1
+    3300062: pPlane2
+    4300000: nurbsToPoly1
+    4300002: pCube3
+    4300004: pCube4
+    4300006: pCube5
+    4300008: pCube6
+    4300010: pCube7
+    4300012: pCube8
+    4300014: pCube9
+    4300016: pCube10
+    4300018: extrudedSurface1
+    4300020: planarTrimmedSurface1
+    4300022: planarTrimmedSurface1
+    4300024: extrudedSurface1
+    4300026: pPlane1
+    4300028: extrudedSurface1
+    4300030: planarTrimmedSurface1
+    4300032: planarTrimmedSurface1
+    4300034: extrudedSurface1
+    4300036: pPlane1
+    4300038: pCube11
+    4300040: pCube12
+    4300042: pCube13
+    4300044: nurbsToPoly2
+    4300046: pCube14
+    4300048: pCube15
+    4300050: pCube16
+    4300052: extrudedSurface2
+    4300054: planarTrimmedSurface2
+    4300056: planarTrimmedSurface3
+    4300058: extrudedSurface3
+    4300060: pPlane2
+    4300062: pCube17
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

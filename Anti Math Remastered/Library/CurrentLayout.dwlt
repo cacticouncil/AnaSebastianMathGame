@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 73
+  controlID: 50
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 74
+  controlID: 51
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -256,8 +256,8 @@ MonoBehaviour:
     y: 0
     width: 552
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -367,9 +367,9 @@ MonoBehaviour:
     height: 650
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f4260000
+    m_SelectedIDs: ce310000
     m_LastClickedID: 0
-    m_ExpandedIDs: 1c23fdff6036fdffdc58fdfffc7afdff340efefff072feff927ffeff5283feffc0bdfeff40f7ffffd2fbffff000000004c410000ce410000e2420000f6420000e86e0000c86f0000387200002a8b000050bf00005abf00008cc0000020c100002cc30000dec3000094e60000c0ea0000b8130100e4170100
+    m_ExpandedIDs: 8281ffff7882ffffae8afffffe8affffb08effffb68effffdefbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -556,13 +556,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.004499639, y: 0.011101127, z: 0.000049640945, w: 0.9999286}
+    m_Target: {x: -0.18981904, y: 0.10053953, z: 0.019543791, w: 0.9764626}
     speed: 2
-    m_Value: {x: 0.004499639, y: -0.011101127, z: -0.000049640945, w: -0.9999286}
+    m_Value: {x: -0.18981896, y: 0.10053949, z: 0.019543784, w: 0.97646224}
   m_Size:
-    m_Target: 1424.5181
+    m_Target: 950.9109
     speed: 2
-    m_Value: 1424.5181
+    m_Value: 950.9109
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -600,7 +600,7 @@ MonoBehaviour:
     width: 1366
     height: 255
   m_SearchFilter:
-    m_NameFilter: kid
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -610,19 +610,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Fonts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Fonts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Unity Files\MathGame\Anti Math Remastered
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 159}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 000000005c250000c2250000ca250000da250000e8250000ea2500004c26000056260000f02600001a270000e8270000fa270000062800001e2800002828000076280000e2280000b62900004e2a0000762a0000ae2a0000642b0000762b0000842b00009a2b0000a22b0000a82b00000a2c0000062e0000a02e0000ee2e0000142f00005e300000283100005e3100007231000086310000fe310000883200007233000016410000184100001a4100001c4100001e41000000ca9a3bffffff7f
+    m_SelectedIDs: ea270000
+    m_LastClickedID: 10218
+    m_ExpandedIDs: 0000000058250000be250000c6250000d6250000e4250000e62500004826000052260000ec26000016270000e4270000f6270000022800001a2800002428000072280000e2280000b6290000522a00007a2a0000b22a0000682b00007a2b0000882b00009e2b0000a62b0000ac2b00000e2c00000a2e0000a42e0000f22e0000182f0000623000002c31000062310000763100008a31000006320000903200007a3300001e4100002041000022410000244100002641000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -650,7 +650,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005c250000c2250000ca250000da250000e8250000ea2500004c26000056260000f02600001a270000e8270000fa270000062800001e2800002828000076280000e2280000b62900004e2a0000762a0000ae2a0000642b0000762b0000842b00009a2b0000a22b0000a82b00000a2c0000062e0000a02e0000ee2e0000142f00005e300000283100005e3100007231000086310000fe310000883200007233000016410000184100001a4100001c4100001e410000
+    m_ExpandedIDs: 0000000058250000be250000c6250000d6250000e4250000e62500004826000052260000ec26000016270000e4270000f6270000022800001a2800002428000072280000e2280000b6290000522a00007a2a0000b22a0000682b00007a2b0000882b00009e2b0000a62b0000ac2b00000e2c00000a2e0000a42e0000f22e0000182f0000623000002c31000062310000763100008a31000006320000903200007a3300001e41000020410000224100002441000026410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

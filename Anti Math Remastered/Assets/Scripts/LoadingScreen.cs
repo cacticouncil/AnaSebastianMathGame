@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour {
 
+    public Image Slide;
     public GameObject SceneToLoad;
     public GameObject Chiva;
     AsyncOperation Async;
@@ -30,12 +32,12 @@ public class LoadingScreen : MonoBehaviour {
 
         while (Async.isDone == false)
         {
-            // toMove.transform.position = Vector3.Lerp(from.position, to.position, Async.progress);
-            transform.LookAt(Chiva.transform);
-              
-            toMove.transform.eulerAngles = Vector3.Lerp(Original,Destination,Async.progress);
-            //float progress = Mathf.Clamp01(ao.progress / 0.9f);
-           // Debug.Log("Loading progress: " + (r * 100) + "%");
+                 // toMove.transform.position = Vector3.Lerp(from.position, to.position, Async.progress);
+           // transform.LookAt(Chiva.transform);
+            Slide.transform.localScale = new Vector3(Async.progress, 1);
+            //toMove.transform.eulerAngles = Vector3.Lerp(Original,Destination,Async.progress);
+                 //float progress = Mathf.Clamp01(ao.progress / 0.9f);
+                // Debug.Log("Loading progress: " + (r * 100) + "%");
             if (Async.progress == 0.9f)
             {
                 Async.allowSceneActivation = true;

@@ -28,7 +28,8 @@ public class MainMenuButtonsSelector : MonoBehaviour {
 	void Start () {
         anim = GetComponentInChildren<Animator>();
         CurrentSelected = 0;
-        SelectedButtonImage.rectTransform.position = Buttons[0].transform.position;
+        //SelectedButtonImage.rectTransform.position = Buttons[0].transform.position;
+        StartCoroutine(SetSelectedImage());
         NewInfoManager.instance.LoadHighScores();
     }
 	
@@ -57,13 +58,15 @@ public class MainMenuButtonsSelector : MonoBehaviour {
     }
    public void OpenBook()
     {
+        SelectedButtonImage.gameObject.SetActive(false);
         TapToStart.gameObject.SetActive(false);
         BookAnims.OpenBook();
         anim.SetBool("ToggleMenu", true);
         CameraAnim.SetBool("GoToBook",true);
         TitleAnimation.SetBool("MoveUp", true);
         CurrentSelected = 0;
-        SelectedButtonImage.rectTransform.position = Buttons[0].transform.position;
+        StartCoroutine(SetSelectedImage());
+        //SelectedButtonImage.rectTransform.position = Buttons[0].transform.position;
     }
     IEnumerator FreezeBruddah()
     {
@@ -83,5 +86,14 @@ public class MainMenuButtonsSelector : MonoBehaviour {
         yield return new WaitForSeconds(2);
 
         TapToStart.gameObject.SetActive(true);
+        
+    }
+
+    IEnumerator SetSelectedImage()
+    {
+        
+        yield return new WaitForSeconds(3);
+        SelectedButtonImage.gameObject.SetActive(true);
+        SelectedButtonImage.rectTransform.position = Buttons[0].transform.position;
     }
 }

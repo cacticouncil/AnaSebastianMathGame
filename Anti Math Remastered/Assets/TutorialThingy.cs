@@ -145,6 +145,8 @@ public class TutorialThingy : MonoBehaviour {
 
     public void LoadScene()
     {
+        NewInfoManager.instance.Basquet = false;
+        PlayerPrefs.SetInt("BasquetInt", 0);
         SceneManager.LoadScene("Loading");
     }
     IEnumerator Shrink(GameObject toShrink)

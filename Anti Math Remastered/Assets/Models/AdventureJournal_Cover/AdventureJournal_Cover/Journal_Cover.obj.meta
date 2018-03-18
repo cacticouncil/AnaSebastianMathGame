@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 4b03a2ada87502649a848581e8cc2a22
+timeCreated: 1521382693
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BookTemp:pCube1
+    100002: BookTemp:pCube2
+    100004: BookTemp:pCube3
+    100006: BookTemp:pCube4
+    100008: BookTemp:pCube5
+    100010: BookTemp:pCube6
+    100012: BookTemp:pCube8
+    100014: //RootNode
+    100016: pSphere1
+    100018: pSphere2
+    100020: pSphere3
+    100022: pSphere4
+    100024: pSphere5
+    100026: pSphere6
+    100028: pSphere7
+    400000: BookTemp:pCube1
+    400002: BookTemp:pCube2
+    400004: BookTemp:pCube3
+    400006: BookTemp:pCube4
+    400008: BookTemp:pCube5
+    400010: BookTemp:pCube6
+    400012: BookTemp:pCube8
+    400014: //RootNode
+    400016: pSphere1
+    400018: pSphere2
+    400020: pSphere3
+    400022: pSphere4
+    400024: pSphere5
+    400026: pSphere6
+    400028: pSphere7
+    2300000: BookTemp:pCube1
+    2300002: BookTemp:pCube2
+    2300004: BookTemp:pCube3
+    2300006: BookTemp:pCube4
+    2300008: BookTemp:pCube5
+    2300010: BookTemp:pCube6
+    2300012: BookTemp:pCube8
+    2300014: pSphere1
+    2300016: pSphere2
+    2300018: pSphere3
+    2300020: pSphere4
+    2300022: pSphere5
+    2300024: pSphere6
+    2300026: pSphere7
+    3300000: BookTemp:pCube1
+    3300002: BookTemp:pCube2
+    3300004: BookTemp:pCube3
+    3300006: BookTemp:pCube4
+    3300008: BookTemp:pCube5
+    3300010: BookTemp:pCube6
+    3300012: BookTemp:pCube8
+    3300014: pSphere1
+    3300016: pSphere2
+    3300018: pSphere3
+    3300020: pSphere4
+    3300022: pSphere5
+    3300024: pSphere6
+    3300026: pSphere7
+    4300000: BookTemp:pCube1
+    4300002: BookTemp:pCube2
+    4300004: BookTemp:pCube3
+    4300006: BookTemp:pCube4
+    4300008: BookTemp:pCube5
+    4300010: BookTemp:pCube6
+    4300012: BookTemp:pCube8
+    4300014: pSphere1
+    4300016: pSphere2
+    4300018: pSphere3
+    4300020: pSphere4
+    4300022: pSphere5
+    4300024: pSphere6
+    4300026: pSphere7
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
